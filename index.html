@@ -1,93 +1,201 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fıratçı Travel</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-</head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Türkiye - Anasayfa</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" /></head>
 <body>
-    <nav class="navbar">
-        <div class="nav-brand">
-            <img src="resimler/logo.png" alt="Logo" class="logo">
-            <span>Fıratçı Travel</span>
-        </div>
-        <div class="search-bar">
-            <input type="text" placeholder="Nereye gitmek istersiniz?" class="search-input">
-            <button class="search-button">
-                <i class="fas fa-search"></i>
-                Ara
-            </button>
-        </div>
-        <div class="nav-links">
-            <a href="#yemek">Yemek Kültürü</a>
-            <a href="#kultur">Kültürler</a>
-            <a href="#tarih">Tarihi Yerler</a>
-            <a href="#hakkimizda">Hakkımızda</a>
-        </div>
-        <div class="user-profile">
-            <img src="resimler/fırat.png" alt="Profile" class="profile-pic">
-            <span>Merhaba, Fırat</span>
-        </div>
-    </nav>
 
-    <section class="destinations">
-        <div class="destination-card">
-            <div class="card-image">
-                <img src="resimler/istanbul.jpg" alt="Ayasofya">
-            </div>
-            <div class="card-content">
-                <h3>Ayasofya, İstanbul</h3>
-                <div class="rating">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                </div>
-            </div>
-        </div>
-        <div class="destination-card">
-            <div class="card-image">
-                <img src="resimler/trabzon.jpg" alt="Sümela Manastırı">
-            </div>
-            <div class="card-content">
-                <h3>Sümela Manastırı, Trabzon</h3>
-                <div class="rating">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="far fa-star"></i>
-                </div>
-            </div>
-        </div>
-        <div class="destination-card">
-            <div class="card-image">
-                <img src="resimler/eskişehir.jpg" alt="Porsuk">
-            </div>
-            <div class="card-content">
-                <h3>Porsuk, Eskişehir</h3>
-                <div class="rating">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="far fa-star"></i>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- page1 -->
 
-    <header class="hero">
-        <div class="hero-content">
-            <h1>TÜRKİYE</h1>
-            <p>Türkiye, birçok kültürün bir araya geldiği bir ülkedir. Yemekleri, kültürleri, tiyatroları, tarihi yerleri ve her şeyiyle özeldir. Tarihi ve kültürel zenginlikleriyle herkesin mutlaka keşfetmesi gereken bir ülkedir.</p>
-            <button class="cta-button">Daha Fazla <i class="fas fa-chevron-right"></i></button>
+  <div class="background">
+    <!-- Sol scroll göstergesi -->
+    <div class="custom-scroll">
+      <div class="scroll-line"></div>
+      <div class="scroll-dot scroll-dot-top"><span>1</span></div>
+      <div class="scroll-dot scroll-dot-mid"></div>
+      <div class="scroll-dot scroll-dot-bot"></div>
+    </div>
+    <header class="header"> 
+      <a href="#" class="logo-link">
+      <span class="logo">Kültür Türkiye</span>
+      </a>
+      <div class="header-right">
+        <nav class="nav">
+          <a href="#">Yemek Kültürü</a>
+          <a href="#">Kültürel Yerler</a>
+          <a href="#">Etkinlikler</a>
+          <a href="#">Turistik Yerler</a>
+        </nav>
+        <div class="search">
+          <input type="text" placeholder="Ara">
+          <button>
+            <img src="images/search.png" alt="Ara" class="search-icon">
+          </button>
         </div>
+      </div>
     </header>
+    <main class="main-content">
+      <section class="intro">
+        <h1>TÜRKİYE</h1>
+        <p>
+          Türkiye birçok kültüre ev sahipliği yapan bir ülkedir. Türkiye birçok kültüre ev sahipliği yapan bir ülkedir.
+          Türkiye birçok kültüre ev sahipliği yapan bir ülkedir.
+        </p>
+      </section>
+      <section class="cards">
+        <div class="card">
+          <img src="images/istanbul.jpg" alt="İstanbul">
+          <div class="card-info">
+            <span>İstanbul</span>
+          </div>
+        </div>
+        <div class="card">
+          <img src="images/eskişehir.jpg" alt="Eskişehir">
+          <div class="card-info">
+            <span>Eskişehir</span>
+          </div>
+        </div>
+        <div class="card">
+          <img src="images/trabzon.jpg" alt="Trabzon">
+          <div class="card-info">
+            <span>Trabzon</span>
+          </div>
+        </div>
+      </section>
+      <div class="slider-dots">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+      </div>
+    </main>
+  </div>
 
-    <script src="script.js"></script>
+  <!-- page2 -->
+
+  <div class="background">
+    <main class="main-content">
+      <section class="intro-2">
+        <h1 class="featured-title">ÖNE ÇIKANLAR</h1>
+      </section>
+      <section class="cards-2">
+        <div class="card-2">
+          <div class="card-2-image-container">
+            <img src="images/serdar_ortaç.png" alt="Konser">
+            <div class="card-2-overlay">
+              <div class="card-2-title-wrapper">
+                <span class="card-2-line"></span>
+                <span class="card-2-title">Konser</span>
+                <span class="card-2-line"></span>
+              </div>
+              <div class="card-2-bottom">
+                <span class="card-2-city">Adana</span>
+                <span class="card-2-type">Etkinlikler</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-2">
+          <div class="card-2-image-container">
+            <img src="images/efes.png" alt="Efes Antik Kenti">
+            <div class="card-2-overlay">
+              <div class="card-2-title-wrapper">
+                <span class="card-2-line"></span>
+                <span class="card-2-title">Efes Antik Kenti</span>
+                <span class="card-2-line"></span>
+              </div>
+              <div class="card-2-bottom">
+                <span class="card-2-city">İzmir</span>
+                <span class="card-2-type">Kültürel Yerler</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-2">
+          <div class="card-2-image-container">
+            <img src="images/oylat_mağara.png" alt="Oylat Mağarası">
+            <div class="card-2-overlay">
+              <div class="card-2-title-wrapper">
+                <span class="card-2-line"></span>
+                <span class="card-2-title">Oylat Mağarası</span>
+                <span class="card-2-line"></span>
+              </div>
+              <div class="card-2-bottom">
+                <span class="card-2-city">İnegöl</span>
+                <span class="card-2-type">Turistik Yerler</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-2">
+          <div class="card-2-image-container">
+            <img src="images/göbete.png" alt="Göbetepe">
+            <div class="card-2-overlay">
+              <div class="card-2-title-wrapper">
+                <span class="card-2-line"></span>
+                <span class="card-2-title">Göbetepe</span>
+                <span class="card-2-line"></span>
+              </div>
+              <div class="card-2-bottom">
+                <span class="card-2-city">Eskişehir</span>
+                <span class="card-2-type">Yemek Kültürü</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- page3 -->
+
+  <div class="background">
+    <main class="main-content-3">
+      <section class="intro-3">
+        <h1 class="map-title">HARİTA İLE BUL</h1>
+        <div class="map-area">
+          <img src="images/tr_map_1.png" alt="Harita" class="map-image">
+          <div class="city-list-box">
+            <ul class="city-list">
+              <li class="city active"> <span>📍</span> Balıkesir</li>
+              <li class="city"><span>📍</span> İstanbul</li>
+              <li class="city"><span>📍</span> Çanakkale</li>
+              <li class="city"><span>📍</span> Kırklareli</li>
+              <li class="city"><span>📍</span> Bilecik</li>
+              <li class="city"><span>📍</span> Edirne</li>
+              <li class="city"><span>📍</span> Kocaeli</li>
+              <li class="city"><span>📍</span> Yalova</li>
+              <li class="city"><span>📍</span> Bursa</li>
+              <li class="city"><span>📍</span> Sakarya</li>
+              <li class="city"><span>📍</span> Tekirdağ</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+    <!-- page4 -->
+    <section class="footer">
+      <div class="share">
+        <a href="#" class="fab fa-facebook"></a>
+        <a href="#" class="fab fa-twitter"></a>
+        <a href="#" class="fab fa-instagram"></a>
+        <a href="#" class="fab fa-linkedin"></a>
+        <a href="#" class="fab fa-spotify"></a>
+      </div>
+      <div class="links">
+        <a href="#home" class="active">Ana Sayfa </a>
+        <a href="#">Yemek Kültürü</a>
+        <a href="#">Kültürel Yerler</a>
+        <a href="#">Etkinlikler</a>
+        <a href="#">Turistik Yerler</a>
+        
+      </div>
+      <div class="credit"> created by <span> fıratlılar group </span> | all rights reserved
+      </div> 
+     </section>
+    
+  <script src="script.js"></script>
 </body>
-</html> 
+</html>
