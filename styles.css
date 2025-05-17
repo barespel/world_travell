@@ -25,65 +25,7 @@ body {
     background-attachment: fixed;
 }
 
-/* Sol scroll göstergesi */
-.custom-scroll {
-    position: fixed;
-    left: 32px;
-    top: 50%;
-    transform: translateY(-50%);
-    height: 80vh;
-    width: 45px;
-    z-index: 1000;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    pointer-events: none;
-}
-.scroll-line {
-    position: absolute;
-    left: 50%;
-    top: 0;
-    width: 4px;
-    height: 100%;
-    background: #fff;
-    opacity: 0.5;
-    border-radius: 2px;
-    transform: translateX(-50%);
-}
-.scroll-dot {
-    position: absolute;
-    left: 50%;
-    width: 32px;
-    height: 32px;
-    background: rgba(255,255,255,0.5);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    font-weight: 700;
-    font-size: 1.3rem;
-    transform: translateX(-50%);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-}
-.scroll-dot-top {
-    top: 32px;
-    width: 40px;
-    height: 40px;
-}
-.scroll-dot-top span {
-    font-size: 1.7rem;
-}
-.scroll-dot-mid {
-    top: 48%;
-    width: 13px;
-    height: 13px;
-}
-.scroll-dot-bot {
-    bottom: 32px;
-    width: 13px;
-    height: 13px;
-}
+
 
 .header {
     position: fixed;
@@ -147,13 +89,86 @@ box-shadow: 0 2px 5px black ;
 }
 
 .search {
+    position: relative;
     display: flex;
     align-items: center;
-    background: #fff;
+    background: white;
     border-radius: 20px;
-    padding: 0 8px;
+    padding: 0px 8px;
     margin-right: 2px;
     height: 36px;
+    
+}
+
+.search-results {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    margin-top: 5px;
+    max-height: 300px;
+    overflow-y: auto;
+    display: none;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    scrollbar-width: none; /* Firefox için */
+    -ms-overflow-style: none; /* IE ve Edge için */
+}
+
+/* Chrome, Safari ve Opera için scrollbar'ı gizle */
+.search-results::-webkit-scrollbar {
+    display: none;
+}
+
+.search-results ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.search-results li {
+    padding: 12px 16px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 0.95rem;
+    color: #333;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.search-results li:last-child {
+    border-bottom: none;
+}
+
+.search-results li:hover {
+    background-color: #f8f8f8;
+    color: #007cf0;
+    padding-left: 20px;
+}
+
+.popular-cities li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.popular-cities li::before {
+    content: '>';
+    font-size: 1rem;
+}
+
+.search-results-list li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.search-results-list li::before {
+    content: '>';
+    font-size: 0.9rem;
+    opacity: 0.7;
 }
 
 .search input {
@@ -540,17 +555,16 @@ box-shadow: 0 2px 5px black ;
   margin-top: 0;
   text-align: left;
   z-index: 2;
-  position: absolute;
-  top: 0;
-  left: 0;
+  position: relative;
   padding-top: 0;
+  width: 100%;
 }
 
 .map-area {
   display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   min-width: 0;
   margin-top: 80px;
@@ -569,18 +583,7 @@ box-shadow: 0 2px 5px black ;
 }
 
 .city-list-box {
-  background: rgba(255,255,255,0.95);
-  border-radius: 40px;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
-  padding: 32px 48px;
-  z-index: 2;
-  display: flex;
-  align-items: center;
-  min-width: 420px;
-  margin: 0 40px 0 450px;
-  height: 320px;
-  box-sizing: border-box;
-  position: relative;
+  display: none; /* Sağdaki kutu kaldırıldı */
 }
 
 .city-list {
@@ -688,6 +691,136 @@ box-shadow: 0 2px 5px black ;
     .footer .credit span{
     color: white;
    }
+
+.map-container {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.map-container svg {
+  width: 100%;
+  height: auto;
+}
+
+.map-container path {
+  fill: #e0e0e0;
+  stroke: #fff;
+  stroke-width: 1;
+  transition: fill 0.3s ease;
+  cursor: pointer;
+}
+
+.map-container path:hover {
+  fill: #ffd700;
+}
+
+.map-container path.active {
+  fill: #ffd700;
+}
+
+.city-list-box {
+  margin-top: 20px;
+}
+
+.city-list {
+  list-style: none;
+  padding: 0;
+}
+
+.city-list .city {
+  cursor: pointer;
+  padding: 8px 15px;
+  margin: 5px 0;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.city-list .city:hover {
+  background-color: #f0f0f0;
+}
+
+.city-list .city.active {
+  background-color: #ffd700;
+  color: #000;
+}
+.svg-turkiye-haritasi {
+    max-width: 1140px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .svg-turkiye-haritasi svg {
+    width: 100%;
+    height: auto;
+  }
+  .il-isimleri {
+    position: absolute;
+    z-index: 2;
+  }
+  .il-isimleri div {
+    font-family: 'Open Sans';
+    display: inline-block;
+    background: #222;
+    color: #fff;
+    padding: 8px 16px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+  }
+  
+  #svg-turkiye-haritasi path {
+    cursor: pointer;
+  }
+  #svg-turkiye-haritasi path:hover {
+    fill: #666;
+  }
+  #bolge-1 g path{
+    fill:#87cdde
+  }
+  #bolge-2 g path{
+    fill:#ac93a7
+  }
+  #bolge-3 g path{
+    fill:#ffb380
+  }
+  #bolge-4 g path{
+    fill:#cccccc
+  }
+  #bolge-5 g path{
+    fill:#decd87
+  }
+  #bolge-6 g path{
+    fill:#de8787
+  }
+  #bolge-7 g path{
+    fill:#aade87
+  }
+
+.city-tooltip {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 14px;
+  pointer-events: none;
+  z-index: 1000;
+  transition: opacity 0.2s ease;
+  white-space: nowrap;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.city-tooltip::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 5px 5px 0;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.8) transparent transparent;
+}
 
 
 
