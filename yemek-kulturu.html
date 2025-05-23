@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yemek Kültürü </title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="yemek-kulturu.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="script.js" defer></script>
+  <script src="yemek_kulturu.js" defer></script>
+</head>
+<body>
+    <div class="background">
+    <header class="header"> 
+        <a href="index.html" class="logo-link">
+        <span class="logo">Kültür Türkiye</span>
+        </a>
+        <div class="header-right">
+          <nav class="nav">
+            <a href="yemek-kulturu.html">Yemek Kültürü</a>
+            <a href="#">Kültürel Yerler</a>
+            <a href="#">Etkinlikler</a>
+            <a href="#">Turistik Yerler</a>
+          </nav>
+          <div class="search">
+            <input type="text" id="citySearch" placeholder="Şehir ara...">
+            <button id="searchButton">
+              <img src="images/search.png" alt="Ara" class="search-icon">
+            </button>
+            <div id="searchResults" class="search-results"></div>
+          </div>
+        </div>
+      </header>
+
+
+    <div class="map-container">
+        <h1>Hangi Şehrin Yemek Kültürünü Keşfetmek İstersiniz?</h1>
+        <div class="search-container">
+            <input type="text" id="city-search" placeholder="Şehir ara..." class="search-input">
+            <div id="search-results" class="search-results"></div>
+        </div>
+        <div id="city-tooltip" class="city-tooltip"></div>
+    </div>
+ </div>
+    
+</body>
+</html> 
