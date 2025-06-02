@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Çanakkale Yemek Kültürü - Fıratçı Travel</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="yemek_şablon.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <header class="header"> 
+        <a href="index.html" class="logo-link">
+            <span class="logo">Kültür Türkiye</span>
+        </a>
+        <div class="header-right">
+            <nav class="nav">
+                <a href="yemek-kulturu.html">Yemek Kültürü</a>
+                <a href="#">Kültürel Yerler</a>
+                <a href="#">Etkinlikler</a>
+                <a href="#">Turistik Yerler</a>
+            </nav>
+            <div class="search">
+                <input type="text" id="citySearch" placeholder="Şehir ara...">
+                <button id="searchButton">
+                    <img src="images/search.png" alt="Ara" class="search-icon">
+                </button>
+                <div id="searchResults" class="search-results"></div>
+            </div>
+        </div>
+    </header>
+
+    <div class="trabzon-container">
+        <div class="trabzon-header">
+            <h1>Çanakkale Mutfak Kültürü</h1>
+            <p class="subtitle">Boğazın Serinliğinde Anadolu Lezzetleri</p>
+        </div>
+
+        <div class="trabzon-intro">
+            <div class="intro-image">
+                <img src="images/çanakkale_1.jpg" alt="Çanakkale Manzarası">
+            </div>
+            <div class="intro-text">
+                <p>Çanakkale, hem Ege hem Marmara mutfağından izler taşıyan zengin bir yemek kültürüne sahiptir. Deniz ürünleri, zeytinyağlılar ve özgün tatlarıyla dikkat çeker.</p>
+                <p>Özellikle sardalya buğulama ve peynir helvası, yöreye gelen ziyaretçilerin mutlaka tatması gereken özel lezzetler arasında yer alır.</p>
+                <ul class="intro-features">
+                    <li><i class="fas fa-fish"></i> Taze deniz ürünleri</li>
+                    <li><i class="fas fa-seedling"></i> Zeytinyağlı yemekler</li>
+                    <li><i class="fas fa-bread-slice"></i> Geleneksel tatlılar</li>
+                    <li><i class="fas fa-flag"></i> Tarihi dokuyla harmanlanmış mutfak</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="trabzon-foods">
+            <h2>Öne Çıkan Yemekler ve Mekan Önerileri</h2>
+            <div class="food-grid">
+                <div class="food-item">
+                    <div class="food-image">
+                        <img src="images/canakkale_yemek/sardalya-bugulama.jpeg" alt="Sardalya Buğulama">
+                    </div>
+                    <div class="food-content">
+                        <h3>Sardalya Buğulama</h3>
+                        <p>Çanakkale’nin denizinden çıkan taze sardalyaların, soğan ve limonla fırınlanarak hazırlandığı hafif ama lezzetli bir balık yemeğidir.</p>
+  
+                        <div class="restaurant-info">
+                            <h4><i class="fas fa-utensils"></i> Nerede Yenir?</h4>
+                            <ul>
+                                <li>📍 Sardalya Balıkçısı</li>
+                                <li>📍 Boğaz Lokantası</li>
+                                <li>📍 Lapseki Sahil Restoran</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="food-item">
+                    <div class="food-image">
+                        <img src="images/canakkale_yemek/peynir-helvasi.jpeg" alt="Peynir Helvası">
+                    </div>
+                    <div class="food-content">
+                        <h3>Peynir Helvası</h3>
+                        <p>Taze peynir, irmik ve şekerle hazırlanan, Çanakkale'nin meşhur fırın tatlısıdır. Sıcak ya da soğuk servis edilebilir.</p>
+                        <div class="restaurant-info">
+                            <h4><i class="fas fa-utensils"></i> Nerede Yenir?</h4>
+                            <ul>
+                                <li>📍 Yalova Tatlıcısı</li>
+                                <li>📍 Helvacı Hasan Usta</li>
+                                <li>📍 Çanakkale Merkez Fırın</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>        
+    </div>
+
+    <script src="script.js"></script>
+    <script src="trabzon-yemek.js"></script>
+</body>
+</html>

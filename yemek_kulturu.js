@@ -1,11 +1,11 @@
 const regionCities = {
-    marmara: ["İstanbul", "Edirne", "Kırklareli", "Tekirdağ", "Kocaeli", "Sakarya", "Yalova", "Bursa", "Balıkesir", "Çanakkale", "Bilecik"],
-    ege: ["İzmir", "Aydın", "Muğla", "Manisa", "Uşak", "Kütahya", "Afyonkarahisar", "Denizli"],
-    akdeniz: ["Antalya", "Isparta", "Burdur", "Mersin", "Adana", "Osmaniye", "Hatay", "Kahramanmaraş"],
-    "ic-anadolu": ["Ankara", "Konya", "Kayseri", "Eskişehir", "Aksaray", "Kırıkkale", "Kırşehir", "Nevşehir", "Niğde", "Sivas", "Yozgat", "Çankırı", "Karaman"],
-    karadeniz: ["Samsun", "Sinop", "Amasya", "Tokat", "Ordu", "Giresun", "Trabzon", "Rize", "Artvin", "Bartın", "Zonguldak", "Kastamonu", "Çorum", "Gümüşhane", "Bayburt", "Bolu", "Düzce"],
-    "dogu-anadolu": ["Erzurum", "Erzincan", "Ağrı", "Kars", "Iğdır", "Ardahan", "Bingöl", "Bitlis", "Elazığ", "Hakkari", "Malatya", "Muş", "Tunceli", "Van"],
-    "guneydogu-anadolu": ["Gaziantep", "Adıyaman", "Diyarbakır", "Mardin", "Batman", "Şanlıurfa", "Siirt", "Şırnak", "Kilis"],
+    marmara: ["istanbul", "edirne", "kırklareli", "tekirdağ", "kocaeli", "sakarya", "yalova", "bursa", "balıkesir", "çanakkale", "bilecik"],
+    ege: ["izmir", "aydın", "muğla", "manisa", "uşak", "kütahya", "Afyonkarahisar", "denizli"],
+    akdeniz: ["antalya", "ısparta", "burdur", "mersin", "adana", "osmaniye", "Hatay", "Kahramanmaraş"],
+    "ic-anadolu": ["ankara", "konya", "kayseri", "eskişehir", "aksaray", "kırıkkale", "kırşehir", "nevşehir", "niğde", "sivas", "yozgat", "çankırı", "karaman"],
+    karadeniz: ["samsun", "sinop", "amasya", "tokat", "ordu", "giresun", "trabzon", "rize", "artvin", "bartın", "zonguldak", "kastamonu", "çorum", "gümüşhane", "bayburt", "bolu", "düzce"],
+    "dogu-anadolu": ["erzurum", "erzincan", "ağrı", "kars", "ığdır", "ardahan", "bingöl", "bitlis", "elazığ", "hakkari", "malatya", "muş", "tunceli", "van"],
+    "guneydogu-anadolu": ["gaziantep", "adıyaman", "diyarbakır", "mardin", "batman", "şanlıurfa", "siirt", "şırnak", "kilis"],
 };
 
 const cityFoods = {
@@ -210,13 +210,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 searchInput.value = selectedCity;
                 searchResults.style.display = 'none';
                 
-                if (selectedCity === 'Trabzon') {
-                    window.location.href = 'trabzon-yemek.html';
-                } else {
-                    alert(selectedCity + ' şehrini seçtiniz!');
-                }
+                window.location.href = `${selectedCity.toLowerCase().replace(/ /g, '-')}-yemek.html`;
+                
             }
-        });
+        }
+    );
 
         document.addEventListener('click', function(e) {
             if (!searchInput.contains(e.target) && !searchResults.contains(e.target)) {
@@ -473,30 +471,38 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Otomatik slider işlevselliği
             let autoScrollInterval;
-            
-            function startAutoScroll() {
-                autoScrollInterval = setInterval(function() {
-                    scrollAmount += cardWidth;
-                    const maxScroll = foodsContainer.scrollWidth - foodsContainer.clientWidth;
-                    
-                    if (scrollAmount > maxScroll) {
-                        scrollAmount = 0; // Başa dön
-                    }
-                    
-                    foodsContainer.scrollTo({
-                        left: scrollAmount,
-                        behavior: 'smooth'
-                    });
-                }, 5000); // 5 saniyede bir otomatik kaydırma
-            }
-            
-            function stopAutoScroll() {
-                clearInterval(autoScrollInterval);
-            }
-            
-            // Otomatik kaydırmayı başlat
-            startAutoScroll();
-            
+let currentIndex = 0;
+
+function startAutoScroll() {
+    const foodsContainer = document.querySelector('.foods-container');
+    const cards = document.querySelectorAll('.food-card');
+    
+    if (!cards.length) return;
+
+    const cardWidth = cards[0].offsetWidth + 20; // kart genişliği + gap
+
+    autoScrollInterval = setInterval(() => {
+        currentIndex++;
+
+        if (currentIndex >= cards.length) {
+            currentIndex = 0; // en başa dön
+        }
+
+        const scrollPosition = currentIndex * cardWidth;
+
+        foodsContainer.scrollTo({
+            left: scrollPosition,
+            behavior: 'smooth'
+        });
+    }, 5000); // her 5 saniyede bir kart kaydır
+}
+
+function stopAutoScroll() {
+    clearInterval(autoScrollInterval);
+}
+
+startAutoScroll();
+
             // Kullanıcı etkileşiminde otomatik kaydırmayı durdur
             foodsContainer.addEventListener('mouseenter', stopAutoScroll);
             prevButton.addEventListener('mouseenter', stopAutoScroll);
@@ -512,13 +518,21 @@ document.addEventListener('DOMContentLoaded', function() {
             foodCards.forEach(card => {
                 card.addEventListener('click', function() {
                     const city = this.getAttribute('data-city');
-                    if (city === 'Trabzon') {
-                        window.location.href = 'trabzon-yemek.html';
-                    } else {
-                        alert(city + ' şehri için detaylı sayfa henüz eklenmedi.');
-                    }
+                    const fileName = city.toLowerCase()
+                                         .normalize("NFD").replace(/[\u0300-\u036f]/g, "") // Türkçe karakter ayıklama
+                                         .replace(/ı/g, 'i')
+                                         .replace(/ğ/g, 'g')
+                                         .replace(/ü/g, 'u')
+                                         .replace(/ş/g, 's')
+                                         .replace(/ö/g, 'o')
+                                         .replace(/ç/g, 'c')
+                                         .replace(/\s+/g, '-'); // boşlukları tire yap
+                                         
+                    const url = `${fileName}-yemek.html`;
+                    window.location.href = url;
                 });
             });
+            
         }
 
     } catch (error) {

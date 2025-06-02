@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mardin Yemek Kültürü - Fıratçı Travel</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="yemek_şablon.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <header class="header"> 
+        <a href="index.html" class="logo-link">
+        <span class="logo">Kültür Türkiye</span>
+        </a>
+        <div class="header-right">
+          <nav class="nav">
+            <a href="yemek-kulturu.html">Yemek Kültürü</a>
+            <a href="#">Kültürel Yerler</a>
+            <a href="#">Etkinlikler</a>
+            <a href="#">Turistik Yerler</a>
+          </nav>
+          <div class="search">
+            <input type="text" id="citySearch" placeholder="Şehir ara...">
+            <button id="searchButton">
+              <img src="images/search.png" alt="Ara" class="search-icon">
+            </button>
+            <div id="searchResults" class="search-results"></div>
+          </div>
+        </div>
+      </header>
+
+    <div class="trabzon-container">
+        <div class="trabzon-header">
+            <h1>Mardin Mutfak Kültürü</h1>
+            <p class="subtitle">Tarihin ve Lezzetin Buluştuğu Şehir</p>
+        </div>
+
+        <div class="trabzon-intro">
+            <div class="intro-image">
+                <img src="images/mardin_1.jpg" alt="Mardin Manzarası">
+            </div>
+            <div class="intro-text">
+                <p>Mardin, farklı medeniyetlerin yüzyıllar boyunca birlikte yaşadığı, kültürel ve gastronomik zenginliğiyle büyüleyen bir şehirdir. Baharatların, etin ve ince el işçiliğinin harmanlandığı Mardin mutfağı, sizi unutulmaz bir yolculuğa çıkarır.</p>
+                <p>Mardin yemeklerinde Arap, Süryani, Kürt ve Türk mutfaklarının izlerini görmek mümkündür. Etli yemekler, baharatlı hamur işleri ve geleneksel tatlılar başroldedir.</p>
+                <ul class="intro-features">
+                    <li><i class="fas fa-pepper-hot"></i> Baharatlarla zenginleşmiş tatlar</li>
+                    <li><i class="fas fa-drumstick-bite"></i> Et ağırlıklı yemekler</li>
+                    <li><i class="fas fa-bread-slice"></i> Hamur işi gelenekleri</li>
+                    <li><i class="fas fa-star-of-life"></i> Çok kültürlü mutfak mirası</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="trabzon-foods">
+            <h2>Öne Çıkan Yemekler ve Mekan Önerileri</h2>
+            <div class="food-grid">
+                <div class="food-item">
+                    <div class="food-image">
+                        <img src="images/mardin_yemek/ikbebet.jpg" alt="İkbebet (İçli Köfte)">
+                    </div>
+                    <div class="food-content">
+                        <h3>İkbebet (İçli Köfte)</h3>
+                        <p>İnce bulgurdan yapılan dış kabuk içinde kıymalı harçla doldurulan, kızartılarak veya haşlanarak sunulan nefis bir lezzet.</p>
+                        <div class="restaurant-info">
+                            <h4><i class="fas fa-utensils"></i> Nerede Yenir?</h4>
+                            <ul>
+                                <li>📍 Cercis Murat Konağı</li>
+                                <li>📍 Antik Sur Restoran</li>
+                                <li>📍 Kebapçı Rıdo</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="food-item">
+                    <div class="food-image">
+                        <img src="images/mardin_yemek/kilice.jpg" alt="Kiliçe">
+                    </div>
+                    <div class="food-content">
+                        <h3>Kiliçe</h3>
+                        <p>Bayramlarda yapılan, içinde ceviz veya hurma bulunan, çörek benzeri geleneksel bir tatlı.</p>
+                        <div class="restaurant-info">
+                            <h4><i class="fas fa-utensils"></i> Nerede Yenir?</h4>
+                            <ul>
+                                <li>📍 Mardin Evi</li>
+                                <li>📍 Artuklu Sofrası</li>
+                                <li>📍 Midyat Tatlıcısı</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="food-item">
+                    <div class="food-image">
+                        <img src="images/mardin_yemek/sembusek.jpg" alt="Sembusek">
+                    </div>
+                    <div class="food-content">
+                        <h3>Sembusek</h3>
+                        <p>İç harcı kıymalı, kapalı lahmacun tarzında hazırlanan ve taş fırında pişirilen yöresel hamur işi.</p>
+                        <div class="restaurant-info">
+                            <h4><i class="fas fa-utensils"></i> Nerede Yenir?</h4>
+                            <ul>
+                                <li>📍 Sultansaray</li>
+                                <li>📍 Leyli Restoran</li>
+                                <li>📍 Tatlıcı Safa</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="trabzon-yemek.js"></script>
+</body>
+</html>

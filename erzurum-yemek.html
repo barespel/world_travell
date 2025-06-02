@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Erzurum Yemek Kültürü - Fıratçı Travel</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="yemek_şablon.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <header class="header"> 
+        <a href="index.html" class="logo-link">
+            <span class="logo">Kültür Türkiye</span>
+        </a>
+        <div class="header-right">
+            <nav class="nav">
+                <a href="yemek-kulturu.html">Yemek Kültürü</a>
+                <a href="#">Kültürel Yerler</a>
+                <a href="#">Etkinlikler</a>
+                <a href="#">Turistik Yerler</a>
+            </nav>
+            <div class="search">
+                <input type="text" id="citySearch" placeholder="Şehir ara...">
+                <button id="searchButton">
+                    <img src="images/search.png" alt="Ara" class="search-icon">
+                </button>
+                <div id="searchResults" class="search-results"></div>
+            </div>
+        </div>
+    </header>
+
+    <div class="trabzon-container">
+        <div class="trabzon-header">
+            <h1>Erzurum Mutfak Kültürü</h1>
+            <p class="subtitle">Doğu'nun Soğuklarına Sıcak Lezzetler</p>
+        </div>
+
+        <div class="trabzon-intro">
+            <div class="intro-image">
+                <img src="images/erzurum_1.jpg" alt="Erzurum Manzarası">
+            </div>
+            <div class="intro-text">
+                <p>Erzurum mutfağı, soğuk iklimin etkisiyle besleyici ve sıcak tutan yemekleriyle öne çıkar. Et ve unlu mamuller, Erzurum mutfağının vazgeçilmez parçalarıdır.</p>
+                <p>Cağ kebabı, ayran aşı çorbası ve kete gibi geleneksel yemekler, Erzurum'un kültürel mirasını yaşatır.</p>
+                <ul class="intro-features">
+                    <li><i class="fas fa-fire"></i> Et ağırlıklı yemekler</li>
+                    <li><i class="fas fa-seedling"></i> Doğal ürünler</li>
+                    <li><i class="fas fa-mug-hot"></i> Isıtıcı çorbalar</li>
+                    <li><i class="fas fa-bread-slice"></i> Hamur işleri</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="trabzon-foods">
+            <h2>Öne Çıkan Yemekler ve Mekan Önerileri</h2>
+            <div class="food-grid">
+                <div class="food-item">
+                    <div class="food-image">
+                        <img src="images/erzurum_yemek/cag-kebabi.jpeg" alt="Cağ Kebabı">
+                    </div>
+                    <div class="food-content">
+                        <h3>Cağ Kebabı</h3>
+                        <p>Erzurum’un simgesi haline gelen, yatay döner şeklinde şişe takılarak servis edilen nefis kuzu eti kebabı.</p>
+                        <div class="restaurant-info">
+                            <h4><i class="fas fa-utensils"></i> Nerede Yenir?</h4>
+                            <ul>
+                                <li>📍 Gel-Gör Cağ Kebap</li>
+                                <li>📍 Koç Cağ Kebap Salonu</li>
+                                <li>📍 Yeşilçam Lokantası</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="food-item">
+                    <div class="food-image">
+                        <img src="images/erzurum_yemek/ayran-asi.jpeg" alt="Ayran Aşı Çorbası">
+                    </div>
+                    <div class="food-content">
+                        <h3>Ayran Aşı Çorbası</h3>
+                        <p>Buğday, nohut ve yoğurtla yapılan; yazın soğuk, kışın ılık tüketilen geleneksel bir çorbadır.</p>
+                        <div class="restaurant-info">
+                            <h4><i class="fas fa-utensils"></i> Nerede Yenir?</h4>
+                            <ul>
+                                <li>📍 Erzurum Sofrası</li>
+                                <li>📍 Geleneksel Mutfağım</li>
+                                <li>📍 Çorbacı Sadık Usta</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>        
+    </div>
+
+    <script src="script.js"></script>
+    <script src="trabzon-yemek.js"></script>
+</body>
+</html>

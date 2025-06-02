@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Denizli Yemek Kültürü - Fıratçı Travel</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="yemek_şablon.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+  <header class="header"> 
+    <a href="index.html" class="logo-link">
+      <span class="logo">Kültür Türkiye</span>
+    </a>
+    <div class="header-right">
+      <nav class="nav">
+        <a href="yemek-kulturu.html">Yemek Kültürü</a>
+        <a href="#">Kültürel Yerler</a>
+        <a href="#">Etkinlikler</a>
+        <a href="#">Turistik Yerler</a>
+      </nav>
+      <div class="search">
+        <input type="text" id="citySearch" placeholder="Şehir ara...">
+        <button id="searchButton">
+          <img src="images/search.png" alt="Ara" class="search-icon">
+        </button>
+        <div id="searchResults" class="search-results"></div>
+      </div>
+    </div>
+  </header>
+
+  <div class="trabzon-container">
+    <div class="trabzon-header">
+      <h1>Denizli Mutfak Kültürü</h1>
+      <p class="subtitle">Pamukkale'nin Gölgesinde Lezzetler</p>
+    </div>
+
+    <div class="trabzon-intro">
+      <div class="intro-image">
+        <img src="images/denizli_1.jpg" alt="Denizli Manzarası">
+      </div>
+      <div class="intro-text">
+        <p>Denizli, zengin yemek kültürüyle Ege'nin doğusunda yer alan önemli gastronomi duraklarından biridir. Et yemeklerinden hamur işlerine kadar birçok özel lezzete ev sahipliği yapar.</p>
+        <p>Özellikle tandır kebabı ve kekikli pidesi ile hem yerel halkın hem de turistlerin beğenisini kazanır.</p>
+        <ul class="intro-features">
+          <li><i class="fas fa-drumstick-bite"></i> Odun ateşinde tandır</li>
+          <li><i class="fas fa-bread-slice"></i> Kekikli taş fırın pideleri</li>
+          <li><i class="fas fa-seedling"></i> Yöresel malzemeler</li>
+          <li><i class="fas fa-utensils"></i> Geleneksel sunum</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="trabzon-foods">
+      <h2>Öne Çıkan Yemekler ve Mekan Önerileri</h2>
+      <div class="food-grid">
+
+        <div class="food-item">
+          <div class="food-image">
+            <img src="images/denizli_yemek/tandir-kebabi.jpeg" alt="Tandır Kebabı">
+          </div>
+          <div class="food-content">
+            <h3>Tandır Kebabı</h3>
+            <p>Denizli'nin en meşhur et yemeği olan tandır kebabı, kuzu etinin toprak tandırda saatlerce ağır ağır pişirilmesiyle hazırlanır. Lezzeti, yumuşaklığı ve kokusuyla fark yaratır.</p>
+            <div class="restaurant-info">
+              <h4><i class="fas fa-utensils"></i> Nerede Yenir?</h4>
+              <ul>
+                <li>📍 Tandırcı Ahmet</li>
+                <li>📍 Kebapçı Halil</li>
+                <li>📍 Pamukkale Sofrası</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="food-item">
+          <div class="food-image">
+            <img src="images/denizli_yemek/kekikli-pide.jpeg" alt="Kekikli Pide">
+          </div>
+          <div class="food-content">
+            <h3>Kekikli Pide</h3>
+            <p>Denizli’ye özgü bu nefis hamur işi, kekik, zeytinyağı ve çeşitli baharatlarla lezzetlendirilerek taş fırında pişirilir. Özellikle kahvaltı ve ara öğünlerde çok tercih edilir.</p>
+            <div class="restaurant-info">
+              <h4><i class="fas fa-utensils"></i> Nerede Yenir?</h4>
+              <ul>
+                <li>📍 Yörem Fırını</li>
+                <li>📍 Pideci Hasan Usta</li>
+                <li>📍 Kekikli Fırın</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>        
+  </div>
+
+  <script src="script.js"></script>
+  <script src="trabzon-yemek.js"></script>
+</body>
+</html>
