@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Çankırı Kültürel Yerler - Fıratçı Travel</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="cankiri_kulturel.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <div class="background">
+        <header class="header"> 
+            <a href="index.html" class="logo-link">
+            <span class="logo">Kültür Türkiye</span>
+            </a>
+            <div class="header-right">
+              <nav class="nav">
+                <a href="yemek-kulturu.html">Yemek Kültürü</a>
+                <a href="kulturel-yerler.html">Kültürel Yerler</a>
+                <a href="#">Etkinlikler</a>
+                <a href="#">Turistik Yerler</a>
+        </nav>
+              <div class="search">
+                <input type="text" id="citySearch" placeholder="Şehir ara...">
+                <button id="searchButton">
+                  <img src="images/search.png" alt="Ara" class="search-icon">
+                </button>
+                <div id="searchResults" class="search-results"></div>
+              </div>
+            </div>
+    </header>
+
+    <div class="cankiri-container">
+        <div class="cankiri-header">
+            <h1>Çankırı Kültürel Yerler</h1>
+            <p class="subtitle">Tarihi İpek Yolu Üzerindeki Şehrin Kültürel Mirası</p>
+        </div>
+
+        <div class="cultural-categories">
+            <!-- Müzeler -->
+            <div class="category-section">
+                <h2><i class="fas fa-landmark"></i> Müzeler</h2>
+                <div class="places-grid">
+                    <div class="place-card">
+                        <img src="images/canakkale_kulturel/canakkalearkeolojimuzesi.jpg" alt="Çankırı Müzesi">
+                        <div class="info">
+                            <h3>Çankırı Müzesi</h3>
+                            <p>Bölgenin arkeolojik ve etnografik eserlerini sergileyen müze.</p>
+                            <button onclick="showDetails('museum', 'cankiri')">Detay</button>
+                        </div>
+                    </div>
+                    <div class="place-card">
+                        <img src="images/cankiri_kulturel/cankirikaratekinmuzesi.jpg" alt="Karatekin Müzesi">
+                        <div class="info">
+                            <h3>Karatekin Müzesi</h3>
+                            <p>Selçuklu dönemi eserlerinin sergilendiği müze.</p>
+                            <button onclick="showDetails('museum', 'karatekin')">Detay</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarihi Yapılar -->
+            <div class="category-section">
+                <h2><i class="fas fa-archway"></i> Tarihi Yapılar</h2>
+                <div class="places-grid">
+                    <div class="place-card">
+                        <img src="images/cankiri_kulturel/cankiritasmescit.jpg" alt="Taş Mescit">
+                        <div class="info">
+                            <h3>Taş Mescit</h3>
+                            <p>Selçuklu döneminden kalma önemli bir tarihi yapı.</p>
+                            <button onclick="showDetails('historical', 'tasmescit')">Detay</button>
+                        </div>
+                    </div>
+                    <div class="place-card">
+                        <img src="images/cankiri_kulturel/ilgazdagi.jpg" alt="Ilgaz Dağı">
+                        <div class="info">
+                            <h3>Ilgaz Dağı</h3>
+                            <p>Doğal güzellikleri ve tarihi önemi olan dağ.</p>
+                            <button onclick="showDetails('historical', 'ilgaz')">Detay</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarihi Camiler -->
+            <div class="category-section">
+                <h2><i class="fas fa-mosque"></i> Tarihi Camiler</h2>
+                <div class="places-grid">
+                    <div class="place-card">
+                        <img src="images/cankiri_kulturel/cankiriulucamii.jpg" alt="Ulu Cami">
+                        <div class="info">
+                            <h3>Ulu Cami</h3>
+                            <p>Selçuklu döneminden kalma şehrin en eski camisi.</p>
+                            <button onclick="showDetails('mosque', 'ulu')">Detay</button>
+                        </div>
+                    </div>
+                    <div class="place-card">
+                        <img src="images/cankiri_kulturel/cankirialibeycamii.jpg" alt="Ali Cami">
+                        <div class="info">
+                            <h3>Ali Cami</h3>
+                            <p>Osmanlı döneminden kalma tarihi cami.</p>
+                            <button onclick="showDetails('mosque', 'ali')">Detay</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="cankiri_kulturel.js"></script>
+</body>
+</html> 
+ 
+ 

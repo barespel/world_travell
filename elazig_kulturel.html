@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elazığ Kültürel Yerler - Kültür Türkiye</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="elazig_kulturel.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <div class="background">
+        <header class="header"> 
+            <a href="index.html" class="logo-link">
+                <span class="logo">Kültür Türkiye</span>
+            </a>
+            <div class="header-right">
+                <nav class="nav">
+                    <a href="yemek-kulturu.html">Yemek Kültürü</a>
+                    <a href="kulturel-yerler.html">Kültürel Yerler</a>
+                    <a href="#">Etkinlikler</a>
+                    <a href="#">Turistik Yerler</a>
+                </nav>
+                <div class="search">
+                    <input type="text" id="citySearch" placeholder="Şehir ara...">
+                    <button id="searchButton">
+                        <img src="images/search.png" alt="Ara" class="search-icon">
+                    </button>
+                    <div id="searchResults" class="search-results"></div>
+                </div>
+            </div>
+        </header>
+
+        <div class="elazig-container">
+            <div class="elazig-header">
+                <h1>Elazığ Kültürel Yerler</h1>
+                <p class="subtitle">Doğu'nun İncisi</p>
+            </div>
+
+            <div class="cultural-categories">
+                <!-- Tarihi Yapılar -->
+                <div class="category-section">
+                    <h2><i class="fas fa-archway"></i> Tarihi Yapılar</h2>
+                    <div class="places-grid">
+                        <div class="place-card">
+                            <img src="images/elazig_kulturel/harputkalesi.jpg" alt="Harput Kalesi">
+                            <div class="info">
+                                <h3>Harput Kalesi</h3>
+                                <p>Urartu döneminden kalma tarihi kale.</p>
+                                <button onclick="showDetails('ancient', 'harput')">Detay</button>
+                            </div>
+                        </div>
+                        <div class="place-card">
+                            <img src="images/elazig_kulturel/elazigkursunlucamii.jpg" alt="Ulu Cami">
+                            <div class="info">
+                                <h3>Ulu Cami</h3>
+                                <p>Artuklu döneminden kalma tarihi cami.</p>
+                                <button onclick="showDetails('mosque', 'ulucami')">Detay</button>
+                            </div>
+                        </div>
+                        <div class="place-card">
+                            <img src="images/elazig_kulturel/elazigkursunlucamii.jpg" alt="Kurşunlu Cami">
+                            <div class="info">
+                                <h3>Kurşunlu Cami</h3>
+                                <p>Osmanlı döneminden kalma tarihi cami.</p>
+                                <button onclick="showDetails('mosque', 'kursunlu')">Detay</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Müzeler -->
+                <div class="category-section">
+                    <h2><i class="fas fa-landmark"></i> Müzeler</h2>
+                    <div class="places-grid">
+                        <div class="place-card">
+                            <img src="images/elazig_kulturel/elazigarkeolojimuzesi.jpg" alt="Elazığ Arkeoloji ve Etnografya Müzesi">
+                            <div class="info">
+                                <h3>Elazığ Arkeoloji ve Etnografya Müzesi</h3>
+                                <p>Bölgenin zengin tarihini ve kültürel mirasını sergileyen müze.</p>
+                                <button onclick="showDetails('museum', 'arkeoloji')">Detay</button>
+                            </div>
+                        </div>
+                        <div class="place-card">
+                            <img src="images/elazig_kulturel/harputmuze.jpg" alt="Harput Müzesi">
+                            <div class="info">
+                                <h3>Harput Müzesi</h3>
+                                <p>Harput\'un tarihi ve kültürel mirasını sergileyen müze.</p>
+                                <button onclick="showDetails('museum', 'harputmuzesi')">Detay</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                
+
+    <!-- Detay Modal -->
+    <div id="detailsModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <div id="modalContent"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="elazig_kulturel.js"></script>
+</body>
+</html> 

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Çorum Kültürel Yerler</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <div class="corum-container">
+        <div class="corum-header">
+            <h1>Çorum Kültürel Yerler</h1>
+            <p class="subtitle">Hitit Medeniyetinin Başkenti</p>
+        </div>
+
+        <div class="cultural-categories">
+            <!-- Müzeler -->
+            <div class="category-section">
+                <h2><i class="fas fa-landmark"></i> Müzeler</h2>
+                <div class="places-grid">
+                    <div class="place-card">
+                        <img src="images/corum_kulturel/corumarkeolojimuzesi.jpg" alt="Çorum Arkeoloji Müzesi">
+                        <div class="info">
+                            <h3>Çorum Arkeoloji Müzesi</h3>
+                            <p>Hitit dönemine ait zengin arkeolojik eserlerin sergilendiği müze.</p>
+                            <button onclick="showDetails('museum', 'arkeoloji')">Detay</button>
+                        </div>
+                    </div>
+                    <div class="place-card">
+                        <img src="images/corum_kulturel/corumbogazkoymuzesi.jpg" alt="Boğazköy Müzesi">
+                        <div class="info">
+                            <h3>Boğazköy Müzesi</h3>
+                            <p>Hattuşa antik kentinden çıkarılan eserlerin sergilendiği müze.</p>
+                            <button onclick="showDetails('museum', 'bogazkoy')">Detay</button>
+                        </div>
+                    </div>
+                    <div class="place-card">
+                        <img src="images/corum_kulturel/corumetnografyamuzesi.jpg" alt="Etnografya Müzesi">
+                        <div class="info">
+                            <h3>Etnografya Müzesi</h3>
+                            <p>Çorum'un geleneksel kültürünü yansıtan etnografik eserler.</p>
+                            <button onclick="showDetails('museum', 'etnografya')">Detay</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarihi Yapılar -->
+            <div class="category-section">
+                <h2><i class="fas fa-archway"></i> Tarihi Yapılar</h2>
+                <div class="places-grid">
+                    <div class="place-card">
+                        <img src="images/corum_kulturel/hattusa.jpg" alt="Hattuşa Antik Kenti">
+                        <div class="info">
+                            <h3>Hattuşa Antik Kenti</h3>
+                            <p>Hitit İmparatorluğu'nun başkenti, UNESCO Dünya Mirası Listesi'nde.</p>
+                            <button onclick="showDetails('ancient', 'hattusa')">Detay</button>
+                        </div>
+                    </div>
+                    <div class="place-card">
+                        <img src="images/corum_kulturel/yazilikaya.jpg" alt="Yazılıkaya Açık Hava Tapınağı">
+                        <div class="info">
+                            <h3>Yazılıkaya Açık Hava Tapınağı</h3>
+                            <p>Hitit döneminden kalma kaya kabartmaları.</p>
+                            <button onclick="showDetails('ancient', 'yazilikaya')">Detay</button>
+                        </div>
+                    </div>
+                    <div class="place-card">
+                        <img src="images/corum_kulturel/corumalacahoyuk.jpg" alt="Alacahöyük">
+                        <div class="info">
+                            <h3>Alacahöyük</h3>
+                            <p>Hitit öncesi döneme ait önemli bir arkeolojik alan.</p>
+                            <button onclick="showDetails('ancient', 'alacahoyuk')">Detay</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarihi Camiler -->
+            <div class="category-section">
+                <h2><i class="fas fa-mosque"></i> Tarihi Camiler</h2>
+                <div class="places-grid">
+                    <div class="place-card">
+                        <img src="images/corum_kulturel/corumulucami.jpg" alt="Ulu Cami">
+                        <div class="info">
+                            <h3>Ulu Cami</h3>
+                            <p>Selçuklu döneminden kalma tarihi cami.</p>
+                            <button onclick="showDetails('mosque', 'ulu')">Detay</button>
+                        </div>
+                    </div>
+                    <div class="place-card">
+                        <img src="images/corum_kulturel/corumhancami.jpg" alt="Han Camii">
+                        <div class="info">
+                            <h3>Han Camii</h3>
+                            <p>Osmanlı döneminden kalma tarihi cami.</p>
+                            <button onclick="showDetails('mosque', 'han')">Detay</button>
+                        </div>
+                    </div>
+       <script src="script.js"></script>
+</body>
+</html>
+

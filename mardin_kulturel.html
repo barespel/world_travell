@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mardin Kültürel Yerler - Kültür Türkiye</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="mardin_kulturel.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <div class="background">
+        <header class="header"> 
+            <a href="index.html" class="logo-link">
+                <span class="logo">Kültür Türkiye</span>
+            </a>
+            <div class="header-right">
+                <nav class="nav">
+                    <a href="yemek-kulturu.html">Yemek Kültürü</a>
+                    <a href="kulturel-yerler.html">Kültürel Yerler</a>
+                    <a href="#">Etkinlikler</a>
+                    <a href="#">Turistik Yerler</a>
+                </nav>
+                <div class="search">
+                    <input type="text" id="citySearch" placeholder="Şehir ara...">
+                    <button id="searchButton">
+                        <img src="images/search.png" alt="Ara" class="search-icon">
+                    </button>
+                    <div id="searchResults" class="search-results"></div>
+                </div>
+            </div>
+        </header>
+
+        <div class="mardin-container">
+            <div class="mardin-header">
+                <h1>Mardin Kültürel Yerler</h1>
+                <p class="subtitle">Medeniyetlerin Buluşma Noktası</p>
+            </div>
+
+            <div class="cultural-categories">
+                <!-- Tarihi Yapılar -->
+                <div class="category-section">
+                    <h2><i class="fas fa-archway"></i> Tarihi Yapılar</h2>
+                    <div class="places-grid">
+                        <div class="place-card">
+                            <img src="images/mardin_kulturel/daraantikkenti.jpg" alt="Dara Antik Kenti">
+                            <div class="info">
+                                <h3>Dara Antik Kenti</h3>
+                                <p>Mezopotamya'nın en önemli antik kentlerinden biri.</p>
+                                <button onclick="showDetails('ancient', 'dara')">Detay</button>
+                            </div>
+                        </div>
+                        <div class="place-card">
+                            <img src="images/mardin_kulturel/morabrahammanastiri.jpg" alt="Mor Abraham Manastırı">
+                            <div class="info">
+                                <h3>Mor Abraham Manastırı</h3>
+                                <p>Süryani Ortodoks Kilisesi'nin önemli manastırlarından biri.</p>
+                                <button onclick="showDetails('ancient', 'morabraham')">Detay</button>
+                            </div>
+                        </div>
+                        <div class="place-card">
+                            <img src="images/mardin_kulturel/mardinulucamii.jpg" alt="Ulu Cami">
+                            <div class="info">
+                                <h3>Ulu Cami</h3>
+                                <p>Artuklu döneminden kalma tarihi cami.</p>
+                                <button onclick="showDetails('mosque', 'ulucami')">Detay</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Müzeler -->
+                <div class="category-section">
+                    <h2><i class="fas fa-landmark"></i> Müzeler</h2>
+                    <div class="places-grid">
+                        <div class="place-card">
+                            <img src="images/mardin_kulturel/mardinmuzesi.jpg" alt="Mardin Müzesi">
+                            <div class="info">
+                                <h3>Mardin Müzesi</h3>
+                                <p>Bölgenin zengin tarihini ve kültürel mirasını sergileyen müze.</p>
+                                <button onclick="showDetails('museum', 'mardinmuzesi')">Detay</button>
+                            </div>
+                        </div>
+                        <div class="place-card">
+                            <img src="images/mardin_kulturel/sakipsabancimuzesi.jpg" alt="Sakıp Sabancı Kent Müzesi">
+                            <div class="info">
+                                <h3>Sakıp Sabancı Kent Müzesi</h3>
+                                <p>Mardin'in kentsel ve kültürel tarihini yansıtan müze.</p>
+                                <button onclick="showDetails('museum', 'sabancı')">Detay</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kültür Merkezleri -->
+                <div class="category-section">
+                    <h2><i class="fas fa-theater-masks"></i> Kültür Merkezleri</h2>
+                    <div class="places-grid">
+                        <div class="place-card">
+                            <img src="images/mardin_kulturel/artuklukulturmerkezi.jpg" alt="Artuklu Kültür Merkezi">
+                            <div class="info">
+                                <h3>Artuklu Kültür Merkezi</h3>
+                                <p>Modern sanat ve kültür etkinliklerinin merkezi.</p>
+                                <button onclick="showDetails('cultural', 'artuklu')">Detay</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Detay Modal -->
+    <div id="detailsModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <div id="modalContent"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="mardin_kulturel.js"></script>
+</body>
+</html> 

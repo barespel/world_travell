@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bolu Kültürel Yerler - Fıratçı Travel</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="bolu_kulturel.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <div class="background">
+        <header class="header"> 
+            <a href="index.html" class="logo-link">
+            <span class="logo">Kültür Türkiye</span>
+            </a>
+            <div class="header-right">
+              <nav class="nav">
+                <a href="yemek-kulturu.html">Yemek Kültürü</a>
+                <a href="kulturel-yerler.html">Kültürel Yerler</a>
+                <a href="#">Etkinlikler</a>
+                <a href="#">Turistik Yerler</a>
+        </nav>
+              <div class="search">
+                <input type="text" id="citySearch" placeholder="Şehir ara...">
+                <button id="searchButton">
+                  <img src="images/search.png" alt="Ara" class="search-icon">
+                </button>
+                <div id="searchResults" class="search-results"></div>
+              </div>
+            </div>
+    </header>
+
+    <div class="bolu-container">
+        <div class="bolu-header">
+            <h1>Bolu Kültürel Yerler</h1>
+            <p class="subtitle">Yeşil Bolu'nun Kültürel Mirası</p>
+        </div>
+
+        <div class="cultural-categories">
+            <!-- Müzeler -->
+            <div class="category-section">
+                <h2><i class="fas fa-landmark"></i> Müzeler</h2>
+                <div class="places-grid">
+                    <div class="place-card">
+                        <img src="images/bolu_kulturel/bolumuzesi.jpg" alt="Bolu Müzesi">
+                        <div class="info">
+                            <h3>Bolu Müzesi</h3>
+                            <p>Bölgenin zengin tarihini yansıtan, önemli arkeolojik eserlerin sergilendiği müze.</p>
+                            <button onclick="showDetails('museum', 'bolu')">Detay</button>
+                        </div>
+                    </div>
+                    <div class="place-card">
+                        <img src="images/bolu_kulturel/sebenmuzesi.jpg" alt="Seben Müzesi">
+                        <div class="info">
+                            <h3>Seben Müzesi</h3>
+                            <p>Yöresel kültürü ve tarihi yansıtan etnografik eserler.</p>
+                            <button onclick="showDetails('museum', 'seben')">Detay</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarihi Yapılar -->
+            <div class="category-section">
+                <h2><i class="fas fa-archway"></i> Tarihi Yapılar</h2>
+                <div class="places-grid">
+                    <div class="place-card">
+                        <img src="images/bolu_kulturel/akcakocakalesi.jpg" alt="Akçakoca Kalesi">
+                        <div class="info">
+                            <h3>Akçakoca Kalesi</h3>
+                            <p>Bizans döneminden kalma tarihi kale ve deniz manzarası.</p>
+                            <button onclick="showDetails('historical', 'kale')">Detay</button>
+                        </div>
+                    </div>
+                    <div class="place-card">
+                        <img src="images/bolu_kulturel/golcuktabiatparki.jpg" alt="Gölcük Tabiat Parkı">
+                        <div class="info">
+                            <h3>Gölcük Tabiat Parkı</h3>
+                            <p>Doğal güzelliğiyle dikkat çeken krater gölü ve çevresi.</p>
+                            <button onclick="showDetails('historical', 'golcuk')">Detay</button>
+                        </div>
+                    </div>
+                    <div class="place-card">
+                        <img src="images/bolu_kulturel/abantgolu.jpg" alt="Abant Gölü">
+                        <div class="info">
+                            <h3>Abant Gölü</h3>
+                            <p>Doğal güzelliği ve çevresindeki yürüyüş parkurlarıyla ünlü göl.</p>
+                            <button onclick="showDetails('historical', 'abant')">Detay</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarihi Camiler -->
+            <div class="category-section">
+                <h2><i class="fas fa-mosque"></i> Tarihi Camiler</h2>
+                <div class="places-grid">
+                    <div class="place-card">
+                        <img src="images/bolu_kulturel/bolucami.jpg" alt="Ulu Cami">
+                        <div class="info">
+                            <h3>Ulu Cami</h3>
+                            <p>Selçuklu döneminden kalma, şehrin en eski camisi.</p>
+                            <button onclick="showDetails('mosque', 'ulu')">Detay</button>
+                        </div>
+                    </div>
+                    <div class="place-card">
+                        <img src="images/bolu_kulturel/yildirimcamii.jpg" alt="Yıldırım Camii">
+                        <div class="info">
+                            <h3>Yıldırım Camii</h3>
+                            <p>Osmanlı döneminden kalma tarihi cami.</p>
+                            <button onclick="showDetails('mosque', 'yildirim')">Detay</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="bolu_kulturel.js"></script>
+</body>
+</html> 
+ 
+ 

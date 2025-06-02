@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bitlis Kültürel Yerler - Fıratçı Travel</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="bitlis_kulturel.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <div class="background">
+        <header class="header"> 
+            <a href="index.html" class="logo-link">
+            <span class="logo">Kültür Türkiye</span>
+            </a>
+            <div class="header-right">
+              <nav class="nav">
+                <a href="yemek-kulturu.html">Yemek Kültürü</a>
+                <a href="kulturel-yerler.html">Kültürel Yerler</a>
+                <a href="#">Etkinlikler</a>
+                <a href="#">Turistik Yerler</a>
+        </nav>
+              <div class="search">
+                <input type="text" id="citySearch" placeholder="Şehir ara...">
+                <button id="searchButton">
+                  <img src="images/search.png" alt="Ara" class="search-icon">
+                </button>
+                <div id="searchResults" class="search-results"></div>
+              </div>
+            </div>
+    </header>
+
+    <div class="bitlis-container">
+        <div class="bitlis-header">
+            <h1>Bitlis Kültürel Yerler</h1>
+            <p class="subtitle">Doğu'nun Kadim Şehri</p>
+        </div>
+
+        <div class="cultural-categories">
+            <!-- Müzeler -->
+            <div class="category-section">
+                <h2><i class="fas fa-landmark"></i> Müzeler</h2>
+                <div class="places-grid">
+                    <div class="place-card">
+                        <img src="images/bitlis_kulturel/bitlismuzesi.jpg" alt="Bitlis Müzesi">
+                        <div class="info">
+                            <h3>Bitlis Müzesi</h3>
+                            <p>Bölgenin zengin tarihini yansıtan, önemli arkeolojik eserlerin sergilendiği müze.</p>
+                            <button onclick="showDetails('museum', 'bitlis')">Detay</button>
+                        </div>
+                    </div>
+                    <div class="place-card">
+                        <img src="images/bitlis_kulturel/ahlatmuzesi.jpg" alt="Ahlat Müzesi">
+                        <div class="info">
+                            <h3>Ahlat Müzesi</h3>
+                            <p>Selçuklu dönemine ait eserlerin sergilendiği, tarihi dokuyu yansıtan müze.</p>
+                            <button onclick="showDetails('museum', 'ahlat')">Detay</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarihi Yapılar -->
+            <div class="category-section">
+                <h2><i class="fas fa-archway"></i> Tarihi Yapılar</h2>
+                <div class="places-grid">
+                    <div class="place-card">
+                        <img src="images/bitlis_kulturel/bitliskalesi.jpg" alt="Bitlis Kalesi">
+                        <div class="info">
+                            <h3>Bitlis Kalesi</h3>
+                            <p>Şehrin simgesi olan, tarihi kale ve çevresindeki manzara.</p>
+                            <button onclick="showDetails('historical', 'kale')">Detay</button>
+                        </div>
+                    </div>
+                    <div class="place-card">
+                        <img src="images/bitlis_kulturel/ahlatmezarligi.jpg" alt="Ahlat Mezarlığı">
+                        <div class="info">
+                            <h3>Ahlat Mezarlığı</h3>
+                            <p>Selçuklu dönemine ait tarihi mezar taşları ve anıtlar.</p>
+                            <button onclick="showDetails('historical', 'mezarlik')">Detay</button>
+                        </div>
+                    </div>
+                    <div class="place-card">
+                        <img src="images/bitlis_kulturel/nemrutkratergolu.jpg" alt="Nemrut Krater Gölü">
+                        <div class="info">
+                            <h3>Nemrut Krater Gölü</h3>
+                            <p>Doğal güzelliğiyle dikkat çeken krater gölü ve çevresi.</p>
+                            <button onclick="showDetails('historical', 'nemrut')">Detay</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarihi Camiler -->
+            <div class="category-section">
+                <h2><i class="fas fa-mosque"></i> Tarihi Camiler</h2>
+                <div class="places-grid">
+                    <div class="place-card">
+                        <img src="images/bitlis_kulturel/bitlisulucami.jpg" alt="Ulu Cami">
+                        <div class="info">
+                            <h3>Ulu Cami</h3>
+                            <p>Selçuklu döneminden kalma, şehrin en eski camisi.</p>
+                            <button onclick="showDetails('mosque', 'ulu')">Detay</button>
+                        </div>
+                    </div>
+                    <div class="place-card">
+                        <img src="images/bitlis_kulturel/gokmeydancamii.jpg" alt="Gökmeydan Camii">
+                        <div class="info">
+                            <h3>Gökmeydan Camii</h3>
+                            <p>Osmanlı döneminden kalma tarihi cami.</p>
+                            <button onclick="showDetails('mosque', 'gokmeydan')">Detay</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="bitlis_kulturel.js"></script>
+</body>
+</html> 
+ 

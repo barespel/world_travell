@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Erzurum Kültürel Yerler - Fıratçı Travel</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="erzurum_kulturel.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <div class="background">
+        <header class="header"> 
+            <a href="index.html" class="logo-link">
+            <span class="logo">Kültür Türkiye</span>
+            </a>
+            <div class="header-right">
+              <nav class="nav">
+                <a href="yemek-kulturu.html">Yemek Kültürü</a>
+                <a href="kulturel-yerler.html">Kültürel Yerler</a>
+                <a href="#">Etkinlikler</a>
+                <a href="#">Turistik Yerler</a>
+        </nav>
+              <div class="search">
+                <input type="text" id="citySearch" placeholder="Şehir ara...">
+                <button id="searchButton">
+                  <img src="images/search.png" alt="Ara" class="search-icon">
+                </button>
+                <div id="searchResults" class="search-results"></div>
+              </div>
+            </div>
+    </header>
+
+    <div class="erzurum-container">
+        <div class="erzurum-header">
+            <h1>Erzurum Kültürel Yerler</h1>
+            <p class="subtitle">Doğu Anadolu'nun Tarihi ve Kültürel Başkentinin Mirası</p>
+        </div>
+
+        <div class="cultural-categories">
+            <!-- Müzeler -->
+            <div class="category-section">
+                <h2><i class="fas fa-landmark"></i> Müzeler</h2>
+                <div class="places-grid">
+                    <div class="place-card">
+                        <img src="images/erzurum_kulturel/erzurummuzesi.jpg" alt="Erzurum Müzesi">
+                        <div class="info">
+                            <h3>Erzurum Müzesi</h3>
+                            <p>Bölgenin arkeolojik ve etnografik eserlerini sergileyen müze.</p>
+                            <button onclick="showDetails('erzurum-muzesi')">Detay</button>
+                        </div>
+                    </div>
+                    <div class="place-card">
+                        <img src="images/erzurum_kulturel/erzurumataturkevi.jpg" alt="Atatürk Evi">
+                        <div class="info">
+                            <h3>Atatürk Evi</h3>
+                            <p>Mustafa Kemal Atatürk'ün Erzurum'da kaldığı tarihi ev.</p>
+                            <button onclick="showDetails('ataturk-evi')">Detay</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarihi Yapılar -->
+            <div class="category-section">
+                <h2><i class="fas fa-archway"></i> Tarihi Yapılar</h2>
+                <div class="places-grid">
+                    <div class="place-card">
+                        <img src="images/erzurum_kulturel/cifteMinareliMedrese.jpg" alt="Çifte Minareli Medrese">
+                        <div class="info">
+                            <h3>Çifte Minareli Medrese</h3>
+                            <p>Selçuklu döneminden kalma önemli bir medrese.</p>
+                            <button onclick="showDetails('cifte-minareli')">Detay</button>
+                        </div>
+                    </div>
+                    <div class="place-card">
+                        <img src="images/erzurum_kulturel/yakutiyemedresesi.jpg" alt="Yakutiye Medresesi">
+                        <div class="info">
+                            <h3>Yakutiye Medresesi</h3>
+                            <p>İlhanlı döneminden kalma tarihi medrese.</p>
+                            <button onclick="showDetails('yakutiye')">Detay</button>
+                        </div>
+                    </div>
+                    <div class="place-card">
+                        <img src="images/erzurum_kulturel/uckumbetler.jpg" alt="Üç Kümbetler">
+                        <div class="info">
+                            <h3>Üç Kümbetler</h3>
+                            <p>Selçuklu döneminden kalma tarihi türbeler.</p>
+                            <button onclick="showDetails('uc-kumbetler')">Detay</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarihi Camiler -->
+            <div class="category-section">
+                <h2><i class="fas fa-mosque"></i> Tarihi Camiler</h2>
+                <div class="places-grid">
+                    <div class="place-card">
+                        <img src="images/erzurum_kulturel/erzurumulucamii.jpg" alt="Ulu Cami">
+                        <div class="info">
+                            <h3>Ulu Cami</h3>
+                            <p>Saltuklu döneminden kalma şehrin en eski camisi.</p>
+                            <button onclick="showDetails('ulu-cami')">Detay</button>
+                        </div>
+                    </div>
+                    <div class="place-card">
+                        <img src="images/erzurum_kulturel/lalapasacamii.jpg" alt="Lala Paşa Camii">
+                        <div class="info">
+                            <h3>Lala Paşa Camii</h3>
+                            <p>Osmanlı döneminden kalma tarihi cami.</p>
+                            <button onclick="showDetails('lala-pasa')">Detay</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="erzurum_kulturel.js"></script>
+</body>
+</html> 
+ 

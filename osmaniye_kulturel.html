@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Osmaniye Kültürel Yerler - Fıratçı Travel</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="osmaniye_kulturel.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <div class="background">
+        <header class="header"> 
+            <a href="index.html" class="logo-link">
+            <span class="logo">Kültür Türkiye</span>
+            </a>
+            <div class="header-right">
+              <nav class="nav">
+                <a href="yemek-kulturu.html">Yemek Kültürü</a>
+                <a href="kulturel-yerler.html">Kültürel Yerler</a>
+                <a href="#">Etkinlikler</a>
+                <a href="#">Turistik Yerler</a>
+        </nav>
+              <div class="search">
+                <input type="text" id="citySearch" placeholder="Şehir ara...">
+                <button id="searchButton">
+                  <img src="images/search.png" alt="Ara" class="search-icon">
+                </button>
+                <div id="searchResults" class="search-results"></div>
+              </div>
+            </div>
+    </header>
+
+    <div class="osmaniye-container">
+        <div class="osmaniye-header">
+            <h1>Osmaniye Kültürel Yerler</h1>
+            <p class="subtitle">Çukurova'nın İncisi</p>
+        </div>
+
+        <div class="cultural-categories">
+            <!-- Tarihi Yapılar -->
+            <div class="category-section">
+                <h2><i class="fas fa-landmark"></i> Tarihi Yapılar</h2>
+                <div class="places-grid">
+                    <div class="place-card">
+                        <img src="images/osmaniye_kulturel/kastabalaantikkenti.jpg" alt="Kastabala Antik Kenti">
+                        <div class="info">
+                            <h3>Kastabala Antik Kenti</h3>
+                            <p>Roma döneminden kalma, sütunlu caddesi ve tiyatrosuyla ünlü antik kent.</p>
+                            <button onclick="showDetails('historical', 'kastabala')">Detay</button>
+                        </div>
+                    </div>
+                    <div class="place-card">
+                        <img src="images/osmaniye_kulturel/karatepeaslantasacikhavamuzesi.jpg" alt="Karatepe Aslantaş Açık Hava Müzesi">
+                        <div class="info">
+                            <h3>Karatepe Aslantaş Açık Hava Müzesi</h3>
+                            <p>Geç Hitit döneminden kalma, önemli bir arkeolojik alan.</p>
+                            <button onclick="showDetails('historical', 'karatepe')">Detay</button>
+                        </div>
+                    </div>
+                    <div class="place-card">
+                        <img src="images/osmaniye_kulturel/harunresitkalesi.jpg" alt="Haruniye Kalesi">
+                        <div class="info">
+                            <h3>Haruniye Kalesi</h3>
+                            <p>Abbasi döneminden kalma, stratejik konumuyla önemli bir kale.</p>
+                            <button onclick="showDetails('historical', 'haruniye')">Detay</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Müzeler -->
+            <div class="category-section">
+                <h2><i class="fas fa-museum"></i> Müzeler</h2>
+                <div class="places-grid">
+                    <div class="place-card">
+                        <img src="images/osmaniye_kulturel/osmaniyekentmuzesi.jpg" alt="Osmaniye Müzesi">
+                        <div class="info">
+                            <h3>Osmaniye Müzesi</h3>
+                            <p>Bölgenin tarihini ve kültürünü yansıtan modern müze.</p>
+                            <button onclick="showDetails('museum', 'osmaniye-muzesi')">Detay</button>
+                        </div>
+                    </div>
+                    <div class="place-card">
+                        <img src="images/osmaniye_kulturel/karatepemuzesi.jpg" alt="Karatepe Müzesi">
+                        <div class="info">
+                            <h3>Karatepe Müzesi</h3>
+                            <p>Hitit dönemine ait eserlerin sergilendiği açık hava müzesi.</p>
+                            <button onclick="showDetails('museum', 'karatepe-muzesi')">Detay</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarihi Camiler -->
+            <div class="category-section">
+                <h2><i class="fas fa-mosque"></i> Tarihi Camiler</h2>
+                <div class="places-grid">
+                    <div class="place-card">
+                        <img src="images/osmaniye_kulturel/osmaniyemerkezcamii.jpg" alt="Merkez Camii">
+                        <div class="info">
+                            <h3>Merkez Camii</h3>
+                            <p>Osmaniye'nin en büyük ve en eski camilerinden biri.</p>
+                            <button onclick="showDetails('mosque', 'merkez')">Detay</button>
+                        </div>
+                    </div>
+                    <div class="place-card">
+                        <img src="images/osmaniye_kulturel/haruniyekaplicalari.jpg" alt="Haruniye Camii">
+                        <div class="info">
+                            <h3>Haruniye Camii</h3>
+                            <p>Tarihi dokusu ve mimarisiyle öne çıkan cami.</p>
+                            <button onclick="showDetails('mosque', 'haruniye-camii')">Detay</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Detay Modal -->
+    <div id="detailsModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <div id="modalContent"></div>
+        </div>
+    </div>
+
+    <script src="osmaniye_kulturel.js"></script>
+</body>
+</html> 

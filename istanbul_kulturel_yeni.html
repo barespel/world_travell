@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İstanbul Kültürel Yerler - Fıratçı Travel</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="istanbul_kulturel_yeni.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <div class="background">
+        <header class="header"> 
+            <a href="index.html" class="logo-link">
+            <span class="logo">Kültür Türkiye</span>
+            </a>
+            <div class="header-right">
+              <nav class="nav">
+                <a href="yemek-kulturu.html">Yemek Kültürü</a>
+                <a href="kulturel-yerler.html">Kültürel Yerler</a>
+                <a href="#">Etkinlikler</a>
+                <a href="#">Turistik Yerler</a>
+        </nav>
+              <div class="search">
+                <input type="text" id="citySearch" placeholder="Şehir ara...">
+                <button id="searchButton">
+                  <img src="images/search.png" alt="Ara" class="search-icon">
+                </button>
+                <div id="searchResults" class="search-results"></div>
+              </div>
+            </div>
+    </header>
+
+    <div class="istanbul-container">
+        <div class="istanbul-header">
+            <h1>İstanbul Kültürel Yerler</h1>
+            <p class="subtitle">Medeniyetlerin Buluşma Noktası</p>
+        </div>
+
+        <div class="cultural-categories">
+            <!-- Saraylar -->
+            <div class="category-section">
+                <h2><i class="fas fa-crown"></i> Saraylar</h2>
+                <div class="places-grid">
+                    <div class="place-card">
+                        <img src="images/istanbul_kulturel/topkapisarayi.jpg" alt="Topkapı Sarayı">
+                        <div class="info">
+                            <h3>Topkapı Sarayı</h3>
+                            <p>Osmanlı'nın 400 yıl boyunca yönetim merkezi olan saray.</p>
+                            <button onclick="showDetails('palace', 'topkapi')">Detay</button>
+                        </div>
+                    </div>
+                    <div class="place-card">
+                        <img src="images/istanbul_kulturel/dolmabahcesarayi.jpg" alt="Dolmabahçe Sarayı">
+                        <div class="info">
+                            <h3>Dolmabahçe Sarayı</h3>
+                            <p>Boğaz'ın incisi, Osmanlı'nın son dönem sarayı.</p>
+                            <button onclick="showDetails('palace', 'dolmabahce')">Detay</button>
+                        </div>
+                    </div>
+                    <div class="place-card">
+                        <img src="images/istanbul_kulturel/beylerbeyisarayi.jpg" alt="Beylerbeyi Sarayı">
+                        <div class="info">
+                            <h3>Beylerbeyi Sarayı</h3>
+                            <p>Boğaz'ın Anadolu yakasındaki görkemli saray.</p>
+                            <button onclick="showDetails('palace', 'beylerbeyi')">Detay</button>
+                        </div>
+                    </div>
+                    <div class="place-card">
+                        <img src="images/istanbul_kulturel/ihlamur.jpg" alt="Ihlamur Kasrı">
+                        <div class="info">
+                            <h3>Ihlamur Kasrı</h3>
+                            <p>Nişantaşı'nda bulunan, Osmanlı'nın dinlenme köşkü.</p>
+                            <button onclick="showDetails('palace', 'ihlamur')">Detay</button>
+                        </div>
+                    </div>
+                    <div class="place-card">
+                        <img src="images/istanbul_kulturel/kucuksukasri.jpg" alt="Küçüksu Kasrı">
+                        <div class="info">
+                            <h3>Küçüksu Kasrı</h3>
+                            <p>Boğaz'ın incisi, av köşkü olarak tasarlanmış zarif yapı.</p>
+                            <button onclick="showDetails('palace', 'kucuksu')">Detay</button>
+                        </div>
+                    </div>
+                    <div class="place-card">
+                        <img src="images/istanbul_kulturel/aynalikavakkasri.jpg" alt="Aynalıkavak Kasrı">
+                        <div class="info">
+                            <h3>Aynalıkavak Kasrı</h3>
+                            <p>Haliç kıyısında bulunan, Osmanlı'nın en eski saraylarından.</p>
+                            <button onclick="showDetails('palace', 'aynalikavak')">Detay</button>
+                        </div>
+                    </div>
+                    <div class="place-card">
+                        <img src="images/istanbul_kulturel/maslak.jpg" alt="Maslak Kasırları">
+                        <div class="info">
+                            <h3>Maslak Kasırları</h3>
+                            <p>Şişli'de bulunan, Sultan Abdülaziz döneminden kalma kasırlar.</p>
+                            <button onclick="showDetails('palace', 'maslak')">Detay</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Müzeler -->
+            <div class="category-section">
+                <h2><i class="fas fa-landmark"></i> Müzeler</h2>
+                <div class="places-grid">
+                    <div class="place-card">
+                        <img src="images/istanbul_kulturel/kariyemuzesi.jpg" alt="Kariye Müzesi">
+                        <div class="info">
+                            <h3>Kariye Müzesi</h3>
+                            <p>Bizans döneminden kalma, eşsiz mozaik ve freskleriyle ünlü tarihi yapı.</p>
+                            <button onclick="showDetails('museum', 'kariye')">Detay</button>
+                        </div>
+                    </div>
+                    <div class="place-card">
+                        <img src="images/istanbul_kulturel/istanbularkeolojimuzesi.jpg" alt="İstanbul Arkeoloji Müzesi">
+                        <div class="info">
+                            <h3>İstanbul Arkeoloji Müzesi</h3>
+                            <p>Türkiye'nin ilk müzesi, dünyanın en zengin arkeoloji müzelerinden biri.</p>
+                            <button onclick="showDetails('museum', 'archeology')">Detay</button>
+                        </div>
+                    </div>
+                    <div class="place-card">
+                        <img src="images/istanbul_kulturel/rahmikocmuzesi.jpg" alt="Rahmi M. Koç Müzesi">
+                        <div class="info">
+                            <h3>Rahmi M. Koç Müzesi</h3>
+                            <p>Endüstriyel mirasın sergilendiği, interaktif deneyimler sunan müze.</p>
+                            <button onclick="showDetails('museum', 'rahmi')">Detay</button>
+                        </div>
+                    </div>
+                    <div class="place-card">
+                        <img src="images/istanbul_kulturel/istanbulmuseumart.jpg" alt="İstanbul Modern">
+                        <div class="info">
+                            <h3>İstanbul Modern</h3>
+                            <p>Modern ve çağdaş sanatın en seçkin örneklerini barındıran müze.</p>
+                            <button onclick="showDetails('museum', 'istanbul-art')">Detay</button>
+                        </div>
+                    </div>
+                    <div class="place-card">
+                        <img src="images/istanbul_kulturel/uralataman.jpg" alt="Ural Ataman Klasik Otomobil Müzesi">
+                        <div class="info">
+                            <h3>Ural Ataman Klasik Otomobil Müzesi</h3>
+                            <p>Nadir klasik otomobillerin sergilendiği özel koleksiyon müzesi.</p>
+                            <button onclick="showDetails('museum', 'ural-ataman')">Detay</button>
+                        </div>
+                    </div>
+                    <div class="place-card">
+                        <img src="images/istanbul_kulturel/masumiyetmuzesi.jpg" alt="Masumiyet Müzesi">
+                        <div class="info">
+                            <h3>Masumiyet Müzesi</h3>
+                            <p>Orhan Pamuk'un romanından esinlenerek kurulan, nostaljik objelerin sergilendiği müze.</p>
+                            <button onclick="showDetails('museum', 'masumiyet')">Detay</button>
+                        </div>
+                    </div>
+                    <div class="place-card">
+                        <img src="images/istanbul_kulturel/istanbuloyuncak.jpg" alt="İstanbul Oyuncak Müzesi">
+                        <div class="info">
+                            <h3>İstanbul Oyuncak Müzesi</h3>
+                            <p>1700'lerden günümüze uzanan oyuncak koleksiyonunu barındıran müze.</p>
+                            <button onclick="showDetails('museum', 'oyuncak')">Detay</button>
+                        </div>
+                    </div>
+                    <div class="place-card">
+                        <img src="images/istanbul_kulturel/sakipsabancimuzesi.jpg" alt="Sakıp Sabancı Müzesi">
+                        <div class="info">
+                            <h3>Sakıp Sabancı Müzesi</h3>
+                            <p>Klasik ve çağdaş sanat eserlerinin sergilendiği, Boğaz manzaralı müze.</p>
+                            <button onclick="showDetails('museum', 'sabancı')">Detay</button>
+                        </div>
+                    </div>
+                    <div class="place-card">
+                        <img src="images/istanbul_kulturel/peramuzesi.jpg" alt="Pera Müzesi">
+                        <div class="info">
+                            <h3>Pera Müzesi</h3>
+                            <p>Oryantalist resimler ve Kütahya çinileri koleksiyonuyla ünlü müze.</p>
+                            <button onclick="showDetails('museum', 'pera')">Detay</button>
+                        </div>
+                    </div>
+                    <div class="place-card">
+                        <img src="images/istanbul_kulturel/denizmuzesi.jpg" alt="Deniz Müzesi">
+                        <div class="info">
+                            <h3>Deniz Müzesi</h3>
+                            <p>Türk denizcilik tarihinin en kapsamlı koleksiyonunu barındıran müze.</p>
+                            <button onclick="showDetails('museum', 'deniz')">Detay</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarihi Camiler -->
+            <div class="category-section">
+                <h2><i class="fas fa-mosque"></i> Tarihi Camiler</h2>
+                <div class="places-grid">
+                    <div class="place-card">
+                        <img src="images/camiler/sultanahmet.jpg" alt="Sultanahmet Camii">
+                        <div class="info">
+                            <h3>Sultanahmet Camii</h3>
+                            <p>Mavi Camii olarak da bilinen, Osmanlı mimarisinin şaheseri.</p>
+                            <button onclick="showDetails('mosque', 'sultanahmet')">Detay</button>
+                        </div>
+                    </div>
+                    <div class="place-card">
+                        <img src="images/camiler/suleymaniye.jpg" alt="Süleymaniye Camii">
+                        <div class="info">
+                            <h3>Süleymaniye Camii</h3>
+                            <p>Mimar Sinan'ın ustalık eseri, Osmanlı'nın en görkemli camilerinden.</p>
+                            <button onclick="showDetails('mosque', 'suleymaniye')">Detay</button>
+                        </div>
+                    </div>
+                    <div class="place-card">
+                        <img src="images/camiler/eyup.jpg" alt="Eyüp Sultan Camii">
+                        <div class="info">
+                            <h3>Eyüp Sultan Camii</h3>
+                            <p>İstanbul'un en kutsal camilerinden biri.</p>
+                            <button onclick="showDetails('mosque', 'eyup')">Detay</button>
+                        </div>
+                    </div>
+                    <div class="place-card">
+                        <img src="images/camiler/fatih.jpg" alt="Fatih Camii">
+                        <div class="info">
+                            <h3>Fatih Camii</h3>
+                            <p>Fatih Sultan Mehmet tarafından yaptırılan ilk selatin camii.</p>
+                            <button onclick="showDetails('mosque', 'fatih')">Detay</button>
+                        </div>
+                    </div>
+                    <div class="place-card">
+                        <img src="images/camiler/ortakoy.jpg" alt="Ortaköy Camii">
+                        <div class="info">
+                            <h3>Ortaköy Camii</h3>
+                            <p>Boğaz'ın incisi, Barok ve Neo-klasik mimari özellikleriyle ünlü.</p>
+                            <button onclick="showDetails('mosque', 'ortakoy')">Detay</button>
+                        </div>
+                    </div>
+                    <div class="place-card">
+                        <img src="images/camiler/selimiye.jpg" alt="Selimiye Camii">
+                        <div class="info">
+                            <h3>Selimiye Camii</h3>
+                            <p>Üsküdar'ın simgesi, Barok mimari özellikleriyle dikkat çeker.</p>
+                            <button onclick="showDetails('mosque', 'selimiye')">Detay</button>
+                        </div>
+                    </div>
+                    <div class="place-card">
+                        <img src="images/camiler/yeni.jpg" alt="Yeni Camii">
+                        <div class="info">
+                            <h3>Yeni Camii</h3>
+                            <p>Eminönü'nde yer alan, İznik çinileri ve altın varaklı süslemeleriyle ünlü.</p>
+                            <button onclick="showDetails('mosque', 'yeni')">Detay</button>
+                        </div>
+                    </div>
+                    <div class="place-card">
+                        <img src="images/camiler/beyazit.jpg" alt="Beyazıt Camii">
+                        <div class="info">
+                            <h3>Beyazıt Camii</h3>
+                            <p>İstanbul'un en eski selatin camilerinden biri.</p>
+                            <button onclick="showDetails('mosque', 'beyazit')">Detay</button>
+                        </div>
+                    </div>
+                    <div class="place-card">
+                        <img src="images/camiler/mihrimah.jpg" alt="Mihrimah Sultan Camii">
+                        <div class="info">
+                            <h3>Mihrimah Sultan Camii</h3>
+                            <p>Mimar Sinan'ın ustalık eserlerinden, ince minaresi ve zarif mimarisiyle ünlü.</p>
+                            <button onclick="showDetails('mosque', 'mihrimah')">Detay</button>
+                        </div>
+                    </div>
+                    <div class="place-card">
+                        <img src="images/camiler/nuruosmaniye.jpg" alt="Nuruosmaniye Camii">
+                        <div class="info">
+                            <h3>Nuruosmaniye Camii</h3>
+                            <p>Barok mimari özellikleri ve görkemli kubbesiyle ünlü.</p>
+                            <button onclick="showDetails('mosque', 'nuruosmaniye')">Detay</button>
+                        </div>
+                    </div>
+                    <div class="place-card">
+                        <img src="images/camiler/laleli.jpg" alt="Laleli Camii">
+                        <div class="info">
+                            <h3>Laleli Camii</h3>
+                            <p>Barok mimari özellikleri ve çinileriyle dikkat çeker.</p>
+                            <button onclick="showDetails('mosque', 'laleli')">Detay</button>
+                        </div>
+                    </div>
+                    <div class="place-card">
+                        <img src="images/camiler/sehzade.jpg" alt="Şehzade Camii">
+                        <div class="info">
+                            <h3>Şehzade Camii</h3>
+                            <p>Mimar Sinan'ın "çıraklık eserim" dediği cami.</p>
+                            <button onclick="showDetails('mosque', 'sehzade')">Detay</button>
+                        </div>
+                    </div>
+                    <div class="place-card">
+                        <img src="images/camiler/pertevniyal.jpg" alt="Pertevniyal Valide Sultan Camii">
+            <div class="info">
+                            <h3>Pertevniyal Valide Sultan Camii</h3>
+                            <p>Neo-gotik ve barok mimari özellikleriyle dikkat çeker.</p>
+                            <button onclick="showDetails('mosque', 'pertevniyal')">Detay</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Antik Yapılar -->
+            <div class="category-section">
+                <h2><i class="fas fa-archway"></i> Antik Yapılar</h2>
+                <div class="places-grid">
+                    <div class="place-card">
+                        <img src="images/antik/yerebatan.jpg" alt="Yerebatan Sarnıcı">
+                        <div class="info">
+                            <h3>Yerebatan Sarnıcı</h3>
+                            <p>Bizans döneminden kalma en büyük su sarnıcı.</p>
+                            <button onclick="showDetails('ancient', 'yerebatan')">Detay</button>
+                        </div>
+                    </div>
+                    <div class="place-card">
+                        <img src="images/antik/galata.jpg" alt="Galata Kulesi">
+                        <div class="info">
+                            <h3>Galata Kulesi</h3>
+                            <p>İstanbul'un simgelerinden, 14. yüzyıldan kalma tarihi kule.</p>
+                            <button onclick="showDetails('ancient', 'galata')">Detay</button>
+                        </div>
+                    </div>
+                    <div class="place-card">
+                        <img src="images/antik/valens.jpg" alt="Valens Su Kemeri">
+                        <div class="info">
+                            <h3>Valens Su Kemeri</h3>
+                            <p>Roma döneminden kalma su kemeri.</p>
+                            <button onclick="showDetails('ancient', 'valens')">Detay</button>
+                        </div>
+                    </div>
+                    <div class="place-card">
+                        <img src="images/antik/hipodrom.jpg" alt="Hipodrom">
+                        <div class="info">
+                            <h3>Hipodrom</h3>
+                            <p>Bizans döneminin en önemli yapılarından biri.</p>
+                            <button onclick="showDetails('ancient', 'hipodrom')">Detay</button>
+                        </div>
+                    </div>
+                    <div class="place-card">
+                        <img src="images/antik/gotlar.jpg" alt="Gotlar Sütunu">
+                        <div class="info">
+                            <h3>Gotlar Sütunu</h3>
+                            <p>Roma döneminden kalma, 15 metre yüksekliğinde tarihi sütun.</p>
+                            <button onclick="showDetails('ancient', 'gotlar')">Detay</button>
+                        </div>
+                    </div>
+                    <div class="place-card">
+                        <img src="images/antik/kiztasi.jpg" alt="Kıztaşı">
+                        <div class="info">
+                            <h3>Kıztaşı</h3>
+                            <p>Bizans döneminden kalma, 18 metre yüksekliğinde tarihi sütun.</p>
+                            <button onclick="showDetails('ancient', 'kiztasi')">Detay</button>
+                        </div>
+                    </div>
+                    <div class="place-card">
+                        <img src="images/antik/binbirdirek.jpg" alt="Binbirdirek Sarnıcı">
+                        <div class="info">
+                            <h3>Binbirdirek Sarnıcı</h3>
+                            <p>Bizans döneminden kalma ikinci büyük su sarnıcı.</p>
+                            <button onclick="showDetails('ancient', 'binbirdirek')">Detay</button>
+                        </div>
+                    </div>
+                    <div class="place-card">
+                        <img src="images/antik/tekfur.jpg" alt="Tekfur Sarayı">
+                        <div class="info">
+                            <h3>Tekfur Sarayı</h3>
+                            <p>Bizans döneminden kalma tek saray yapısı.</p>
+                            <button onclick="showDetails('ancient', 'tekfur')">Detay</button>
+                        </div>
+                    </div>
+                    <div class="place-card">
+                        <img src="images/antik/anemas.jpg" alt="Anemas Zindanları">
+            <div class="info">
+                            <h3>Anemas Zindanları</h3>
+                            <p>Bizans döneminden kalma, Blakhernai Sarayı'nın bir parçası.</p>
+                            <button onclick="showDetails('ancient', 'anemas')">Detay</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Müze Detay Modal -->
+    <div id="museumModal" class="museum-modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2 id="modalTitle"></h2>
+            <p class="description" id="modalDescription"></p>
+            <div class="details-grid">
+                <div class="detail-item">
+                    <i class="fas fa-clock"></i>
+                    <h4>Açılış Saatleri</h4>
+                    <p id="modalHours"></p>
+                </div>
+                <div class="detail-item">
+                    <i class="fas fa-ticket-alt"></i>
+                    <h4>Giriş Ücreti</h4>
+                    <p id="modalPrice"></p>
+                </div>
+                <div class="detail-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h4>Adres</h4>
+                    <p id="modalAddress"></p>
+                </div>
+                <div class="detail-item">
+                    <i class="fas fa-phone"></i>
+                    <h4>İletişim</h4>
+                    <p id="modalContact"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Detay Modal -->
+    <div id="detailsModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <div id="modalContent"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="istanbul_kulturel_yeni.js"></script>
+    <script>
+    // Müze detayları için veri
+    const museumDetails = {
+        'topkapi': {
+            title: 'Topkapı Sarayı Müzesi',
+            description: 'Osmanlı İmparatorluğu\'nun 400 yıl boyunca yönetim merkezi olan Topkapı Sarayı, günümüzde müze olarak hizmet vermektedir. İçerisinde padişah hazineleri, kutsal emanetler ve önemli tarihi eserler bulunmaktadır.',
+            hours: '09:00 - 18:00 (Kış), 09:00 - 19:00 (Yaz)',
+            price: '100 TL (Ana Saray), 50 TL (Harem)',
+            address: 'Cankurtaran, 34122 Fatih/İstanbul',
+            contact: '0212 512 04 80'
+        },
+        'ayasofya': {
+            title: 'Ayasofya Müzesi',
+            description: '1500 yıllık tarihi ile dünyanın en önemli mimari yapılarından biri olan Ayasofya, Bizans ve Osmanlı dönemlerinin izlerini taşımaktadır.',
+            hours: '09:00 - 17:00',
+            price: 'Ücretsiz',
+            address: 'Sultanahmet Meydanı, 34122 Fatih/İstanbul',
+            contact: '0212 522 17 50'
+        },
+        'dolmabahce': {
+            title: 'Dolmabahçe Sarayı',
+            description: 'Osmanlı İmparatorluğu\'nun son dönemlerinde kullanılan görkemli saray, Avrupa mimarisi ile Osmanlı mimarisinin muhteşem bir sentezidir.',
+            hours: '09:00 - 16:00',
+            price: '120 TL (Selamlık), 90 TL (Harem)',
+            address: 'Vişnezade, Dolmabahçe Cd., 34357 Beşiktaş/İstanbul',
+            contact: '0212 236 90 00'
+        },
+        'yerebatan': {
+            title: 'Yerebatan Sarnıcı',
+            description: 'Bizans döneminden kalma en büyük su sarnıcı, 336 sütun ve Medusa başı ile ünlüdür.',
+            hours: '09:00 - 17:30',
+            price: '30 TL',
+            address: 'Alemdar, Yerebatan Cd. 1/3, 34110 Fatih/İstanbul',
+            contact: '0212 522 12 59'
+        },
+        'kariye': {
+            title: 'Kariye Müzesi',
+            description: 'Bizans döneminden kalma kilise, mozaik ve freskolarıyla ünlüdür.',
+            hours: '09:00 - 17:00',
+            price: '65 TL',
+            address: 'Dervişali, Kariye Cami Sk. No:18, 34087 Fatih/İstanbul',
+            contact: '0212 631 92 41'
+        },
+        'rumeli': {
+            title: 'Rumeli Hisarı',
+            description: 'Fatih Sultan Mehmet tarafından İstanbul\'un fethi öncesinde inşa edilen görkemli kale.',
+            hours: '09:00 - 17:00',
+            price: '25 TL',
+            address: 'Yahya Kemal, 34470 Sarıyer/İstanbul',
+            contact: '0212 263 53 05'
+        },
+        'galata': {
+            title: 'Galata Kulesi',
+            description: 'İstanbul\'un en eski kulelerinden biri, panoramik şehir manzarası sunar.',
+            hours: '09:00 - 20:00',
+            price: '175 TL',
+            address: 'Bereketzade, Galata Kulesi, 34421 Beyoğlu/İstanbul',
+            contact: '0212 293 81 80'
+        },
+        'suleymaniye': {
+            title: 'Süleymaniye Camii',
+            description: 'Mimar Sinan\'ın başyapıtı, Osmanlı mimarisinin en görkemli örneklerinden biri.',
+            hours: '24 saat açık',
+            price: 'Ücretsiz',
+            address: 'Süleymaniye, Prof. Sıddık Sami Onar Cd. No:1, 34116 Fatih/İstanbul',
+            contact: '0212 514 01 39'
+        },
+        'sultanahmet': {
+            title: 'Sultanahmet Camii',
+            description: 'Mavi çinileriyle ünlü, Osmanlı mimarisinin en güzel örneklerinden biri.',
+            hours: '24 saat açık',
+            price: 'Ücretsiz',
+            address: 'Sultanahmet, Atmeydanı Cd. No:7, 34122 Fatih/İstanbul',
+            contact: '0212 458 44 68'
+        },
+        'kapalicarsi': {
+            title: 'Kapalıçarşı',
+            description: 'Dünyanın en büyük ve en eski kapalı çarşılarından biri.',
+            hours: '08:30 - 19:00',
+            price: 'Ücretsiz',
+            address: 'Beyazıt, Kalpakçılar Cd. No:22, 34126 Fatih/İstanbul',
+            contact: '0212 519 12 48'
+        }
+    };
+
+    // Modal işlemleri için fonksiyonlar
+    function showMuseumDetails(museumId) {
+        const details = museumDetails[museumId];
+        if (!details) return;
+
+        document.getElementById('modalTitle').textContent = details.title;
+        document.getElementById('modalDescription').textContent = details.description;
+        document.getElementById('modalHours').textContent = details.hours;
+        document.getElementById('modalPrice').textContent = details.price;
+        document.getElementById('modalAddress').textContent = details.address;
+        document.getElementById('modalContact').textContent = details.contact;
+
+        document.getElementById('museumModal').style.display = 'flex';
+    }
+
+    // Modal kapatma işlemleri
+    document.querySelector('.close-button').addEventListener('click', function() {
+        document.getElementById('museumModal').style.display = 'none';
+    });
+
+    window.addEventListener('click', function(event) {
+        const modal = document.getElementById('museumModal');
+        if (event.target === modal) {
+            modal.style.display = 'none';
+        }
+    });
+    </script>
+</body>
+</html>

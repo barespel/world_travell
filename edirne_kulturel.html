@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edirne Kültürel Yerler - Fıratçı Travel</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="edirne_kulturel.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <div class="background">
+        <header class="header"> 
+            <a href="index.html" class="logo-link">
+            <span class="logo">Kültür Türkiye</span>
+            </a>
+            <div class="header-right">
+              <nav class="nav">
+                <a href="yemek-kulturu.html">Yemek Kültürü</a>
+                <a href="kulturel-yerler.html">Kültürel Yerler</a>
+                <a href="#">Etkinlikler</a>
+                <a href="#">Turistik Yerler</a>
+        </nav>
+              <div class="search">
+                <input type="text" id="citySearch" placeholder="Şehir ara...">
+                <button id="searchButton">
+                  <img src="images/search.png" alt="Ara" class="search-icon">
+                </button>
+                <div id="searchResults" class="search-results"></div>
+              </div>
+            </div>
+    </header>
+
+    <div class="edirne-container">
+        <div class="edirne-header">
+            <h1>Edirne Kültürel Yerler</h1>
+            <p class="subtitle">Osmanlı'nın İkinci Başkentinin Kültürel Mirası</p>
+        </div>
+
+        <div class="cultural-categories">
+            <!-- Müzeler -->
+            <div class="category-section">
+                <h2><i class="fas fa-landmark"></i> Müzeler</h2>
+                <div class="places-grid">
+                    <div class="place-card">
+                        <img src="images/edirne_kulturel/edirnemuzesi.jpg" alt="Edirne Müzesi">
+                        <div class="info">
+                            <h3>Edirne Müzesi</h3>
+                            <p>Bölgenin arkeolojik ve etnografik eserlerini sergileyen müze.</p>
+                            <button onclick="showDetails('museum', 'edirne')">Detay</button>
+                        </div>
+                    </div>
+                    <div class="place-card">
+                        <img src="images/edirne_kulturel/edirnesaglilkmuzesi.jpg" alt="Sağlık Müzesi">
+                        <div class="info">
+                            <h3>Sağlık Müzesi</h3>
+                            <p>Osmanlı dönemi tıp tarihini yansıtan müze.</p>
+                            <button onclick="showDetails('museum', 'saglik')">Detay</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarihi Yapılar -->
+            <div class="category-section">
+                <h2><i class="fas fa-archway"></i> Tarihi Yapılar</h2>
+                <div class="places-grid">
+                    <div class="place-card">
+                        <img src="images/edirne_kulturel/edirneselimiyecamii.jpg" alt="Selimiye Camii">
+                        <div class="info">
+                            <h3>Selimiye Camii</h3>
+                            <p>UNESCO Dünya Mirası Listesi'nde yer alan Mimar Sinan'ın başyapıtı.</p>
+                            <button onclick="showDetails('historical', 'selimiye')">Detay</button>
+                        </div>
+                    </div>
+                    <div class="place-card">
+                        <img src="images/edirne_kulturel/edirneucserefelicamii.jpg" alt="Üç Şerefeli Cami">
+                        <div class="info">
+                            <h3>Üç Şerefeli Cami</h3>
+                            <p>Osmanlı döneminin önemli camilerinden biri.</p>
+                            <button onclick="showDetails('historical', 'ucserefeli')">Detay</button>
+                        </div>
+                    </div>
+                    <div class="place-card">
+                        <img src="images/edirne_kulturel/edirnesarayi.jpg" alt="Edirne Sarayı">
+                        <div class="info">
+                            <h3>Edirne Sarayı</h3>
+                            <p>Osmanlı döneminden kalma tarihi saray.</p>
+                            <button onclick="showDetails('historical', 'saray')">Detay</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarihi Camiler -->
+            <div class="category-section">
+                <h2><i class="fas fa-mosque"></i> Tarihi Camiler</h2>
+                <div class="places-grid">
+                    <div class="place-card">
+                        <img src="images/edirne_kulturel/edirneulucamii.jpg" alt="Ulu Cami">
+                        <div class="info">
+                            <h3>Ulu Cami</h3>
+                            <p>Osmanlı döneminden kalma şehrin en eski camisi.</p>
+                            <button onclick="showDetails('mosque', 'ulu')">Detay</button>
+                        </div>
+                    </div>
+                    <div class="place-card">
+                        <img src="images/edirne_kulturel/muradiyecamii.jpg" alt="Muradiye Cami">
+                        <div class="info">
+                            <h3>Muradiye Cami</h3>
+                            <p>Osmanlı döneminden kalma tarihi cami.</p>
+                            <button onclick="showDetails('mosque', 'muradiye')">Detay</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="edirne_kulturel.js"></script>
+</body>
+</html> 
+ 

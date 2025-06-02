@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adıyaman Kültürel Yerler - Fıratçı Travel</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="adiyaman_kulturel.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <div class="background">
+        <header class="header"> 
+            <a href="index.html" class="logo-link">
+            <span class="logo">Kültür Türkiye</span>
+            </a>
+            <div class="header-right">
+              <nav class="nav">
+                <a href="yemek-kulturu.html">Yemek Kültürü</a>
+                <a href="kulturel-yerler.html">Kültürel Yerler</a>
+                <a href="#">Etkinlikler</a>
+                <a href="#">Turistik Yerler</a>
+        </nav>
+              <div class="search">
+                <input type="text" id="citySearch" placeholder="Şehir ara...">
+                <button id="searchButton">
+                  <img src="images/search.png" alt="Ara" class="search-icon">
+                </button>
+                <div id="searchResults" class="search-results"></div>
+              </div>
+            </div>
+    </header>
+
+    <div class="adiyaman-container">
+        <div class="adiyaman-header">
+            <h1>Adıyaman Kültürel Yerler</h1>
+            <p class="subtitle">Tarihin Derinliklerinden Gelen Medeniyet</p>
+        </div>
+
+        <div class="cultural-categories">
+            <!-- Müzeler -->
+            <div class="category-section">
+                <h2><i class="fas fa-landmark"></i> Müzeler</h2>
+                <div class="places-grid">
+                    <div class="place-card">
+                        <img src="images/adiyaman_kulturel/adiyamanmuzesi.jpg" alt="Adıyaman Müzesi">
+                        <div class="info">
+                            <h3>Adıyaman Müzesi</h3>
+                            <p>Bölgenin zengin tarihini yansıtan, önemli arkeolojik eserlerin sergilendiği müze.</p>
+                            <button onclick="showDetails('museum', 'adiyaman')">Detay</button>
+                        </div>
+                    </div>
+                    <div class="place-card">
+                        <img src="images/adiyaman_kulturel/kommagenemuzesi.jpg" alt="Kommagene Müzesi">
+                        <div class="info">
+                            <h3>Kommagene Müzesi</h3>
+                            <p>Nemrut Dağı'ndan çıkarılan eserlerin sergilendiği özel müze.</p>
+                            <button onclick="showDetails('museum', 'kommagene')">Detay</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarihi Yapılar -->
+            <div class="category-section">
+                <h2><i class="fas fa-archway"></i> Tarihi Yapılar</h2>
+                <div class="places-grid">
+                    <div class="place-card">
+                        <img src="images/adiyaman_kulturel/nemrutdagi.jpg" alt="Nemrut Dağı">
+                        <div class="info">
+                            <h3>Nemrut Dağı</h3>
+                            <p>UNESCO Dünya Mirası Listesi'nde yer alan, devasa heykelleriyle ünlü antik kral mezarı.</p>
+                            <button onclick="showDetails('historical', 'nemrut')">Detay</button>
+                        </div>
+                    </div>
+                    <div class="place-card">
+                        <img src="images/adiyaman_kulturel/cenderedagi.jpg" alt="Cendere Köprüsü">
+                        <div class="info">
+                            <h3>Cendere Köprüsü</h3>
+                            <p>Roma döneminden kalma, dünyanın en eski köprülerinden biri.</p>
+                            <button onclick="showDetails('historical', 'cendere')">Detay</button>
+                        </div>
+                    </div>
+                    <div class="place-card">
+                        <img src="images/adiyaman_kulturel/arsemia.jpg" alt="Arsemia">
+                        <div class="info">
+                            <h3>Arsemia</h3>
+                            <p>Kommagene Krallığı'nın yazlık başkenti, antik kent kalıntıları.</p>
+                            <button onclick="showDetails('historical', 'arsemia')">Detay</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarihi Camiler -->
+            <div class="category-section">
+                <h2><i class="fas fa-mosque"></i> Tarihi Camiler</h2>
+                <div class="places-grid">
+                    <div class="place-card">
+                        <img src="images/adiyaman_kulturel/adiyamanulucami.jpg" alt="Ulu Cami">
+                        <div class="info">
+                            <h3>Ulu Cami</h3>
+                            <p>Dulkadiroğulları döneminden kalma, şehrin en eski camisi.</p>
+                            <button onclick="showDetails('mosque', 'ulu')">Detay</button>
+                        </div>
+                    </div>
+                    <div class="place-card">
+                        <img src="images/adiyaman_kulturel/kapcamii.jpg" alt="Kap Camii">
+                        <div class="info">
+                            <h3>Kap Camii</h3>
+                            <p>Selçuklu döneminden kalma, tarihi cami.</p>
+                            <button onclick="showDetails('mosque', 'kap')">Detay</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="adiyaman_kulturel.js"></script>
+</body>
+</html> 
+ 
+ 
