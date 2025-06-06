@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gümüşhane Kültürel Yerler</title>
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="../css/kultur.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <header class="header"> 
+        <a href="../../index.html" class="logo-link">
+        <span class="logo">Kültür Türkiye</span>
+        </a>
+        <div class="header-right">
+          <nav class="nav">
+            <a href="../../yemek/yemek-kulturu.html">Yemek Kültürü</a>
+            <a href="../html/kultur.html">Kültürel Yerler</a>
+            
+    </nav>
+          <div class="search">
+            <input type="text" id="citySearch" placeholder="Şehir ara...">
+            <button id="searchButton">
+              <img src="../../images/search.png" alt="Ara" class="search-icon">
+            </button>
+            <div id="searchResults" class="search-results"></div>
+          </div>
+        </div>
+</header>
+    <div class="adiyaman-container">
+        <div class="adiyaman-header">
+            <h1>Gümüşhane Kültürel Yerler</h1>
+            <p class="subtitle">Gümüş Şehir</p>
+        </div>
+
+        <div class="cultural-categories">
+            <!-- Müzeler -->
+            <div class="category-section">
+                <h2><i class="fas fa-landmark"></i> Müzeler</h2>
+                <div class="places-grid">
+                    <div class="place-card">
+                        <img src="../../images/gumushane_kulturel/gumushanemuzesi.jpg" alt="Gümüşhane Müzesi">
+                        <div class="info">
+                            <h3>Gümüşhane Müzesi</h3>
+                            <p>Gümüşhane'nin tarihi ve kültürel mirasını yansıtan müze.</p>
+                            <button onclick="showDetails('museum', 'gumushane')">Detay</button>
+                        </div>
+                    </div>
+                    <div class="place-card">
+                        <img src="../../images/gumushane_kulturel/gumushaneetnografya.jpg" alt="Etnografya Müzesi">
+                        <div class="info">
+                            <h3>Etnografya Müzesi</h3>
+                            <p>Gümüşhane'nin geleneksel kültürünü yansıtan etnografik eserler.</p>
+                            <button onclick="showDetails('museum', 'etnografya10')">Detay</button>
+                        </div>
+                    </div>
+                    <div class="place-card">
+                        <img src="../../images/gumushane_kulturel/madenmuzesi.jpg" alt="Maden Müzesi">
+                        <div class="info">
+                            <h3>Maden Müzesi</h3>
+                            <p>Gümüşhane'nin maden tarihini yansıtan müze.</p>
+                            <button onclick="showDetails('museum', 'maden')">Detay</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarihi Yapılar -->
+            <div class="category-section">
+                <h2><i class="fas fa-archway"></i> Tarihi Yapılar</h2>
+                <div class="places-grid">
+                    <div class="place-card">
+                        <img src="../../images/gumushane_kulturel/santaharabeleri.jpg" alt="Santa Harabeleri">
+                        <div class="info">
+                            <h3>Santa Harabeleri</h3>
+                            <p>Antik dönemden kalma tarihi yerleşim yeri.</p>
+                            <button onclick="showDetails('historical', 'santa')">Detay</button>
+                        </div>
+                    </div>
+                    <div class="place-card">
+                        <img src="../../images/gumushane_kulturel/kromvadisi.jpg" alt="Krom Madeni">
+                        <div class="info">
+                            <h3>Krom Madeni</h3>
+                            <p>Tarihi maden işletmesi ve tesisleri.</p>
+                            <button onclick="showDetails('historical', 'krom')">Detay</button>
+                        </div>
+                    </div>
+                    <div class="place-card">
+                        <img src="../../images/gumushane_kulturel/kilise.jpg" alt="Kilise">
+                        <div class="info">
+                            <h3>Kilise</h3>
+                            <p>19. yüzyıldan kalma tarihi kilise.</p>
+                            <button onclick="showDetails('historical', 'kilise')">Detay</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+           
+    <script src="../../script.js"></script>
+    <script src="../javascript/kultur.js"></script>
+</body>
+</html> 

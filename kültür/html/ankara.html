@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ankara Kültürel Yerler - Fıratçı Travel</title>
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="../css/kultur.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <div class="background">
+        <header class="header"> 
+            <a href="../../index.html" class="logo-link">
+            <span class="logo">Kültür Türkiye</span>
+            </a>    
+            <div class="header-right">
+              <nav class="nav">
+                <a href="../../yemek/yemek-kulturu.html">Yemek Kültürü</a>
+                <a href="../html/kultur.html">Kültürel Yerler</a>
+        </nav>
+              <div class="search">
+                <input type="text" id="citySearch" placeholder="Şehir ara...">
+                <button id="searchButton">
+                  <img src="../../images/search.png" alt="Ara" class="search-icon">
+                </button>
+                <div id="searchResults" class="search-results"></div>
+              </div>
+            </div>
+    </header>
+
+    <div class="adiyaman-container">
+        <div class="adiyaman-header">
+            <h1>Ankara Kültürel Yerler</h1>
+            <p class="subtitle">Başkentin kültürel mirası</p>
+        </div>
+
+        <div class="cultural-categories">
+            <!-- Müzeler -->
+            <div class="category-section">
+                <h2><i class="fas fa-landmark"></i> Müzeler</h2>
+                <div class="places-grid">
+                    <div class="place-card">
+                        <img src="../../images/ankara_kulturel/anitkabir.jpg" alt="Anıtkabir">
+                        <div class="info">
+                            <h3>Anıtkabir</h3>
+                            <p>Türkiye Cumhuriyeti'nin kurucusu Mustafa Kemal Atatürk'ün anıt mezarı.</p>
+                            <button onclick="showDetails('museum', 'anitkabir')">Detay</button>
+                        </div>
+                    </div>
+                    <div class="place-card">
+                        <img src="../../images/ankara_kulturel/etnografyamuzesi.jpg" alt="Etnografya Müzesi">
+                        <div class="info">
+                            <h3>Etnografya Müzesi</h3>
+                            <p>Türk kültürünün zengin mirasını yansıtan önemli bir müze.</p>
+                            <button onclick="showDetails('museum', 'etnografya')">Detay</button>
+                        </div>
+                    </div>
+                    <div class="place-card">
+                        <img src="../../images/ankara_kulturel/cumhuriyetegitimmuzesi.jpg" alt="Cumhuriyet Eğitim Müzesi">
+                        <div class="info">
+                            <h3>Cumhuriyet Eğitim Müzesi</h3>
+                            <p>Eğitim tarihimizin önemli belgelerini barındıran müze.</p>
+                            <button onclick="showDetails('museum', 'cer')">Detay</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarihi Yapılar -->
+            <div class="category-section">
+                <h2><i class="fas fa-archway"></i> Tarihi Yapılar</h2>
+                <div class="places-grid">
+                    <div class="place-card">
+                        <img src="../../images/ankara_kulturel/ankarakalesi.jpg" alt="Ankara Kalesi">
+                        <div class="info">
+                            <h3>Ankara Kalesi</h3>
+                            <p>Roma döneminden kalma tarihi kale.</p>
+                            <button onclick="showDetails('ancient', 'kale')">Detay</button>
+                        </div>
+                    </div>
+                    <div class="place-card">
+                        <img src="../../images/ankara_kulturel/ankaraoperabinasi.jpg" alt="Augustus Tapınağı">
+                        <div class="info">
+                            <h3>Augustus Tapınağı</h3>
+                            <p>Roma İmparatoru Augustus için yapılmış antik tapınak.</p>
+                            <button onclick="showDetails('ancient', 'augustus')">Detay</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+             <!-- Kültür Merkezleri -->
+             <div class="category-section">
+                <h2><i class="fas fa-theater-masks"></i> Kültür Merkezleri</h2>
+                <div class="places-grid">
+                    <div class="place-card">
+                        <img src="../../images/ankara_kulturel/cermodern.jpg" alt="CerModern">
+                        <div class="info">
+                            <h3>CerModern</h3>
+                            <p>Modern sanat ve kültür merkezi.</p>
+                            <button onclick="showDetails('cultural', 'cermodern')">Detay</button>
+                        </div>
+                    </div>
+                    <div class="place-card">
+                        <img src="../../images/ankara_kulturel/ankaraoperabinasi.jpg" alt="Ankara Opera Binası">
+                        <div class="info">
+                            <h3>Ankara Opera Binası</h3>
+                            <p>Başkentin önemli sanat merkezi.</p>
+                            <button onclick="showDetails('cultural', 'opera')">Detay</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <script src="../javascript/kultur.js"></script>
+    <script src="../../script.js"></script>
+</body>
+</html> 
+ 
+ 

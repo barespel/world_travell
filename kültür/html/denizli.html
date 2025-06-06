@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Denizli Kültürel Yerler - Fıratçı Travel</title>
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="../css/kultur.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <div class="background">
+        <header class="header"> 
+            <a href="../../index.html" class="logo-link">
+            <span class="logo">Kültür Türkiye</span>
+            </a>
+            <div class="header-right">
+              <nav class="nav">
+                <a href="../../yemek/yemek-kulturu.html">Yemek Kültürü</a>
+                <a href="../html/kultur.html">Kültürel Yerler</a>
+                
+        </nav>
+              <div class="search">
+                <input type="text" id="citySearch" placeholder="Şehir ara...">
+                <button id="searchButton">
+                  <img src="../../images/search.png" alt="Ara" class="search-icon">
+                </button>
+                <div id="searchResults" class="search-results"></div>
+              </div>
+            </div>
+    </header>
+
+    <div class="adiyaman-container">
+        <div class="adiyaman-header">
+            <h1>Denizli Kültürel Yerler</h1>
+            <p class="subtitle">Antik Kentlerin ve Doğal Güzelliklerin Buluştuğu Şehrin Kültürel Mirası</p>
+        </div>
+
+        <div class="cultural-categories">
+            <!-- Müzeler -->
+            <div class="category-section">
+                <h2><i class="fas fa-landmark"></i> Müzeler</h2>
+                <div class="places-grid">
+                    <div class="place-card">
+                        <img src="../../images/denizli_kulturel/denizlimuzesi.jpg" alt="Denizli Müzesi">
+                        <div class="info">
+                            <h3>Denizli Müzesi</h3>
+                            <p>Bölgenin arkeolojik ve etnografik eserlerini sergileyen müze.</p>
+                            <button onclick="showDetails('museum', 'denizli')">Detay</button>
+                        </div>
+                    </div>
+                    <div class="place-card">
+                        <img src="../../images/denizli_kulturel/denizlihierapolisarkeolojimuzesi.jpg" alt="Hierapolis Müzesi">
+                        <div class="info">
+                            <h3>Hierapolis Müzesi</h3>
+                            <p>Antik kentten çıkarılan eserlerin sergilendiği müze.</p>
+                            <button onclick="showDetails('museum', 'hierapolis')">Detay</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarihi Yapılar -->
+            <div class="category-section">
+                <h2><i class="fas fa-archway"></i> Tarihi Yapılar</h2>
+                <div class="places-grid">
+                    <div class="place-card">
+                        <img src="../../images/denizli_kulturel/hierapolisantikkenti.jpg" alt="Hierapolis Antik Kenti">
+                        <div class="info">
+                            <h3>Hierapolis Antik Kenti</h3>
+                            <p>UNESCO Dünya Mirası Listesi'nde yer alan antik kent.</p>
+                            <button onclick="showDetails('historical', 'hierapolis')">Detay</button>
+                        </div>
+                    </div>
+                    <div class="place-card">
+                        <img src="../../images/denizli_kulturel/laodikeiantikkenti.jpg" alt="Laodikeia Antik Kenti">
+                        <div class="info">
+                            <h3>Laodikeia Antik Kenti</h3>
+                            <p>Helenistik dönemden kalma önemli bir antik kent.</p>
+                            <button onclick="showDetails('historical', 'laodikeia')">Detay</button>
+                        </div>
+                    </div>
+                    <div class="place-card">
+                        <img src="../../images/denizli_kulturel/denizlipamukkale.jpg" alt="Pamukkale">
+                        <div class="info">
+                            <h3>Pamukkale</h3>
+                            <p>UNESCO Dünya Mirası Listesi'nde yer alan doğal güzellik.</p>
+                            <button onclick="showDetails('historical', 'pamukkale')">Detay</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarihi Camiler -->
+            <div class="category-section">
+                <h2><i class="fas fa-mosque"></i> Tarihi Camiler</h2>
+                <div class="places-grid">
+                    <div class="place-card">
+                        <img src="../../images/denizli_kulturel/denizliulucamii.jpg" alt="Ulu Cami">
+                        <div class="info">
+                            <h3>Ulu Cami</h3>
+                            <p>Selçuklu döneminden kalma şehrin en eski camisi.</p>
+                            <button onclick="showDetails('mosque', 'ulu7')">Detay</button>
+                        </div>
+                    </div>
+                    <div class="place-card">
+                        <img src="../../images/denizli_kulturel/denizliakhancami.jpg" alt="Akhan Cami">
+                        <div class="info">
+                            <h3>Akhan Cami</h3>
+                            <p>Osmanlı döneminden kalma tarihi cami.</p>
+                            <button onclick="showDetails('mosque', 'akhan')">Detay</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../javascript/kultur.js"></script>
+    <script src="../../script.js"></script>
+</body>
+</html> 
+ 

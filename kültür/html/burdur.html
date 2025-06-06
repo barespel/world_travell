@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Burdur Kültürel Yerler - Fıratçı Travel</title>
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="../css/kultur.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <div class="background">
+        <header class="header"> 
+            <a href="../../index.html" class="logo-link">
+            <span class="logo">Kültür Türkiye</span>
+            </a>
+            <div class="header-right">
+              <nav class="nav">
+                <a href="../../yemek/yemek-kulturu.html">Yemek Kültürü</a>
+                <a href="../html/kultur.html">Kültürel Yerler</a>
+                <a href="#">Etkinlikler</a>
+                <a href="#">Turistik Yerler</a>
+        </nav>
+              <div class="search">
+                <input type="text" id="citySearch" placeholder="Şehir ara...">
+                <button id="searchButton">
+                  <img src="../../images/search.png" alt="Ara" class="search-icon">
+                </button>
+                <div id="searchResults" class="search-results"></div>
+              </div>
+            </div>
+    </header>
+
+    <div class="adiyaman-container">
+        <div class="adiyaman-header">
+            <h1>Burdur Kültürel Yerler</h1>
+            <p class="subtitle">Göller Yöresi'nin Kültürel Mirası</p>
+        </div>
+
+        <div class="cultural-categories">
+            <!-- Müzeler -->
+            <div class="category-section">
+                <h2><i class="fas fa-landmark"></i> Müzeler</h2>
+                <div class="places-grid">
+                    <div class="place-card">
+                        <img src="../../images/burdur_kulturel/burdurmuzesi.jpg" alt="Burdur Müzesi">
+                        <div class="info">
+                            <h3>Burdur Müzesi</h3>
+                            <p>Bölgenin zengin arkeolojik ve etnografik eserlerini sergileyen müze.</p>
+                            <button onclick="showDetails('museum', 'burdur')">Detay</button>
+                        </div>
+                    </div>
+                    <div class="place-card">
+                        <img src="../../images/burdur_kulturel/sagalassos.jpg" alt="Sagalassos Antik Kenti">
+                        <div class="info">
+                            <h3>Sagalassos Antik Kenti</h3>
+                            <p>Roma döneminden kalma önemli bir antik kent ve açık hava müzesi.</p>
+                            <button onclick="showDetails('museum', 'sagalassos')">Detay</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarihi Yapılar -->
+            <div class="category-section">
+                <h2><i class="fas fa-archway"></i> Tarihi Yapılar</h2>
+                <div class="places-grid">
+                    <div class="place-card">
+                        <img src="../../images/burdur_kulturel/insuyumagarasi.jpg" alt="İnsuyu Mağarası">
+                        <div class="info">
+                            <h3>İnsuyu Mağarası</h3>
+                            <p>Doğal oluşumlu, sarkıt ve dikitleriyle ünlü mağara.</p>
+                            <button onclick="showDetails('historical', 'insuyu')">Detay</button>
+                        </div>
+                    </div>
+                    <div class="place-card">
+                        <img src="../../images/burdur_kulturel/saldagolu.jpg" alt="Salda Gölü">
+                        <div class="info">
+                            <h3>Salda Gölü</h3>
+                            <p>Turkuaz rengi suları ve beyaz kumsallarıyla ünlü doğal göl.</p>
+                            <button onclick="showDetails('historical', 'salda')">Detay</button>
+                        </div>
+                    </div>
+                    <div class="place-card">
+                        <img src="../../images/burdur_kulturel/cremnaantikkenti.jpg" alt="Cremna Antik Kenti">
+                        <div class="info">
+                            <h3>Cremna Antik Kenti</h3>
+                            <p>Roma döneminden kalma önemli bir antik kent.</p>
+                            <button onclick="showDetails('historical', 'cremna')">Detay</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarihi Camiler -->
+            <div class="category-section">
+                <h2><i class="fas fa-mosque"></i> Tarihi Camiler</h2>
+                <div class="places-grid">
+                    <div class="place-card">
+                        <img src="../../images/burdur_kulturel/burdurulucami.jpg" alt="Ulu Cami">
+                        <div class="info">
+                            <h3>Ulu Cami</h3>
+                            <p>Selçuklu döneminden kalma, şehrin en eski camisi.</p>
+                            <button onclick="showDetails('mosque', 'ulu3')">Detay</button>
+                        </div>
+                    </div>
+                    <div class="place-card">
+                        <img src="../../images/burdur_kulturel/tasoda.jpg" alt="Taş Oda">
+                        <div class="info">
+                            <h3>Taş Oda</h3>
+                            <p>Osmanlı döneminden kalma tarihi yapı.</p>
+                            <button onclick="showDetails('mosque', 'tasoda')">Detay</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../javascript/kultur.js"></script>
+    <script src="../../script.js"></script>
+</body>
+</html> 
+ 
+ 

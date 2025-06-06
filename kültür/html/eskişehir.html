@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eskişehir Kültürel Yerler - Fıratçı Travel</title>
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="../css/kultur.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <div class="background">
+        <header class="header"> 
+            <a href="../../index.html" class="logo-link">
+                <span class="logo">Kültür Türkiye</span>
+            </a>
+            <div class="header-right">
+                <nav class="nav">
+                    <a href="../../yemek/yemek-kulturu.html">Yemek Kültürü</a>
+                    <a href="../html/kultur.html">Kültürel Yerler</a>
+            
+                </nav>
+                <div class="search">
+                    <input type="text" id="citySearch" placeholder="Şehir ara...">
+                    <button id="searchButton">
+                        <img src="../../images/search.png" alt="Ara" class="search-icon">
+                    </button>
+                    <div id="searchResults" class="search-results"></div>
+                </div>
+            </div>
+        </header>
+
+        <div class="adiyaman-container">
+            <div class="adiyaman-header">
+                <h1>Eskişehir Kültürel Yerler</h1>
+                <p class="subtitle">Modern ve Tarihi Dokunun Buluştuğu Şehrin Kültürel Mirası</p>
+            </div>
+
+            <div class="cultural-categories">
+                <!-- Müzeler -->
+                <div class="category-section">
+                    <h2><i class="fas fa-landmark"></i> Müzeler</h2>
+                    <div class="places-grid">
+                        <div class="place-card">
+                            <img src="../../images/eskisehir_kulturel/odunpazarimodern.jpg" alt="Odunpazarı Modern Müze">
+                            <div class="info">
+                                <h3>Odunpazarı Modern Müze</h3>
+                                <p>Modern sanat eserlerinin sergilendiği, mimari tasarımıyla dikkat çeken müze.</p>
+                                <button onclick="showDetails('museum','odunpazari-muzesi')">Detay</button>
+                            </div>
+                        </div>
+                        <div class="place-card">
+                            <img src="../../images/eskisehir_kulturel/balmumumuzesi.jpg" alt="Balmumu Müzesi">
+                            <div class="info">
+                                <h3>Balmumu Müzesi</h3>
+                                <p>Türk ve dünya tarihinden önemli kişilerin balmumu heykellerinin sergilendiği müze.</p>
+                                <button onclick="showDetails('museum','balmumu-muzesi')">Detay</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tarihi Yapılar -->
+                <div class="category-section">
+                    <h2><i class="fas fa-archway"></i> Tarihi Yapılar</h2>
+                    <div class="places-grid">
+                        <div class="place-card">
+                            <img src="../../images/eskisehir_kulturel/eskisehirulucami.jpg" alt="Kurşunlu Camii">
+                            <div class="info">
+                                <h3>Kurşunlu Camii</h3>
+                                <p>Osmanlı döneminden kalma, mimari özellikleriyle dikkat çeken tarihi cami.</p>
+                                <button onclick="showDetails('historical','kursunlu-cami')">Detay</button>
+                            </div>
+                        </div>
+                        <div class="place-card">
+                            <img src="../../images/eskisehir_kulturel/odunpazarievleri.jpg" alt="Odunpazarı Evleri">
+                            <div class="info">
+                                <h3>Odunpazarı Evleri</h3>
+                                <p>Geleneksel Osmanlı mimarisini yansıtan, tarihi evlerin bulunduğu bölge.</p>
+                                <button onclick="showDetails('historical','odunpazari-evleri')">Detay</button>
+                            </div>
+                        </div>
+                        <div class="place-card">
+                            <img src="../../images/eskisehir_kulturel/battalgazikulliyesi.jpg" alt="Seyitgazi Külliyesi">
+                            <div class="info">
+                                <h3>Seyitgazi Külliyesi</h3>
+                                <p>Selçuklu döneminden kalma, tarihi ve dini öneme sahip külliyelerden biri.</p>
+                                <button onclick="showDetails('historical','seyitgazi-kulliyesi')">Detay</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tarihi Camiler -->
+                <div class="category-section">
+                    <h2><i class="fas fa-mosque"></i> Tarihi Camiler</h2>
+                    <div class="places-grid">
+                        <div class="place-card">
+                            <img src="../../images/eskisehir_kulturel/eskisehirulucami.jpg" alt="Ulu Cami">
+                            <div class="info">
+                                <h3>Ulu Cami</h3>
+                                <p>Şehrin en eski camilerinden biri olan, tarihi dokusuyla dikkat çeken cami.</p>
+                                <button onclick="showDetails('mosque','ulu-cami10')">Detay</button>
+                            </div>
+                        </div>
+                        <div class="place-card">
+                            <img src="../../images/eskisehir_kulturel/akcamii.jpg" alt="Ak Cami">
+                            <div class="info">
+                                <h3>Ak Cami</h3>
+                                <p>Osmanlı döneminden kalma, beyaz taşlarıyla dikkat çeken tarihi cami.</p>
+                                <button onclick="showDetails('mosque','ak-cami')">Detay</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../javascript/kultur.js"></script>
+    <script src="../../script.js"></script>
+</body>
+</html> 
+ 

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İzmir Kültürel Yerler</title>
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="../css/kultur.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <div class="background">
+    <header class="header"> 
+        <a href="../../index.html" class="logo-link">
+        <span class="logo">Kültür Türkiye</span>
+        </a>    
+        <div class="header-right">
+          <nav class="nav">
+            <a href="../../yemek/yemek-kulturu.html">Yemek Kültürü</a>
+            <a href="../html/kultur.html">Kültürel Yerler</a>
+    </nav>
+          <div class="search">
+            <input type="text" id="citySearch" placeholder="Şehir ara...">
+            <button id="searchButton">
+              <img src="../../images/search.png" alt="Ara" class="search-icon">
+            </button>
+            <div id="searchResults" class="search-results"></div>
+          </div>
+        </div>
+</header>
+    <div class="adiyaman-container">
+        <div class="adiyaman-header">
+            <h1>İzmir Kültürel Yerler</h1>
+            <p class="subtitle">Ege'nin İncisi</p>
+        </div>
+
+        <div class="cultural-categories">
+            <!-- Müzeler -->
+            <div class="category-section">
+                <h2><i class="fas fa-landmark"></i> Müzeler</h2>
+                <div class="places-grid">
+                    <div class="place-card">
+                        <img src="../../images/izmir_kulturel/izmirarkeolojimuzesi.jpg" alt="İzmir Arkeoloji Müzesi">
+                        <div class="info">
+                            <h3>İzmir Arkeoloji Müzesi</h3>
+                            <p>Ege bölgesinin zengin arkeolojik eserlerini sergileyen müze.</p>
+                            <button onclick="showDetails('museum', 'arkeoloji')">Detay</button>
+                        </div>
+                    </div>
+                    <div class="place-card">
+                        <img src="../../images/izmir_kulturel/ataturkmuzesi.jpg" alt="Atatürk Müzesi">
+                        <div class="info">
+                            <h3>Atatürk Müzesi</h3>
+                            <p>Mustafa Kemal Atatürk'ün İzmir'de kaldığı tarihi ev.</p>
+                            <button onclick="showDetails('museum', 'ataturk')">Detay</button>
+                        </div>
+                    </div>
+                    <div class="place-card">
+                        <img src="../../images/izmir_kulturel/izmiretnografyamuzesi.jpg" alt="Etnografya Müzesi">
+                        <div class="info">
+                            <h3>Etnografya Müzesi</h3>
+                            <p>İzmir'in kültürel mirasını yansıtan etnografik eserler.</p>
+                            <button onclick="showDetails('museum', 'etnografya')">Detay</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarihi Yapılar -->
+            <div class="category-section">
+                <h2><i class="fas fa-archway"></i> Tarihi Yapılar</h2>
+                <div class="places-grid">
+                    <div class="place-card">
+                        <img src="../../images/izmir_kulturel/efesantikkenti.jpg" alt="Efes Antik Kenti">
+                        <div class="info">
+                            <h3>Efes Antik Kenti</h3>
+                            <p>UNESCO Dünya Mirası Listesi'nde yer alan antik kent.</p>
+                            <button onclick="showDetails('ancient', 'efes')">Detay</button>
+                        </div>
+                    </div>
+                    <div class="place-card">
+                        <img src="../../images/izmir_kulturel/IzmirAgora.jpg" alt="İzmir Agorası">
+                        <div class="info">
+                            <h3>İzmir Agorası</h3>
+                            <p>Roma döneminden kalma antik pazar yeri.</p>
+                            <button onclick="showDetails('ancient', 'agora')">Detay</button>
+                        </div>
+                    </div>
+                    <div class="place-card">
+                        <img src="../../images/izmir_kulturel/kadifekale.jpg" alt="Kadifekale">
+                        <div class="info">
+                            <h3>Kadifekale</h3>
+                            <p>Helenistik dönemden kalma tarihi kale.</p>
+                            <button onclick="showDetails('ancient', 'kadifekale')">Detay</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarihi Camiler -->
+            <div class="category-section">
+                <h2><i class="fas fa-mosque"></i> Tarihi Camiler</h2>
+                <div class="places-grid">
+                    <div class="place-card">
+                        <img src="../../images/izmir_kulturel/hisarcami.jpg" alt="Hisar Camii">
+                        <div class="info">
+                            <h3>Hisar Camii</h3>
+                            <p>İzmir'in en büyük ve en eski camisi.</p>
+                            <button onclick="showDetails('mosque', 'hisar')">Detay</button>
+                        </div>
+                    </div>
+                    <div class="place-card">
+                        <img src="../../images/izmir_kulturel/salepcioglucamii.jpg" alt="Salepçioğlu Camii">
+                        <div class="info">
+                            <h3>Salepçioğlu Camii</h3>
+                            <p>Osmanlı döneminden kalma tarihi cami.</p>
+                            <button onclick="showDetails('mosque', 'salepcioglu')">Detay</button>
+                        </div>
+                    </div>
+                    <div class="place-card">
+                        <img src="../../images/izmir_kulturel/konakcamii.jpeg" alt="Konak Camii">
+                        <div class="info">
+                            <h3>Konak Camii</h3>
+                            <p>İzmir'in simgelerinden, 18. yüzyıldan kalma cami.</p>
+                            <button onclick="showDetails('mosque', 'konak')">Detay</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+            
+
+    <script src="../../script.js"></script>
+    <script src="../javascript/kultur.js"></script>
+</body>
+</html> 

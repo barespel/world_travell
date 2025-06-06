@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trabzon Kültürel Yerler - Fıratçı Travel</title>
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="../css/kultur.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <div class="background">
+        <header class="header"> 
+            <a href="../../index.html" class="logo-link">
+            <span class="logo">Kültür Türkiye</span>
+            </a>
+            <div class="header-right">
+              <nav class="nav">
+                <a href="../../yemek/yemek-kulturu.html">Yemek Kültürü</a>
+                <a href="../html/kultur.html">Kültürel Yerler</a>
+             
+        </nav>
+              <div class="search">
+                <input type="text" id="citySearch" placeholder="Şehir ara...">
+                <button id="searchButton">
+                  <img src="../../images/search.png" alt="Ara" class="search-icon">
+                </button>
+                <div id="searchResults" class="search-results"></div>
+              </div>
+            </div>
+    </header>
+
+    <div class="adiyaman-container">
+        <div class="adiyaman-header">
+            <h1>Trabzon Kültürel Yerler</h1>
+            <p class="subtitle">Doğu Karadeniz'in İncisi</p>
+        </div>
+
+        <div class="cultural-categories">
+            <!-- Tarihi Yapılar -->
+            <div class="category-section">
+                <h2><i class="fas fa-landmark"></i> Tarihi Yapılar</h2>
+                <div class="places-grid">
+                    <div class="place-card">
+                        <img src="../../images/trabzon_kulturel/trabzonayasofyamuzesi.jpg" alt="Ayasofya Müzesi">
+                        <div class="info">
+                            <h3>Ayasofya Müzesi</h3>
+                            <p>Bizans döneminden kalma, eşsiz freskleriyle ünlü tarihi yapı.</p>
+                            <button onclick="showDetails('historical', 'ayasofya')">Detay</button>
+                        </div>
+                    </div>
+                    <div class="place-card">
+                        <img src="../../images/trabzon_kulturel/ataturkkosku.jpg" alt="Atatürk Köşkü">
+                        <div class="info">
+                            <h3>Atatürk Köşkü</h3>
+                            <p>Atatürk'ün Trabzon ziyaretlerinde konakladığı tarihi köşk.</p>
+                            <button onclick="showDetails('historical', 'ataturk-kosku')">Detay</button>
+                        </div>
+                    </div>
+                    <div class="place-card">
+                        <img src="../../images/trabzon_kulturel/gulbaharhatuncami.jpg" alt="Gülbahar Hatun Camii">
+                        <div class="info">
+                            <h3>Gülbahar Hatun Camii</h3>
+                            <p>Yavuz Sultan Selim'in annesi Gülbahar Hatun adına yaptırılan cami.</p>
+                            <button onclick="showDetails('historical', 'gulbahar-hatun')">Detay</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Müzeler -->
+            <div class="category-section">
+                <h2><i class="fas fa-museum"></i> Müzeler</h2>
+                <div class="places-grid">
+                    <div class="place-card">
+                        <img src="../../images/trabzon_kulturel/trabzonmuzesi.jpg" alt="Trabzon Müzesi">
+                        <div class="info">
+                            <h3>Trabzon Müzesi</h3>
+                            <p>Kostaki Konağı'nda bulunan, şehrin tarihini yansıtan müze.</p>
+                            <button onclick="showDetails('museum', 'trabzon-muzesi')">Detay</button>
+                        </div>
+                    </div>
+                    <div class="place-card">
+                        <img src="../../images/trabzon_kulturel/trabzonayasofyamuzesi.jpg" alt="Ayasofya Müzesi">
+                        <div class="info">
+                            <h3>Ayasofya Müzesi</h3>
+                            <p>Bizans döneminden kalma freskleri ve mozaikleriyle ünlü müze.</p>
+                            <button onclick="showDetails('museum', 'ayasofya-muzesi')">Detay</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarihi Camiler -->
+            <div class="category-section">
+                <h2><i class="fas fa-mosque"></i> Tarihi Camiler</h2>
+                <div class="places-grid">
+                    <div class="place-card">
+                        <img src="../../images/trabzon_kulturel/ortahisarcamii.jpg" alt="Ortahisar Camii">
+                        <div class="info">
+                            <h3>Ortahisar Camii</h3>
+                            <p>Fatih Sultan Mehmet'in fethinden sonra camiye çevrilen tarihi yapı.</p>
+                            <button onclick="showDetails('mosque', 'ortahisar')">Detay</button>
+                        </div>
+                    </div>
+                    <div class="place-card">
+                        <img src="../../images/trabzon_kulturel/yenicumcamii.jpg" alt="Yeni Cuma Camii">
+                        <div class="info">
+                            <h3>Yeni Cuma Camii</h3>
+                            <p>Bizans döneminden kalma, Osmanlı döneminde camiye çevrilen yapı.</p>
+                            <button onclick="showDetails('mosque', 'yeni-cuma')">Detay</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="../../script.js"></script>
+    <script src="../javascript/kultur.js"></script>
+</body>
+</html> 

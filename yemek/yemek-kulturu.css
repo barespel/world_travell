@@ -1,0 +1,432 @@
+body {
+    background-color: var(--light-bg);
+    background-image: url('../images/turkiye.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow-y: auto; /* Sayfanın aşağı kaydırılabilir olmasını sağlar */
+}
+
+.header {
+    background: transparent !important; /* Navigasyon çubuğunun arkasındaki beyaz şeridi kaldırır */
+    box-shadow: none !important;
+}
+
+.map-container {
+    padding: 2rem;
+    text-align: center;
+    min-height: 100vh;
+}
+
+.map-container h1 {
+    color: white;
+    margin-bottom: 1rem;
+    margin-top: 4rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.map-container p {
+    color: white;
+    margin-bottom: 2rem;
+    margin-top: 0.5rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+.turkey-map {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    position: relative;
+}
+
+#turkey-svg {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.turkey-image {
+    width: 100%;
+    height: auto;
+    max-height: 600px;
+    object-fit: contain;
+}
+
+.region-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.region {
+    cursor: pointer;
+    opacity: 0.85;
+    transition: opacity 0.2s, filter 0.2s;
+}
+
+.region:hover {
+    opacity: 1;
+    filter: brightness(1.2);
+}
+
+.region-name {
+    position: absolute;
+    color: white;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    pointer-events: none;
+}
+
+/* Bölge konumları */
+.region.marmara {
+    top: 13%;
+    left: 10%;
+    width: 13%;
+    height: 13%;
+}
+
+.region.ege {
+    top: 40%;
+    left: 7%;
+    width: 13%;
+    height: 13%;
+}
+
+.region.akdeniz {
+    top: 70%;
+    left: 20%;
+    width: 18%;
+    height: 13%;
+}
+
+.region.ic-anadolu {
+    top: 45%;
+    left: 32%;
+    width: 18%;
+    height: 18%;
+}
+
+.region.karadeniz {
+    top: 8%;
+    left: 32%;
+    width: 28%;
+    height: 13%;
+}
+
+.region.dogu-anadolu {
+    top: 35%;
+    left: 65%;
+    width: 20%;
+    height: 20%;
+}
+
+.region.guneydogu-anadolu {
+    top: 70%;
+    left: 75%;
+    width: 13%;
+    height: 13%;
+}
+
+/* Bölge renkleri */
+.region.marmara { fill: #f3f4f6; }
+.region.ege { fill: #f3f4f6; }
+.region.akdeniz { fill: #f3f4f6; }
+.region.ic-anadolu { fill: #f3f4f6; }
+.region.karadeniz { fill: #f3f4f6; }
+.region.dogu-anadolu { fill: #f3f4f6; }
+.region.guneydogu-anadolu { fill: #f3f4f6; }
+
+/* Seçili bölge */
+.region.selected {
+    fill: var(--primary-color);
+    stroke: var(--secondary-color);
+}
+
+/* Tooltip */
+.region:hover::after {
+    content: attr(data-region);
+    position: absolute;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 14px;
+    pointer-events: none;
+}
+
+.city-list {
+    margin-top: 2rem;
+    background: white;
+    border-radius: 1rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    padding: 1.5rem 2rem;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    color: var(--text-color);
+    font-size: 1.1rem;
+    display: none;
+}
+
+.city-list.active {
+    display: block;
+}
+
+.city-list h2 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.city-list ul {
+    list-style: none;
+    padding: 0;
+}
+
+.city-list li {
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.city-tooltip {
+    display: none;
+    position: absolute;
+    background: white;
+    color: #222;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    padding: 1rem 1.5rem;
+    z-index: 10;
+    min-width: 180px;
+    font-size: 1rem;
+}
+
+.city-tooltip.active {
+    display: block;
+}
+
+.city-tooltip ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.city-tooltip li {
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+    color: var(--primary-color);
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.city-tooltip li:hover {
+    color: var(--secondary-color);
+    text-decoration: underline;
+}
+
+.navbar .search-bar {
+    display: flex;
+    gap: 0.5rem;
+    position: relative;
+    flex: 0 1 600px;
+    margin-top: 2.5rem;
+    margin-bottom: 1.5rem;
+    width: 100%;
+    background: transparent;
+    max-width: 600px;
+}
+
+.navbar .search-input {
+    padding: 0.5rem 1rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 2rem;
+    width: 100%;
+    font-size: 0.9rem;
+    background-color: transparent;
+    color: white;
+}
+
+.navbar .search-input::placeholder {
+    color: white;
+    opacity: 0.8;
+}
+
+.navbar .search-button {
+    display: none;
+    padding: 0.5rem 1.25rem;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.map-container .search-bar {
+    display: flex;
+    gap: 0.5rem;
+    position: relative;
+    flex: 0 1 600px;
+    margin: 2rem auto;
+    width: 100%;
+    background: transparent;
+    max-width: 600px;
+}
+
+.map-container .search-input {
+    padding: 0.75rem 1.5rem;
+    border: 2px solid white;
+    border-radius: 2rem;
+    width: 100%;
+    font-size: 1rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    backdrop-filter: blur(5px);
+}
+
+.map-container .search-input::placeholder {
+    color: white;
+    opacity: 0.8;
+}
+
+.map-container .search-button {
+    display: flex;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1rem;
+}
+
+.map-container .search-button:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .search-bar {
+        margin-top: 0.5rem;
+        margin-bottom: 1.5rem;
+        width: 100%;
+    }
+}
+
+.search-container {
+    position: relative;
+    width: 85%;
+    max-width: 600px;
+    margin: 2rem auto;
+}
+
+.search-input {
+    width: 100%;
+    padding: 0.75rem 1.5rem;
+    border: 2px solid white;
+    border-radius: 2rem;
+    font-size: 1rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    backdrop-filter: blur(5px);
+}
+
+.search-input::placeholder {
+    color: white;
+    opacity: 0.8;
+}
+
+.search-results {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 1rem;
+    margin-top: 0.5rem;
+    max-height: 300px;
+    overflow-y: auto;
+    display: none;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.search-result-item {
+    padding: 0.75rem 1.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: var(--text-color);
+    font-size: 1rem;
+}
+
+.search-result-item:hover {
+    background-color: rgba(37, 99, 235, 0.1);
+    color: var(--primary-color);
+}
+
+.search-result-item:first-child {
+    border-radius: 1rem 1rem 0 0;
+}
+
+.search-result-item:last-child {
+    border-radius: 0 0 1rem 1rem;
+}
+
+/* Otomatik kayan slider için eklenen stiller */
+.foods-container {
+    display: flex;
+    gap: 20px;
+    padding: 10px;
+    overflow: hidden;
+    scroll-behavior: smooth;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    width: 100%;
+}
+
+.foods-container::-webkit-scrollbar {
+    display: none;
+}
+
+.popular-foods-section {
+    padding: 20px;
+    max-width: 1400px;
+    margin: 20px auto;
+    background-color: transparent;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.food-card {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease;
+    width: calc((100% - 40px) / 3);
+    flex: 0 0 auto;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.background {
+    min-height: 100vh;
+    overflow-y: auto; /* Sayfanın aşağı kaydırılabilir olmasını sağlar */
+}
