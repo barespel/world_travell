@@ -1381,5 +1381,6 @@ function showDetails(type, id) {
         }
     };
 } 
+
  
  

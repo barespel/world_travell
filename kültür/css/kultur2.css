@@ -13,11 +13,11 @@ body {
 }
 .results-container {
     max-width: 1000px;
-    margin: 40px auto;
-    padding: 205px 0 20px 0;
-    min-height: 300px;
+    margin: 10px auto;
+    padding: 0 0 20px 0;
+    min-height: 100px;
     position: relative;
-    overflow: visible;
+    overflow: hidden;
     height: auto;
 }
 .slider-track {
@@ -27,9 +27,11 @@ body {
     scroll-behavior: smooth;
     padding: 20px 0;
     margin: 0 60px;
-    width: calc(240px * 3 + 32px);
+    width: calc(100% - 120px);
     margin-left: auto;
     margin-right: auto;
+    -ms-overflow-style: none;  /* IE ve Edge için scrollbar'ı gizle */
+    scrollbar-width: none;  /* Firefox için scrollbar'ı gizle */
 }
 .slider-track::-webkit-scrollbar {
     display: none;
@@ -58,10 +60,11 @@ body {
 .city-card {
     background: rgba(255,255,255,0.97);
     border-radius: 8px;
-    width: 250px;
-    min-width: 202px;
-    max-width: 202px;
-    height: 640px;
+    width: 300px;
+    min-width: 300px;
+    max-width: 300px;
+    height: auto;
+    min-height: 500px;
     box-shadow: 0 8px 32px rgba(0,0,0,0.18);
     display: flex;
     flex-direction: column;
@@ -72,6 +75,7 @@ body {
     transition: transform 0.2s;
     cursor: pointer;
     overflow: hidden;
+    flex-shrink: 0;
 }
 .city-card:hover {
     transform: translateY(-8px) scale(1.03);
@@ -79,7 +83,7 @@ body {
 }
 .city-card-image {
     width: 100%;
-    height: 240px;
+    height: 200px;
     object-fit: cover;
     border-radius: 8px 8px 0 0;
     margin: -18px -18px 10px -18px;
@@ -160,7 +164,7 @@ body {
 .city-detail {
     max-width: 800px;
     margin: 20px auto;
-    padding: 30px;
+    padding: 0px;
     background-color: transparent;
     border-radius: 15px;
     border: none;
@@ -348,3 +352,252 @@ body {
     padding-top: 10px;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
+.map-container {
+    padding: 2rem;
+    text-align: center;
+    min-height: 10vh;
+    padding-bottom: 0;
+}
+
+.map-container h1 {
+    color: white;
+    margin-bottom: 1rem;
+    margin-top: 4rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.map-container p {
+    color: white;
+    margin-bottom: 2rem;
+    margin-top: 0.5rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+.city-tooltip {
+    display: none;
+    position: absolute;
+    background: white;
+    color: #222;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    padding: 1rem 1.5rem;
+    z-index: 10;
+    min-width: 180px;
+    font-size: 1rem;
+}
+
+.city-tooltip.active {
+    display: block;
+}
+
+.city-tooltip ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.city-tooltip li {
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+    color: var(--primary-color);
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.city-tooltip li:hover {
+    color: var(--secondary-color);
+    text-decoration: underline;
+}
+
+.navbar .search-bar {
+    display: flex;
+    gap: 0.5rem;
+    position: relative;
+    flex: 0 1 600px;
+    margin-top: 2.5rem;
+    margin-bottom: 1.5rem;
+    width: 100%;
+    background: transparent;
+    max-width: 600px;
+}
+
+.navbar .search-input {
+    padding: 0.5rem 1rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 2rem;
+    width: 100%;
+    font-size: 0.9rem;
+    background-color: transparent;
+    color: white;
+}
+
+.navbar .search-input::placeholder {
+    color: white;
+    opacity: 0.8;
+}
+
+.navbar .search-button {
+    display: none;
+    padding: 0.5rem 1.25rem;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.map-container .search-bar {
+    display: flex;
+    gap: 0.5rem;
+    position: relative;
+    flex: 0 1 600px;
+    margin: 2rem auto;
+    width: 100%;
+    background: transparent;
+    max-width: 600px;
+}
+
+.map-container .search-input {
+    padding: 0.75rem 1.5rem;
+    border: 2px solid white;
+    border-radius: 2rem;
+    width: 100%;
+    font-size: 1rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+
+}
+
+.map-container .search-input::placeholder {
+    color: white;
+    opacity: 0.8;
+}
+
+.map-container .search-button {
+    display: flex;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1rem;
+}
+
+.map-container .search-button:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .search-bar {
+        margin-top: 0.5rem;
+        margin-bottom: 1.5rem;
+        width: 100%;
+    }
+}
+
+.search-container {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+.search-input {
+    width: 100%;
+    padding: 12px 20px;
+    font-size: 16px;
+    border: 2px solid #ddd;
+    border-radius: 25px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.search-input:focus {
+    border-color: #4CAF50;
+}
+
+.search-results {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 1rem;
+    margin-top: 0.5rem;
+    max-height: 300px;
+    overflow-y: auto;
+    display: none;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.search-result-item {
+    padding: 0.75rem 1.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: var(--text-color);
+    font-size: 1rem;
+}
+
+.search-result-item:hover {
+    background-color: rgba(37, 99, 235, 0.1);
+    color: var(--primary-color);
+}
+
+.search-result-item:first-child {
+    border-radius: 1rem 1rem 0 0;
+}
+
+.search-result-item:last-child {
+    border-radius: 0 0 1rem 1rem;
+}
+/* Otomatik kayan slider için eklenen stiller */
+.foods-container {
+    display: flex;
+    gap: 20px;
+    padding: 10px;
+    overflow: hidden;
+    scroll-behavior: smooth;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    width: 100%;
+}
+
+.foods-container::-webkit-scrollbar {
+    display: none;
+}
+
+.popular-foods-section {
+    padding: 20px;
+    max-width: 1400px;
+    margin: 20px auto;
+    background-color: transparent;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.food-card {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease;
+    width: calc((100% - 40px) / 3);
+    flex: 0 0 auto;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+
+
+

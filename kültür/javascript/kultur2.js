@@ -1,611 +1,737 @@
 // Global değişkenleri tanımla
 window.cities = [
-    { 
-        name: 'Adana', 
-        image: '../../images/adana.jpeg', 
-        description: 'M.Ö. 6000 yılına uzanan tarihi ile Anadolu\'nun en eski yerleşim yerlerinden biri. Hitit, Asur, Pers, Roma ve Osmanlı medeniyetlerine ev sahipliği yapmıştır.',
-        history: 'Adana, tarih boyunca birçok medeniyete ev sahipliği yapmış önemli bir şehirdir. Hitit döneminde "Adaniya" olarak bilinen şehir, daha sonra Asurlular, Persler, Romalılar ve Bizanslılar tarafından yönetilmiştir. 1517 yılında Osmanlı İmparatorluğu\'na katılan şehir, stratejik konumu sayesinde önemli bir ticaret merkezi haline gelmiştir.',
-        categories: ['Müzeler', 'Tarihi Yerler', 'Doğal Güzellikler', 'Kültürel Etkinlikler']
-    },
-    { 
-        name: 'Ankara', 
-        image: '../../images/ankara.jpg', 
-        description: 'Türkiye\'nin başkenti, M.Ö. 2000\'li yıllara uzanan tarihi ile Hitit, Frig, Galat, Roma ve Osmanlı medeniyetlerinin izlerini taşır.',
-        history: 'Ankara\'nın tarihi M.Ö. 2000\'li yıllara kadar uzanmaktadır. Hititler döneminde "Ankuwa" olarak bilinen şehir, daha sonra Frigler, Galatlar, Romalılar ve Bizanslılar tarafından yönetilmiştir. 1923 yılında Türkiye Cumhuriyeti\'nin başkenti olan Ankara, modern Türkiye\'nin kalbi haline gelmiştir.',
-        categories: ['Müzeler', 'Tarihi Yerler', 'Modern Yapılar', 'Kültürel Merkezler']
-    },
-    { 
-        name: 'İstanbul', 
-        image: '../../images/istanbul.jpg', 
-        description: 'M.Ö. 660\'da kurulan Byzantion\'dan günümüze, Roma, Bizans ve Osmanlı İmparatorluklarına başkentlik yapmış dünya şehri.',
-        history: 'İstanbul, tarihi M.Ö. 660\'a kadar uzanan, dünyanın en önemli şehirlerinden biridir. Byzantion, Konstantinopolis ve İstanbul olarak bilinen şehir, Roma, Bizans ve Osmanlı İmparatorluklarına başkentlik yapmıştır. İki kıtayı birleştiren stratejik konumu, onu her dönemde önemli bir merkez haline getirmiştir.',
-        categories: ['Saraylar', 'Müzeler', 'Tarihi Camiler', 'Antik Yapılar']
-    },
-    { 
-        name: 'İzmir', 
-        image: '../../images/izmir2.jpg', 
-        description: 'M.Ö. 3000\'li yıllara uzanan tarihi ile İyon, Lidya, Pers, Roma ve Osmanlı medeniyetlerinin izlerini taşıyan Ege\'nin incisi.',
-        history: 'İzmir, tarihi M.Ö. 3000\'li yıllara kadar uzanan, Ege\'nin en önemli şehirlerinden biridir. Antik dönemde "Smyrna" olarak bilinen şehir, İyon, Lidya, Pers, Roma ve Bizans medeniyetlerine ev sahipliği yapmıştır. 15. yüzyılda Osmanlı İmparatorluğu\'na katılan şehir, önemli bir ticaret merkezi olmuştur.',
-        categories: ['Antik Kentler', 'Müzeler', 'Tarihi Yerler', 'Kültürel Merkezler']
-    },
-    { 
-        name: 'Antalya', 
-        image: '../../images/antalya.jpg', 
-        description: 'M.Ö. 200\'de Bergama Kralı II. Attalos tarafından kurulan, Roma, Bizans ve Osmanlı dönemlerinin izlerini taşıyan Akdeniz\'in incisi.',
-        history: 'Antalya, M.Ö. 200 yılında Bergama Kralı II. Attalos tarafından kurulmuştur. Roma, Bizans ve Osmanlı dönemlerinde önemli bir liman şehri olan Antalya, günümüzde Türkiye\'nin en önemli turizm merkezlerinden biridir. Antik kentleri, doğal güzellikleri ve tarihi yapılarıyla ziyaretçilerini büyülemektedir.',
-        categories: ['Antik Kentler', 'Müzeler', 'Tarihi Yerler', 'Doğal Güzellikler']
-    },
-    { 
-        name: 'Bursa', 
-        image: '../../images/bursa.jpg', 
-        description: 'M.Ö. 4000\'li yıllara uzanan tarihi ile Osmanlı İmparatorluğu\'nun ilk başkenti, ipekyolu\'nun önemli durağı.',
-        history: 'Bursa, tarihi M.Ö. 4000\'li yıllara kadar uzanan, Osmanlı İmparatorluğu\'nun ilk başkentidir. 1326 yılında Osmanlılar tarafından fethedilen şehir, 1365 yılına kadar imparatorluğun başkenti olmuştur. İpekyolu üzerindeki konumu sayesinde önemli bir ticaret merkezi haline gelmiştir.',
-        categories: ['Osmanlı Eserleri', 'Müzeler', 'Tarihi Yerler', 'Doğal Güzellikler']
-    },
-    { 
-        name: 'Trabzon', 
-        image: '../../images/trabzon2.jpg', 
-        description: 'M.Ö. 2000\'li yıllara uzanan tarihi ile Pers, Roma, Bizans ve Osmanlı medeniyetlerinin izlerini taşıyan Karadeniz\'in incisi.',
-        history: 'Trabzon, tarihi M.Ö. 2000\'li yıllara kadar uzanan, Karadeniz\'in en önemli şehirlerinden biridir. Pers, Roma, Bizans ve Osmanlı dönemlerinde önemli bir liman şehri olan Trabzon, İpekyolu\'nun Karadeniz\'deki önemli duraklarından biri olmuştur.',
-        categories: ['Tarihi Yerler', 'Müzeler', 'Doğal Güzellikler', 'Kültürel Merkezler']
-    },
-    { 
-        name: 'Konya', 
-        image: '../../images/konya.jpg', 
-        description: 'M.Ö. 7000\'li yıllara uzanan tarihi ile Hitit, Frig, Pers, Roma ve Selçuklu medeniyetlerinin izlerini taşıyan mistik şehir.',
-        history: 'Konya, tarihi M.Ö. 7000\'li yıllara kadar uzanan, Anadolu\'nun en eski yerleşim yerlerinden biridir. Hitit, Frig, Pers, Roma ve Selçuklu dönemlerinde önemli bir merkez olan şehir, Mevlana\'nın yaşadığı ve eserlerini verdiği yer olarak önem kazanmıştır.',
-        categories: ['Selçuklu Eserleri', 'Müzeler', 'Tarihi Yerler', 'Kültürel Merkezler']
-    },
-    { 
-        name: 'Eskişehir', 
-        image: '../../images/eskisehir.jpg', 
-        description: 'M.Ö. 1000\'li yıllara uzanan tarihi ile Frig, Roma, Bizans ve Osmanlı medeniyetlerinin izlerini taşıyan modern şehir.',
-        history: 'Eskişehir, tarihi M.Ö. 1000\'li yıllara kadar uzanan, Anadolu\'nun önemli şehirlerinden biridir. Frig, Roma, Bizans ve Osmanlı dönemlerinde önemli bir yerleşim yeri olan şehir, günümüzde modern yüzüyle öne çıkmaktadır.',
-        categories: ['Müzeler', 'Tarihi Yerler', 'Modern Yapılar', 'Kültürel Merkezler']
-    },
-    { 
-        name: 'Gaziantep', 
-        image: '../../images/gaziantep.jpg', 
-        description: 'M.Ö. 4000\'li yıllara uzanan tarihi ile Hitit, Asur, Pers, Roma ve Osmanlı medeniyetlerinin izlerini taşıyan kadim şehir.',
-        history: 'Gaziantep, tarihi M.Ö. 4000\'li yıllara kadar uzanan, Anadolu\'nun en eski yerleşim yerlerinden biridir. Hitit, Asur, Pers, Roma ve Osmanlı dönemlerinde önemli bir merkez olan şehir, zengin kültürel mirasıyla dikkat çekmektedir.',
-        categories: ['Tarihi Yerler', 'Müzeler', 'Kültürel Merkezler', 'Doğal Güzellikler']
-    },
-    {
-        name: "Adıyaman",
-        image: "../../images/adiyaman.jpg",
-        description: "Nemrut Dağı ve tarihi zenginlikleriyle ünlü şehir",
-        categories: ["Nemrut Dağı", "Cendere Köprüsü", "Perre Antik Kenti"]
-    },
-    {
-        name: "Afyonkarahisar",
-        image: "../../images/afyonkarahisar.jpg",
-        description: "Termal kaynakları ve tarihi dokusuyla öne çıkan şehir",
-        categories: ["Afyon Kalesi", "Ulu Camii", "İscehisar Peri Bacaları"]
-    },
-    {
-        name: "Ağrı",
-        image: "../../images/agri.jpg",
-        description: "Türkiye'nin en yüksek dağına ev sahipliği yapan şehir",
-        categories: ["Ağrı Dağı", "İshak Paşa Sarayı", "Doğubayazıt Kalesi"]
-    },
-    {
-        name: "Aksaray",
-        image: "../../images/aksaray.jpg",
-        description: "Kapadokya'nın giriş kapısı olan tarihi şehir",
-        categories: ["Ihlara Vadisi", "Sultanhanı Kervansarayı", "Aksaray Müzesi"]
-    },
-    {
-        name: "Amasya",
-        image: "../../images/amasya.jpg",
-        description: "Yeşilırmak'ın kıyısında kurulu tarihi şehir",
-        categories: ["Kral Kaya Mezarları", "Amasya Kalesi", "Ferhat Su Kanalı"]
-    },
-    {
-        name: "Ardahan",
-        image: "../../images/ardahan.jpg",
-        description: "Doğu Anadolu'nun yüksek platolarında yer alan şehir",
-        categories: ["Ardahan Kalesi", "Çıldır Gölü", "Posof Kalesi"]
-    },
-    {
-        name: "Artvin",
-        image: "../../images/artvin.jpg",
-        description: "Yeşil doğası ve yüksek dağlarıyla ünlü şehir",
-        categories: ["Hatila Vadisi", "Artvin Kalesi", "Şavşat Karagöl"]
-    },
-    {
-        name: "Aydın",
-        image: "../../images/aydin.jpg",
-        description: "Ege'nin bereketli topraklarında kurulu antik şehir",
-        categories: ["Didim Apollon Tapınağı", "Milet Antik Kenti", "Priene Antik Kenti"]
-    },
-    {
-        name: "Balıkesir",
-        image: "../../images/balikesir.jpg",
-        description: "Marmara ve Ege bölgelerinin kesişiminde yer alan, tarihi M.Ö. 3000'lere uzanan kadim şehir",
-        history: "Balıkesir, tarihi M.Ö. 3000'lere kadar uzanan, Lidya, Pers, Roma ve Osmanlı medeniyetlerine ev sahipliği yapmış önemli bir şehirdir. Antik dönemde 'Mysia' olarak bilinen bölgede yer alan şehir, stratejik konumu sayesinde her dönemde önemli bir merkez olmuştur.",
-        categories: ["Müzeler", "Tarihi Yerler", "Doğal Güzellikler", "Kültürel Merkezler"]
-    },
-    {
-        name: "Bartın",
-        image: "../../images/bartin.jpg",
-        description: "Karadeniz'in batısında, tarihi dokusu ve doğal güzellikleriyle öne çıkan şehir",
-        history: "Bartın, tarihi M.Ö. 1200'lere kadar uzanan, Hitit, Frig, Pers ve Osmanlı medeniyetlerinin izlerini taşıyan bir şehirdir. Antik dönemde 'Parthenios' olarak bilinen şehir, önemli bir liman kenti olarak gelişmiştir.",
-        categories: ["Amasra Kalesi", "Tarihi Evler", "Doğal Plajlar", "Müzeler"]
-    },
-    {
-        name: "Batman",
-        image: "../../images/batman.jpg",
-        description: "Dicle Nehri'nin kıyısında, zengin petrol yatakları ve tarihi dokusuyla öne çıkan şehir",
-        history: "Batman, tarihi M.Ö. 7000'lere kadar uzanan, Sümer, Asur, Pers ve Osmanlı medeniyetlerinin izlerini taşıyan bir şehirdir. Antik dönemde 'Iluh' olarak bilinen şehir, önemli bir ticaret merkezi olmuştur.",
-        categories: ["Hasankeyf", "Malabadi Köprüsü", "Müzeler", "Tarihi Yerler"]
-    },
-    {
-        name: "Bayburt",
-        image: "../../images/bayburt.jpg",
-        description: "Doğu Anadolu'nun yüksek platolarında, tarihi İpek Yolu üzerinde yer alan şehir",
-        history: "Bayburt, tarihi M.Ö. 3000'lere kadar uzanan, Urartu, Pers, Roma ve Osmanlı medeniyetlerinin izlerini taşıyan bir şehirdir. İpek Yolu üzerindeki konumu sayesinde önemli bir ticaret merkezi olmuştur.",
-        categories: ["Bayburt Kalesi", "Aydıntepe Yeraltı Şehri", "Müzeler", "Tarihi Yerler"]
-    },
-    {
-        name: "Bilecik",
-        image: "../../images/bilecik.jpg",
-        description: "Osmanlı İmparatorluğu'nun kuruluşuna tanıklık eden, tarihi dokusuyla öne çıkan şehir",
-        history: "Bilecik, tarihi M.Ö. 3000'lere kadar uzanan, Hitit, Frig, Roma ve Osmanlı medeniyetlerinin izlerini taşıyan bir şehirdir. Osmanlı İmparatorluğu'nun kuruluşuna tanıklık eden şehir, önemli bir tarihi merkezdir.",
-        categories: ["Söğüt Ertuğrul Gazi Müzesi", "Tarihi Camiler", "Müzeler", "Doğal Güzellikler"]
-    },
-    {
-        name: "Bingöl",
-        image: "../../images/bingol.jpg",
-        description: "Doğu Anadolu'nun yüksek dağları arasında, doğal güzellikleriyle öne çıkan şehir",
-        history: "Bingöl, tarihi M.Ö. 2000'lere kadar uzanan, Urartu, Pers, Roma ve Osmanlı medeniyetlerinin izlerini taşıyan bir şehirdir. Dağlık coğrafyası ve doğal güzellikleriyle dikkat çekmektedir.",
-        categories: ["Bingöl Kalesi", "Doğal Güzellikler", "Müzeler", "Tarihi Yerler"]
-    },
-    {
-        name: "Bitlis",
-        image: "../../images/bitlis.jpg",
-        description: "Van Gölü'nün güneyinde, tarihi dokusu ve doğal güzellikleriyle öne çıkan şehir",
-        history: "Bitlis, tarihi M.Ö. 2000'lere kadar uzanan, Urartu, Pers, Roma ve Osmanlı medeniyetlerinin izlerini taşıyan bir şehirdir. Stratejik konumu sayesinde önemli bir merkez olmuştur.",
-        categories: ["Bitlis Kalesi", "Ahlat Mezarlığı", "Müzeler", "Doğal Güzellikler"]
-    },
-    {
-        name: "Bolu",
-        image: "../../images/bolu.jpg",
-        description: "Batı Karadeniz'in yüksek platolarında, doğal güzellikleriyle ünlü şehir",
-        history: "Bolu, tarihi M.Ö. 1200'lere kadar uzanan, Hitit, Frig, Pers ve Osmanlı medeniyetlerinin izlerini taşıyan bir şehirdir. Antik dönemde 'Bithynion' olarak bilinen şehir, önemli bir yerleşim merkezi olmuştur.",
-        categories: ["Abant Gölü", "Yedigöller", "Müzeler", "Tarihi Yerler"]
-    },
-    {
-        name: "Burdur",
-        image: "../../images/burdur.jpg",
-        description: "Göller Bölgesi'nin önemli şehirlerinden, tarihi ve doğal güzellikleriyle öne çıkan şehir",
-        history: "Burdur, tarihi M.Ö. 7000'lere kadar uzanan, Hitit, Frig, Pers ve Osmanlı medeniyetlerinin izlerini taşıyan bir şehirdir. Antik dönemde 'Limobrama' olarak bilinen şehir, önemli bir yerleşim merkezi olmuştur.",
-        categories: ["Burdur Müzesi", "İnsuyu Mağarası", "Tarihi Yerler", "Doğal Güzellikler"]
-    },
-    {
-        name: "Çanakkale",
-        image: "../../images/canakkale.jpg",
-        description: "İki kıtayı birleştiren boğazın kıyısında, tarihi ve kültürel zenginliğiyle öne çıkan şehir",
-        history: "Çanakkale, tarihi M.Ö. 3000'lere kadar uzanan, Troya, Pers, Roma ve Osmanlı medeniyetlerinin izlerini taşıyan bir şehirdir. Stratejik konumu sayesinde her dönemde önemli bir merkez olmuştur.",
-        categories: ["Truva Antik Kenti", "Çanakkale Şehitleri Anıtı", "Müzeler", "Tarihi Yerler"]
-    },
-    {
-        name: "Çankırı",
-        image: "../../images/cankiri.jpg",
-        description: "İç Anadolu'nun kuzeyinde, tarihi İpek Yolu üzerinde yer alan kadim şehir",
-        history: "Çankırı, tarihi M.Ö. 3000'lere kadar uzanan, Hitit, Frig, Pers ve Osmanlı medeniyetlerinin izlerini taşıyan bir şehirdir. Antik dönemde 'Gangra' olarak bilinen şehir, İpek Yolu üzerindeki konumu sayesinde önemli bir ticaret merkezi olmuştur.",
-        categories: ["Çankırı Kalesi", "Taş Mescit", "Müzeler", "Tarihi Yerler"]
-    },
-    {
-        name: "Çorum",
-        image: "../../images/corum.jpg",
-        description: "Hitit medeniyetinin başkenti Hattuşa'ya ev sahipliği yapan, tarihi zenginliğiyle öne çıkan şehir",
-        history: "Çorum, tarihi M.Ö. 5000'lere kadar uzanan, Hitit, Frig, Pers ve Osmanlı medeniyetlerinin izlerini taşıyan bir şehirdir. Hitit İmparatorluğu'nun başkenti Hattuşa'nın bulunduğu bölge, dünya tarihi açısından büyük önem taşımaktadır.",
-        categories: ["Hattuşa Antik Kenti", "Alacahöyük", "Müzeler", "Tarihi Yerler"]
-    },
-    {
-        name: "Denizli",
-        image: "../../images/denizli.jpg",
-        description: "Ege Bölgesi'nin iç kesimlerinde, termal kaynakları ve antik kentleriyle ünlü şehir",
-        history: "Denizli, tarihi M.Ö. 4000'lere kadar uzanan, Lidya, Pers, Roma ve Osmanlı medeniyetlerinin izlerini taşıyan bir şehirdir. Antik dönemde 'Laodikeia' olarak bilinen şehir, önemli bir ticaret ve kültür merkezi olmuştur.",
-        categories: ["Pamukkale", "Hierapolis", "Müzeler", "Tarihi Yerler"]
-    },
-    {
-        name: "Diyarbakır",
-        image: "../../images/diyarbakir.jpg",
-        description: "Dicle Nehri'nin kıyısında, tarihi surları ve kültürel zenginliğiyle öne çıkan kadim şehir",
-        history: "Diyarbakır, tarihi M.Ö. 3000'lere kadar uzanan, Hurri, Asur, Pers ve Osmanlı medeniyetlerinin izlerini taşıyan bir şehirdir. Antik dönemde 'Amida' olarak bilinen şehir, önemli bir ticaret ve kültür merkezi olmuştur.",
-        categories: ["Diyarbakır Kalesi", "Ulu Camii", "Müzeler", "Tarihi Yerler"]
-    },
-    {
-        name: "Düzce",
-        image: "../../images/duzce.jpg",
-        description: "Batı Karadeniz'in verimli topraklarında, doğal güzellikleriyle öne çıkan şehir",
-        history: "Düzce, tarihi M.Ö. 2000'lere kadar uzanan, Hitit, Frig, Pers ve Osmanlı medeniyetlerinin izlerini taşıyan bir şehirdir. Verimli toprakları ve stratejik konumu sayesinde önemli bir yerleşim merkezi olmuştur.",
-        categories: ["Konuralp Antik Kenti", "Müzeler", "Doğal Güzellikler", "Tarihi Yerler"]
-    },
-    {
-        name: "Edirne",
-        image: "../../images/edirne.jpg",
-        description: "Osmanlı İmparatorluğu'na başkentlik yapmış, tarihi ve kültürel zenginliğiyle öne çıkan şehir",
-        history: "Edirne, tarihi M.Ö. 4000'lere kadar uzanan, Trak, Roma, Bizans ve Osmanlı medeniyetlerinin izlerini taşıyan bir şehirdir. 1365-1453 yılları arasında Osmanlı İmparatorluğu'na başkentlik yapmıştır.",
-        categories: ["Selimiye Camii", "Edirne Sarayı", "Müzeler", "Tarihi Yerler"]
-    },
-    {
-        name: "Elazığ",
-        image: "../../images/elazig.jpg",
-        description: "Doğu Anadolu'nun önemli şehirlerinden, tarihi ve doğal güzellikleriyle öne çıkan şehir",
-        history: "Elazığ, tarihi M.Ö. 2000'lere kadar uzanan, Urartu, Pers, Roma ve Osmanlı medeniyetlerinin izlerini taşıyan bir şehirdir. Antik dönemde 'Harput' olarak bilinen şehir, önemli bir kültür merkezi olmuştur.",
-        categories: ["Harput Kalesi", "Hazar Gölü", "Müzeler", "Tarihi Yerler"]
-    },
-    {
-        name: "Erzincan",
-        image: "../../images/erzincan.jpg",
-        description: "Doğu Anadolu'nun yüksek platolarında, tarihi İpek Yolu üzerinde yer alan şehir",
-        history: "Erzincan, tarihi M.Ö. 2000'lere kadar uzanan, Urartu, Pers, Roma ve Osmanlı medeniyetlerinin izlerini taşıyan bir şehirdir. İpek Yolu üzerindeki konumu sayesinde önemli bir ticaret merkezi olmuştur.",
-        categories: ["Erzincan Kalesi", "Girlevik Şelalesi", "Müzeler", "Tarihi Yerler"]
-    },
-    {
-        name: "Erzurum",
-        image: "../../images/erzurum.jpg",
-        description: "Doğu Anadolu'nun en büyük şehirlerinden, tarihi ve kültürel zenginliğiyle öne çıkan şehir",
-        history: "Erzurum, tarihi M.Ö. 4000'lere kadar uzanan, Urartu, Pers, Roma ve Osmanlı medeniyetlerinin izlerini taşıyan bir şehirdir. Stratejik konumu sayesinde her dönemde önemli bir merkez olmuştur.",
-        categories: ["Çifte Minareli Medrese", "Erzurum Kalesi", "Müzeler", "Tarihi Yerler"]
-    },
-    {
-        name: "Giresun",
-        image: "../../images/giresun.jpg",
-        description: "Karadeniz'in incisi, fındık bahçeleri ve tarihi dokusuyla öne çıkan şehir",
-        history: "Giresun, tarihi M.Ö. 2000'lere kadar uzanan, Hitit, Pers, Roma ve Osmanlı medeniyetlerinin izlerini taşıyan bir şehirdir. Antik dönemde 'Kerasus' olarak bilinen şehir, önemli bir liman kenti olmuştur.",
-        categories: ["Giresun Kalesi", "Giresun Adası", "Müzeler", "Tarihi Yerler"]
-    },
-    {
-        name: "Gümüşhane",
-        image: "../../images/gumushane.jpg",
-        description: "Doğu Karadeniz'in yüksek dağları arasında, gümüş madenleriyle ünlü tarihi şehir",
-        history: "Gümüşhane, tarihi M.Ö. 2000'lere kadar uzanan, Hitit, Pers, Roma ve Osmanlı medeniyetlerinin izlerini taşıyan bir şehirdir. Antik dönemde 'Argyropolis' olarak bilinen şehir, zengin gümüş madenleriyle ünlü olmuştur.",
-        categories: ["Gümüşhane Kalesi", "Santa Harabeleri", "Müzeler", "Tarihi Yerler"]
-    },
-    {
-        name: "Hakkari",
-        image: "../../images/hakkari.jpg",
-        description: "Doğu Anadolu'nun en yüksek dağları arasında, doğal güzellikleriyle öne çıkan şehir",
-        history: "Hakkari, tarihi M.Ö. 2000'lere kadar uzanan, Urartu, Pers, Roma ve Osmanlı medeniyetlerinin izlerini taşıyan bir şehirdir. Dağlık coğrafyası ve stratejik konumu sayesinde önemli bir merkez olmuştur.",
-        categories: ["Hakkari Kalesi", "Cilo Dağları", "Müzeler", "Doğal Güzellikler"]
-    },
-    {
-        name: "Hatay",
-        image: "../../images/hatay.jpg",
-        description: "Akdeniz'in doğusunda, farklı din ve kültürlerin buluştuğu kadim şehir",
-        history: "Hatay, tarihi M.Ö. 4000'lere kadar uzanan, Hitit, Pers, Roma ve Osmanlı medeniyetlerinin izlerini taşıyan bir şehirdir. Antik dönemde 'Antakya' olarak bilinen şehir, önemli bir kültür ve ticaret merkezi olmuştur.",
-        categories: ["St. Pierre Kilisesi", "Antakya Arkeoloji Müzesi", "Tarihi Yerler", "Kültürel Merkezler"]
-    },
-    {
-        name: "Iğdır",
-        image: "../../images/igdir.jpg",
-        description: "Doğu Anadolu'nun en doğusunda, Ağrı Dağı'nın eteklerinde yer alan şehir",
-        history: "Iğdır, tarihi M.Ö. 2000'lere kadar uzanan, Urartu, Pers, Roma ve Osmanlı medeniyetlerinin izlerini taşıyan bir şehirdir. Stratejik konumu sayesinde önemli bir ticaret merkezi olmuştur.",
-        categories: ["Iğdır Kalesi", "Ağrı Dağı", "Müzeler", "Tarihi Yerler"]
-    },
-    {
-        name: "Isparta",
-        image: "../../images/isparta.jpg",
-        description: "Göller Bölgesi'nin önemli şehirlerinden, gül bahçeleriyle ünlü şehir",
-        history: "Isparta, tarihi M.Ö. 2000'lere kadar uzanan, Hitit, Pers, Roma ve Osmanlı medeniyetlerinin izlerini taşıyan bir şehirdir. Antik dönemde 'Baris' olarak bilinen şehir, önemli bir yerleşim merkezi olmuştur.",
-        categories: ["Eğirdir Gölü", "Gül Müzesi", "Müzeler", "Tarihi Yerler"]
-    },
-    {
-        name: "Kahramanmaraş",
-        image: "../../images/kahramanmaras.jpg",
-        description: "Akdeniz ve Doğu Anadolu bölgelerinin kesişiminde, tarihi dokusuyla öne çıkan şehir",
-        history: "Kahramanmaraş, tarihi M.Ö. 3000'lere kadar uzanan, Hitit, Pers, Roma ve Osmanlı medeniyetlerinin izlerini taşıyan bir şehirdir. Antik dönemde 'Germanikeia' olarak bilinen şehir, önemli bir kültür merkezi olmuştur.",
-        categories: ["Kahramanmaraş Kalesi", "Ulu Camii", "Müzeler", "Tarihi Yerler"]
-    },
-    {
-        name: "Karabük",
-        image: "../../images/karabuk.jpg",
-        description: "Batı Karadeniz'in iç kesimlerinde, Safranbolu evleriyle ünlü şehir",
-        history: "Karabük, tarihi M.Ö. 2000'lere kadar uzanan, Hitit, Frig, Pers ve Osmanlı medeniyetlerinin izlerini taşıyan bir şehirdir. Safranbolu ilçesi, UNESCO Dünya Mirası Listesi'nde yer almaktadır.",
-        categories: ["Safranbolu Evleri", "Bulak Mencilis Mağarası", "Müzeler", "Tarihi Yerler"]
-    },
-    {
-        name: "Karaman",
-        image: "../../images/karaman.jpg",
-        description: "İç Anadolu'nun güneyinde, Karamanoğulları Beyliği'ne başkentlik yapmış şehir",
-        history: "Karaman, tarihi M.Ö. 8000'lere kadar uzanan, Hitit, Pers, Roma ve Osmanlı medeniyetlerinin izlerini taşıyan bir şehirdir. Antik dönemde 'Laranda' olarak bilinen şehir, önemli bir kültür merkezi olmuştur.",
-        categories: ["Karaman Kalesi", "Aktekke Camii", "Müzeler", "Tarihi Yerler"]
-    },
-    {
-        name: "Kars",
-        image: "../../images/kars.jpg",
-        description: "Doğu Anadolu'nun kuzeydoğusunda, Ani Harabeleri ile ünlü şehir",
-        history: "Kars, tarihi M.Ö. 3000'lere kadar uzanan, Urartu, Pers, Roma ve Osmanlı medeniyetlerinin izlerini taşıyan bir şehirdir. Antik dönemde 'Karin' olarak bilinen şehir, önemli bir ticaret merkezi olmuştur.",
-        categories: ["Ani Harabeleri", "Kars Kalesi", "Müzeler", "Tarihi Yerler"]
-    },
-    {
-        name: "Kastamonu",
-        image: "../../images/kastamonu.jpg",
-        description: "Batı Karadeniz'in iç kesimlerinde, tarihi evleriyle ünlü şehir",
-        history: "Kastamonu, tarihi M.Ö. 2000'lere kadar uzanan, Hitit, Pers, Roma ve Osmanlı medeniyetlerinin izlerini taşıyan bir şehirdir. Antik dönemde 'Timonion' olarak bilinen şehir, önemli bir kültür merkezi olmuştur.",
-        categories: ["Kastamonu Kalesi", "Nasrullah Camii", "Müzeler", "Tarihi Yerler"]
-    },
-    {
-        name: "Kayseri",
-        image: "../../images/kayseri.jpg",
-        description: "İç Anadolu'nun önemli şehirlerinden, Selçuklu eserleriyle ünlü şehir",
-        history: "Kayseri, tarihi M.Ö. 4000'lere kadar uzanan, Hitit, Pers, Roma ve Selçuklu medeniyetlerinin izlerini taşıyan bir şehirdir. Antik dönemde 'Kaisareia' olarak bilinen şehir, önemli bir ticaret merkezi olmuştur.",
-        categories: ["Kayseri Kalesi", "Hunat Hatun Camii", "Müzeler", "Tarihi Yerler"]
-    },
-    {
-        name: "Kırıkkale",
-        image: "../../images/kirikkale.jpg",
-        description: "İç Anadolu'nun kuzeyinde, sanayi şehri olarak gelişen modern şehir",
-        history: "Kırıkkale, tarihi M.Ö. 2000'lere kadar uzanan, Hitit, Pers, Roma ve Osmanlı medeniyetlerinin izlerini taşıyan bir şehirdir. Cumhuriyet döneminde sanayi şehri olarak gelişmiştir.",
-        categories: ["Kırıkkale Müzesi", "Tarihi Yerler", "Modern Yapılar", "Kültürel Merkezler"]
-    },
-    {
-        name: "Kırklareli",
-        image: "../../images/kirklareli.jpg",
-        description: "Trakya'nın kuzeydoğusunda, tarihi dokusuyla öne çıkan şehir",
-        history: "Kırklareli, tarihi M.Ö. 3000'lere kadar uzanan, Trak, Pers, Roma ve Osmanlı medeniyetlerinin izlerini taşıyan bir şehirdir. Antik dönemde 'Saranta Eklesies' olarak bilinen şehir, önemli bir yerleşim merkezi olmuştur.",
-        categories: ["Kırklareli Müzesi", "Dupnisa Mağarası", "Tarihi Yerler", "Doğal Güzellikler"]
-    },
-    {
-        name: "Kırşehir",
-        image: "../../images/kirsehir.jpg",
-        description: "İç Anadolu'nun ortasında, Ahi Evran'ın yaşadığı şehir",
-        history: "Kırşehir, tarihi M.Ö. 3000'lere kadar uzanan, Hitit, Pers, Roma ve Osmanlı medeniyetlerinin izlerini taşıyan bir şehirdir. Antik dönemde 'Mokissos' olarak bilinen şehir, önemli bir kültür merkezi olmuştur.",
-        categories: ["Cacabey Camii", "Ahi Evran Türbesi", "Müzeler", "Tarihi Yerler"]
-    },
-    {
-        name: "Kilis",
-        image: "../../images/kilis.jpg",
-        description: "Güneydoğu Anadolu'nun batısında, zeytin bahçeleriyle ünlü şehir",
-        history: "Kilis, tarihi M.Ö. 2000'lere kadar uzanan, Hitit, Pers, Roma ve Osmanlı medeniyetlerinin izlerini taşıyan bir şehirdir. Antik dönemde 'Ciliza' olarak bilinen şehir, önemli bir yerleşim merkezi olmuştur.",
-        categories: ["Kilis Kalesi", "Ulu Camii", "Müzeler", "Tarihi Yerler"]
-    },
-    {
-        name: "Kocaeli",
-        image: "../../images/kocaeli.jpg",
-        description: "Marmara Bölgesi'nin doğusunda, sanayi ve liman şehri",
-        history: "Kocaeli, tarihi M.Ö. 3000'lere kadar uzanan, Bitinya, Pers, Roma ve Osmanlı medeniyetlerinin izlerini taşıyan bir şehirdir. Antik dönemde 'Nikomedia' olarak bilinen şehir, önemli bir ticaret merkezi olmuştur.",
-        categories: ["Kocaeli Müzesi", "Saat Kulesi", "Tarihi Yerler", "Modern Yapılar"]
-    },
-    {
-        name: "Kütahya",
-        image: "../../images/kutahya.jpg",
-        description: "Ege Bölgesi'nin iç kesimlerinde, çini sanatıyla ünlü şehir",
-        history: "Kütahya, tarihi M.Ö. 3000'lere kadar uzanan, Frig, Pers, Roma ve Osmanlı medeniyetlerinin izlerini taşıyan bir şehirdir. Antik dönemde 'Kotiaeion' olarak bilinen şehir, önemli bir kültür merkezi olmuştur.",
-        categories: ["Kütahya Kalesi", "Ulu Camii", "Müzeler", "Tarihi Yerler"]
-    },
-    {
-        name: "Malatya",
-        image: "../../images/malatya.jpg",
-        description: "Doğu Anadolu'nun batısında, kayısı bahçeleriyle ünlü şehir",
-        history: "Malatya, tarihi M.Ö. 6000'lere kadar uzanan, Hitit, Pers, Roma ve Osmanlı medeniyetlerinin izlerini taşıyan bir şehirdir. Antik dönemde 'Melitene' olarak bilinen şehir, önemli bir ticaret merkezi olmuştur.",
-        categories: ["Malatya Kalesi", "Battalgazi Ulu Camii", "Müzeler", "Tarihi Yerler"]
-    },
-    {
-        name: "Manisa",
-        image: "../../images/manisa.jpg",
-        description: "Ege Bölgesi'nin iç kesimlerinde, mesir macunuyla ünlü şehir",
-        history: "Manisa, tarihi M.Ö. 3000'lere kadar uzanan, Lidya, Pers, Roma ve Osmanlı medeniyetlerinin izlerini taşıyan bir şehirdir. Antik dönemde 'Magnesia' olarak bilinen şehir, önemli bir kültür merkezi olmuştur.",
-        categories: ["Manisa Kalesi", "Ulu Camii", "Müzeler", "Tarihi Yerler"]
-    },
-    {
-        name: "Mardin",
-        image: "../../images/mardin.jpg",
-        description: "Güneydoğu Anadolu'nun en eski şehirlerinden, taş evleriyle ünlü şehir",
-        history: "Mardin, tarihi M.Ö. 4000'lere kadar uzanan, Sümer, Asur, Pers ve Osmanlı medeniyetlerinin izlerini taşıyan bir şehirdir. Antik dönemde 'Marde' olarak bilinen şehir, önemli bir kültür merkezi olmuştur.",
-        categories: ["Mardin Kalesi", "Deyrulzafaran Manastırı", "Müzeler", "Tarihi Yerler"]
-    },
-    {
-        name: "Mersin",
-        image: "../../images/mersin.jpg",
-        description: "Akdeniz'in önemli liman şehirlerinden, antik kentleriyle ünlü şehir",
-        history: "Mersin, tarihi M.Ö. 7000'lere kadar uzanan, Hitit, Pers, Roma ve Osmanlı medeniyetlerinin izlerini taşıyan bir şehirdir. Antik dönemde 'Zephyrion' olarak bilinen şehir, önemli bir liman kenti olmuştur.",
-        categories: ["Kızkalesi", "Cennet-Cehennem Obrukları", "Müzeler", "Tarihi Yerler"]
-    },
-    {
-        name: "Muğla",
-        image: "../../images/mugla.jpg",
-        description: "Ege Bölgesi'nin güneyinde, turistik beldeleriyle ünlü şehir",
-        history: "Muğla, tarihi M.Ö. 3000'lere kadar uzanan, Karya, Pers, Roma ve Osmanlı medeniyetlerinin izlerini taşıyan bir şehirdir. Antik dönemde 'Mobolla' olarak bilinen şehir, önemli bir kültür merkezi olmuştur.",
-        categories: ["Muğla Kalesi", "Ulu Camii", "Müzeler", "Tarihi Yerler"]
-    },
-    {
-        name: "Muş",
-        image: "../../images/mus.jpg",
-        description: "Doğu Anadolu'nun önemli şehirlerinden, tarihi dokusuyla öne çıkan şehir",
-        history: "Muş, tarihi M.Ö. 2000'lere kadar uzanan, Urartu, Pers, Roma ve Osmanlı medeniyetlerinin izlerini taşıyan bir şehirdir. Antik dönemde 'Taron' olarak bilinen şehir, önemli bir yerleşim merkezi olmuştur.",
-        categories: ["Muş Kalesi", "Ulu Camii", "Müzeler", "Tarihi Yerler"]
-    },
-    {
-        name: "Nevşehir",
-        image: "../../images/nevsehir.jpg",
-        description: "İç Anadolu'nun ortasında, Kapadokya bölgesinin merkezi",
-        history: "Nevşehir, tarihi M.Ö. 3000'lere kadar uzanan, Hitit, Pers, Roma ve Osmanlı medeniyetlerinin izlerini taşıyan bir şehirdir. Antik dönemde 'Nyssa' olarak bilinen şehir, önemli bir kültür merkezi olmuştur.",
-        categories: ["Nevşehir Kalesi", "Damat İbrahim Paşa Külliyesi", "Müzeler", "Tarihi Yerler"]
-    },
-    {
-        name: "Niğde",
-        image: "../../images/nigde.jpg",
-        description: "İç Anadolu'nun güneyinde, Aladağlar'ın eteklerinde yer alan şehir",
-        history: "Niğde, tarihi M.Ö. 3000'lere kadar uzanan, Hitit, Pers, Roma ve Osmanlı medeniyetlerinin izlerini taşıyan bir şehirdir. Antik dönemde 'Nahita' olarak bilinen şehir, önemli bir yerleşim merkezi olmuştur.",
-        categories: ["Niğde Kalesi", "Aladağlar Milli Parkı", "Müzeler", "Tarihi Yerler"]
-    },
-    {
-        name: "Ordu",
-        image: "../../images/ordu.jpg",
-        description: "Karadeniz'in önemli şehirlerinden, fındık bahçeleriyle ünlü şehir",
-        history: "Ordu, tarihi M.Ö. 2000'lere kadar uzanan, Hitit, Pers, Roma ve Osmanlı medeniyetlerinin izlerini taşıyan bir şehirdir. Antik dönemde 'Kotyora' olarak bilinen şehir, önemli bir liman kenti olmuştur.",
-        categories: ["Ordu Kalesi", "Çiseli Şelalesi", "Müzeler", "Tarihi Yerler"]
-    },
-    {
-        name: "Osmaniye",
-        image: "../../images/osmaniye.jpg",
-        description: "Akdeniz Bölgesi'nin doğusunda, doğal güzellikleriyle öne çıkan şehir",
-        history: "Osmaniye, tarihi M.Ö. 2000'lere kadar uzanan, Hitit, Pers, Roma ve Osmanlı medeniyetlerinin izlerini taşıyan bir şehirdir. Antik dönemde 'Flaviopolis' olarak bilinen şehir, önemli bir yerleşim merkezi olmuştur.",
-        categories: ["Kastabala Antik Kenti", "Karatepe Aslantaş", "Müzeler", "Tarihi Yerler"]
-    },
-    {
-        name: "Rize",
-        image: "../../images/rize.jpg",
-        description: "Karadeniz'in doğusunda, çay bahçeleriyle ünlü şehir",
-        history: "Rize, tarihi M.Ö. 2000'lere kadar uzanan, Hitit, Pers, Roma ve Osmanlı medeniyetlerinin izlerini taşıyan bir şehirdir. Antik dönemde 'Rizos' olarak bilinen şehir, önemli bir liman kenti olmuştur.",
-        categories: ["Rize Kalesi", "Zil Kalesi", "Müzeler", "Tarihi Yerler"]
-    },
-    {
-        name: "Sakarya",
-        image: "../../images/sakarya.jpg",
-        description: "Marmara Bölgesi'nin doğusunda, doğal güzellikleriyle öne çıkan şehir",
-        history: "Sakarya, tarihi M.Ö. 3000'lere kadar uzanan, Bitinya, Pers, Roma ve Osmanlı medeniyetlerinin izlerini taşıyan bir şehirdir. Antik dönemde 'Adapazarı' olarak bilinen şehir, önemli bir yerleşim merkezi olmuştur.",
-        categories: ["Sakarya Müzesi", "Sapanca Gölü", "Tarihi Yerler", "Doğal Güzellikler"]
-    },
-    {
-        name: "Samsun",
-        image: "../../images/samsun.jpg",
-        description: "Karadeniz'in en büyük şehri, Kurtuluş Savaşı'nın başlangıç noktası",
-        history: "Samsun, tarihi M.Ö. 3000'lere kadar uzanan, Hitit, Pers, Roma ve Osmanlı medeniyetlerinin izlerini taşıyan bir şehirdir. Antik dönemde 'Amisos' olarak bilinen şehir, önemli bir liman kenti olmuştur.",
-        categories: ["Bandırma Vapuru", "Samsun Müzesi", "Tarihi Yerler", "Kültürel Merkezler"]
-    },
-    {
-        name: "Siirt",
-        image: "../../images/siirt.jpg",
-        description: "Güneydoğu Anadolu'nun doğusunda, tarihi dokusuyla öne çıkan şehir",
-        history: "Siirt, tarihi M.Ö. 2000'lere kadar uzanan, Hurri, Asur, Pers ve Osmanlı medeniyetlerinin izlerini taşıyan bir şehirdir. Antik dönemde 'Saird' olarak bilinen şehir, önemli bir kültür merkezi olmuştur.",
-        categories: ["Siirt Kalesi", "Ulu Camii", "Müzeler", "Tarihi Yerler"]
-    },
-    {
-        name: "Sinop",
-        image: "../../images/sinop.jpg",
-        description: "Karadeniz'in en kuzeyinde, tarihi liman şehri",
-        history: "Sinop, tarihi M.Ö. 3000'lere kadar uzanan, Hitit, Pers, Roma ve Osmanlı medeniyetlerinin izlerini taşıyan bir şehirdir. Antik dönemde 'Sinope' olarak bilinen şehir, önemli bir liman kenti olmuştur.",
-        categories: ["Sinop Kalesi", "Tarihi Cezaevi", "Müzeler", "Tarihi Yerler"]
-    },
-    {
-        name: "Sivas",
-        image: "../../images/sivas.jpg",
-        description: "İç Anadolu'nun önemli şehirlerinden, Selçuklu eserleriyle ünlü şehir",
-        history: "Sivas, tarihi M.Ö. 2000'lere kadar uzanan, Hitit, Pers, Roma ve Selçuklu medeniyetlerinin izlerini taşıyan bir şehirdir. Antik dönemde 'Sebasteia' olarak bilinen şehir, önemli bir kültür merkezi olmuştur.",
-        categories: ["Sivas Kalesi", "Gök Medrese", "Müzeler", "Tarihi Yerler"]
-    },
-    {
-        name: "Şanlıurfa",
-        image: "../../images/sanliurfa.jpg",
-        description: "Güneydoğu Anadolu'nun en eski şehirlerinden, peygamberler şehri",
-        history: "Şanlıurfa, tarihi M.Ö. 9000'lere kadar uzanan, Sümer, Asur, Pers ve Osmanlı medeniyetlerinin izlerini taşıyan bir şehirdir. Antik dönemde 'Edessa' olarak bilinen şehir, önemli bir kültür merkezi olmuştur.",
-        categories: ["Balıklıgöl", "Urfa Kalesi", "Müzeler", "Tarihi Yerler"]
-    },
-    {
-        name: "Şırnak",
-        image: "../../images/sirnak.jpg",
-        description: "Güneydoğu Anadolu'nun en doğusunda, doğal güzellikleriyle öne çıkan şehir",
-        history: "Şırnak, tarihi M.Ö. 2000'lere kadar uzanan, Hurri, Asur, Pers ve Osmanlı medeniyetlerinin izlerini taşıyan bir şehirdir. Antik dönemde 'Şehr-i Nuh' olarak bilinen şehir, önemli bir yerleşim merkezi olmuştur.",
-        categories: ["Cizre Ulu Camii", "Beyaz Köprü", "Müzeler", "Tarihi Yerler"]
-    },
-    {
-        name: "Tekirdağ",
-        image: "../../images/tekirdag.jpg",
-        description: "Trakya'nın önemli şehirlerinden, şarap üretimiyle ünlü şehir",
-        history: "Tekirdağ, tarihi M.Ö. 3000'lere kadar uzanan, Trak, Pers, Roma ve Osmanlı medeniyetlerinin izlerini taşıyan bir şehirdir. Antik dönemde 'Bisanthe' olarak bilinen şehir, önemli bir liman kenti olmuştur.",
-        categories: ["Tekirdağ Müzesi", "Rakoczi Müzesi", "Tarihi Yerler", "Kültürel Merkezler"]
-    },
-    {
-        name: "Tokat",
-        image: "../../images/tokat.jpg",
-        description: "Karadeniz'in iç kesimlerinde, tarihi dokusuyla öne çıkan şehir",
-        history: "Tokat, tarihi M.Ö. 3000'lere kadar uzanan, Hitit, Pers, Roma ve Osmanlı medeniyetlerinin izlerini taşıyan bir şehirdir. Antik dönemde 'Eudoxia' olarak bilinen şehir, önemli bir kültür merkezi olmuştur.",
-        categories: ["Tokat Kalesi", "Ulu Camii", "Müzeler", "Tarihi Yerler"]
-    },
-    {
-        name: "Tunceli",
-        image: "../../images/tunceli.jpg",
-        description: "Doğu Anadolu'nun batısında, doğal güzellikleriyle öne çıkan şehir",
-        history: "Tunceli, tarihi M.Ö. 2000'lere kadar uzanan, Urartu, Pers, Roma ve Osmanlı medeniyetlerinin izlerini taşıyan bir şehirdir. Antik dönemde 'Dersim' olarak bilinen şehir, önemli bir yerleşim merkezi olmuştur.",
-        categories: ["Tunceli Kalesi", "Munzur Vadisi", "Müzeler", "Doğal Güzellikler"]
-    },
-    {
-        name: "Uşak",
-        image: "../../images/usak.jpg",
-        description: "Ege Bölgesi'nin iç kesimlerinde, halı dokumacılığıyla ünlü şehir",
-        history: "Uşak, tarihi M.Ö. 2000'lere kadar uzanan, Frig, Pers, Roma ve Osmanlı medeniyetlerinin izlerini taşıyan bir şehirdir. Antik dönemde 'Temenothyrae' olarak bilinen şehir, önemli bir ticaret merkezi olmuştur.",
-        categories: ["Uşak Müzesi", "Clandras Köprüsü", "Tarihi Yerler", "Kültürel Merkezler"]
-    },
-    {
-        name: "Van",
-        image: "../../images/van.jpg",
-        description: "Doğu Anadolu'nun en büyük şehirlerinden, Van Gölü kıyısında yer alan şehir",
-        history: "Van, tarihi M.Ö. 3000'lere kadar uzanan, Urartu, Pers, Roma ve Osmanlı medeniyetlerinin izlerini taşıyan bir şehirdir. Antik dönemde 'Tuspa' olarak bilinen şehir, önemli bir kültür merkezi olmuştur.",
-        categories: ["Van Kalesi", "Akdamar Adası", "Müzeler", "Tarihi Yerler"]
-    },
-    {
-        name: "Yalova",
-        image: "../../images/yalova.jpg",
-        description: "Marmara Bölgesi'nin güneydoğusunda, termal kaynaklarıyla ünlü şehir",
-        history: "Yalova, tarihi M.Ö. 3000'lere kadar uzanan, Bitinya, Pers, Roma ve Osmanlı medeniyetlerinin izlerini taşıyan bir şehirdir. Antik dönemde 'Pylai' olarak bilinen şehir, önemli bir yerleşim merkezi olmuştur.",
-        categories: ["Termal Kaplıcaları", "Yalova Müzesi", "Tarihi Yerler", "Doğal Güzellikler"]
-    },
-    {
-        name: "Yozgat",
-        image: "../../images/yozgat.jpg",
-        description: "İç Anadolu'nun kuzeydoğusunda, tarihi dokusuyla öne çıkan şehir",
-        history: "Yozgat, tarihi M.Ö. 2000'lere kadar uzanan, Hitit, Pers, Roma ve Osmanlı medeniyetlerinin izlerini taşıyan bir şehirdir. Antik dönemde 'Bozok' olarak bilinen şehir, önemli bir yerleşim merkezi olmuştur.",
-        categories: ["Yozgat Kalesi", "Saat Kulesi", "Müzeler", "Tarihi Yerler"]
-    },
-    {
-        name: "Zonguldak",
-        image: "../../images/zonguldak.jpg",
-        description: "Batı Karadeniz'in önemli şehirlerinden, kömür madenleriyle ünlü şehir",
-        history: "Zonguldak, tarihi M.Ö. 2000'lere kadar uzanan, Hitit, Pers, Roma ve Osmanlı medeniyetlerinin izlerini taşıyan bir şehirdir. Antik dönemde 'Sandrake' olarak bilinen şehir, önemli bir liman kenti olmuştur.",
-        categories: ["Gökgöl Mağarası", "Zonguldak Müzesi", "Tarihi Yerler", "Doğal Güzellikler"]
-    }
-];
+{
+name: "Adana",
+image: "../../images/adana.jpeg",
+description: "M.Ö. 6000 yılına uzanan tarihi ile Anadolu'nun en eski yerleşim yerlerinden biri.",
+history: "Adana, Hitit, Asur, Pers, Roma ve Osmanlı medeniyetlerine ev sahipliği yapmıştır.",
+categories: ["Müzeler", "Tarihi Yerler", "Doğal Güzellikler", "Kültürel Etkinlikler"],
+foods: ["Adana Kebap", "Şalgam", "Bici Bici"]
+},
+{
+name: "Adıyaman",
+image: "../../images/adiyaman.jpg",
+description: "Nemrut Dağı ve tarihi zenginlikleriyle ünlü şehir.",
+history: "Kommagene Krallığı'na başkentlik yapmış olan Adıyaman, Nemrut Dağı'ndaki dev heykelleriyle UNESCO Dünya Mirası listesindedir.",
+categories: ["Nemrut Dağı", "Tarihi Yerler", "Müzeler"],
+foods: ["Çiğ Köfte", "İçli Köfte", "Besni Tava"]
+},
+{
+name: "Afyonkarahisar",
+image: "../../images/afyonkarahisar.jpg",
+description: "Termal kaynakları ve tarihi dokusuyla öne çıkan şehir.",
+history: "Frigya'dan günümüze uzanan zengin geçmişiyle Anadolu'nun önemli kavşak noktalarından biridir.",
+categories: ["Kaleler", "Kaplıcalar", "Tarihi Camiler"],
+foods: ["Kaymaklı Ekmek Kadayıfı", "Sucuk", "Afyon Lokumu"]
+},
+{
+name: "Ağrı",
+image: "../../images/agri.jpg",
+description: "Türkiye'nin en yüksek dağına ev sahipliği yapan şehir.",
+history: "Tarih boyunca Urartular, Persler ve Osmanlılar tarafından yerleşim yeri olarak kullanılmıştır.",
+categories: ["Ağrı Dağı", "Tarihi Yerler", "Doğal Güzellikler"],
+foods: ["Abdigör Köftesi", "Haşıl", "Ağrı Ketesi"]
+},
+{
+name: "Aksaray",
+image: "../../images/aksaray.jpg",
+description: "Kapadokya'nın giriş kapısı olan tarihi şehir.",
+history: "Roma ve Bizans dönemlerinde önemli bir yerleşim olan şehir, Selçuklu döneminde de büyük gelişme göstermiştir.",
+categories: ["Vadiler", "Kervansaraylar", "Tarihi Yapılar"],
+foods: ["Aksaray Tava", "Soğanlama", "Katmer"]
+},
+{
+name: "Amasya",
+image: "../../images/amasya.jpg",
+description: "Yeşilırmak kıyısında kurulu, Osmanlı şehzadelerinin eğitim aldığı şehir.",
+history: "Hitit, Pontus, Roma ve Osmanlı izleri taşıyan tarihiyle dikkat çeker.",
+categories: ["Kaya Mezarları", "Kaleler", "Osmanlı Evleri"],
+foods: ["Amasya Çöreği", "Bamya Çorbası", "Toyga Çorbası"]
+},
+{
+name: "Ankara",
+image: "../../images/ankara.jpg",
+description: "Türkiye'nin başkenti, zengin tarihi ve kültürel mirasıyla dikkat çeker.",
+history: "Hitit, Frig, Galat, Roma ve Osmanlı dönemlerine tanıklık etmiştir.",
+categories: ["Müzeler", "Tarihi Yerler", "Modern Yapılar", "Kültürel Merkezler"],
+foods: ["Ankara Tava", "Beypazarı Kurusu", "Çubuk Turşusu"]
+},
+{
+name: "Antalya",
+image: "../../images/antalya.jpg",
+description: "Roma, Bizans ve Osmanlı dönemlerinin izlerini taşıyan Akdeniz'in incisi.",
+history: "M.Ö. 200 yılında Bergama Kralı II. Attalos tarafından kurulmuştur.",
+categories: ["Antik Kentler", "Doğal Güzellikler", "Müzeler"],
+foods: ["Hibeş", "Gökçesu Pilavı", "Enginarlı Girit Kebabı"]
+},
+{
+name: "Artvin",
+image: "../../images/artvin.jpg",
+description: "Yeşil doğası ve yüksek dağlarıyla ünlü şehir.",
+history: "Gürcü Krallığı, Bizans ve Osmanlı dönemlerinde önemli bir sınır kentiydi.",
+categories: ["Doğal Güzellikler", "Kaleler", "Yaylalar"],
+foods: ["Kuymak", "Laz Böreği", "Mısır Ekmeği"]
+},
+{
+name: "Aydın",
+image: "../../images/aydin.jpg",
+description: "Ege'nin bereketli topraklarında kurulu antik şehir.",
+history: "İyonya'nın en önemli kentlerinden biri olan Aydın, antik çağlardan bu yana önemli bir yerleşim yeridir.",
+categories: ["Antik Kentler", "Müzeler", "Kültürel Alanlar"],
+foods: ["Çingene Pilavı", "Aydın Kebabı", "Keşkek"]
+},
+{
+name: "Balıkesir",
+image: "../../images/balikesir.jpg",
+description: "Marmara ve Ege'nin kesişiminde, tarihi M.Ö. 3000'lere dayanan şehir.",
+history: "Lidya, Pers, Roma ve Osmanlı dönemlerine ev sahipliği yapmış, antik Mysia bölgesinde yer alır.",
+categories: ["Tarihi Yerler", "Doğal Güzellikler", "Müzeler"],
+foods: ["Höşmerim", "Tirit", "Zeytinyağlı Börülce"]
+},
+{
+name: "Bartın",
+image: "../../images/bartin.jpg",
+description: "Karadeniz kıyısında yer alan, doğası ve ahşap evleriyle bilinen şehir.",
+history: "Roma ve Bizans dönemlerinde önemli bir liman kenti olan Amastris'e ev sahipliği yapar.",
+categories: ["Doğal Güzellikler", "Tarihi Evler", "Plajlar"],
+foods: ["Pumpum Çorbası", "Bartın Usulü Etli Dolma", "Cevizli Börek"]
+},
+{
+name: "Batman",
+image: "../../images/batman.jpg",
+description: "Hasankeyf gibi antik bir mirasa ev sahipliği yapan Güneydoğu şehri.",
+history: "Hasankeyf, M.Ö. 1800'lerden bu yana yerleşim görmüş, Artuklu ve Eyyubi dönemlerinde gelişmiştir.",
+categories: ["Antik Kentler", "Tarihi Yapılar", "Nehir Kenarları"],
+foods: ["Perde Pilavı", "İçli Köfte", "Kürt Böreği"]
+},
+{
+name: "Bayburt",
+image: "../../images/bayburt.jpg",
+description: "Tarihi İpek Yolu üzerinde yer alan, kaleleriyle ünlü Anadolu şehri.",
+history: "Urartu, Roma ve Osmanlı dönemlerinde askeri ve ticari öneme sahip olmuştur.",
+categories: ["Kaleler", "Doğal Güzellikler", "Müzeler"],
+foods: ["Tatlı Çorbası", "Lor Dolması", "Süt Böreği"]
+},
+{
+name: "Bilecik",
+image: "../../images/bilecik.jpg",
+description: "Osmanlı Devleti'nin kurulduğu topraklar.",
+history: "Söğüt, Osman Gazi'nin beylik kurduğu yer olarak Osmanlı tarihinin başlangıç noktasıdır.",
+categories: ["Tarihi Yerler", "Osmanlı Mirası", "Türbeler"],
+foods: ["Bilecik Güveci", "Kaldırık Dolması", "Ovmaç Çorbası"]
+},
+{
+name: "Bingöl",
+image: "../../images/bingol.jpg",
+description: "Doğal gölleriyle ve dağlarıyla tanınan Doğu Anadolu şehri.",
+history: "Hititler, Urartular ve Persler döneminde stratejik bir konumda yer almıştır.",
+categories: ["Dağlar", "Doğal Göller", "Kaplıcalar"],
+foods: ["Keşkek", "Glorik", "Çorti Aşı"]
+},
+{
+name: "Bitlis",
+image: "../../images/bitlis.jpg",
+description: "Tarihi kaleleri ve Van Gölü'ne yakınlığıyla bilinen şehir.",
+history: "Urartulardan Osmanlılara kadar birçok medeniyete ev sahipliği yapmıştır.",
+categories: ["Kaleler", "Camiler", "Doğal Güzellikler"],
+foods: ["Bitlis Köftesi", "Büryan Kebabı", "Ciğer Taplaması"]
+},
+{
+name: "Bolu",
+image: "../../images/bolu.jpg",
+description: "Doğal güzellikleriyle ünlü Batı Karadeniz şehri.",
+history: "Bitinya Krallığı, Roma ve Osmanlı dönemlerinden izler taşır.",
+categories: ["Yaylalar", "Göller", "Doğa Parkları"],
+foods: ["Kabaklı Gözleme", "Abant Kebabı", "Mengen Pilavı"]
+},
+{
+name: "Burdur",
+image: "../../images/burdur.jpg",
+description: "Tarihi Sagalassos antik kentiyle tanınır.",
+history: "Pisidia bölgesinin önemli kentlerinden biri olan Sagalassos'a ev sahipliği yapar.",
+categories: ["Antik Kentler", "Göller", "Müzeler"],
+foods: ["Burdur Şiş", "Keşkek", "Burdur Usulü Kabak Tatlısı"]
+},
+{
+name: "Bursa",
+image: "../../images/bursa.jpg",
+description: "Osmanlı'nın ilk başkenti, zengin tarihi ve yeşil doğasıyla tanınır.",
+history: "1326'da Osmanlı'nın başkenti olan şehir, tarihi hanlar, camiler ve hamamlarıyla ünlüdür.",
+categories: ["Osmanlı Eserleri", "Doğal Güzellikler", "Tarihi Camiler"],
+foods: ["İskender Kebap", "Kemalpaşa Tatlısı", "Cantık"]
+},
+{
+name: "Çorum",
+image: "../../images/corum.jpg",
+description: "Hitit medeniyetinin merkezi, arkeolojik zenginliğiyle öne çıkar.",
+history: "Anadolu'nun ilk organize devleti olan Hititler'in başkenti Hattuşa bu şehir sınırları içindedir.",
+categories: ["Antik Kentler", "Müzeler", "Tarihi Yerler"],
+foods: ["Çorum Leblebisi", "İskilip Dolması", "Katmer"]
+},
+{
+name: "Denizli",
+image: "../../images/denizli.jpg",
+description: "Pamukkale Travertenleri ve antik kentleriyle tanınan şehir.",
+history: "Hierapolis antik kentiyle birlikte Roma döneminden kalma birçok esere sahiptir.",
+categories: ["Antik Kentler", "Doğal Güzellikler", "Kaplıcalar"],
+foods: ["Tandır Kebabı", "Kuyu Kebabı", "Denizli Tandır Böreği"]
+},
+{
+name: "Diyarbakır",
+image: "../../images/diyarbakir.jpg",
+description: "Binlerce yıllık surlarıyla tarihi bir kent.",
+history: "Asur, Roma, Bizans ve Osmanlı dönemlerine ait çok sayıda yapı ve sur barındırır.",
+categories: ["Tarihi Yerler", "Camiler", "Kültürel Miras"],
+foods: ["Ciğer Kebabı", "Meftune", "Kaburga Dolması"]
+},
+{
+name: "Düzce",
+image: "../../images/duzce.jpg",
+description: "Karadeniz'in doğası ile Marmara'nın geçişinde bir yeşil cennet.",
+history: "Bitinya, Roma ve Osmanlı dönemlerinde önemli yerleşimlerden biri olmuştur.",
+categories: ["Doğal Güzellikler", "Şelaleler", "Yaylalar"],
+foods: ["Düzce Köftesi", "Kaldırık Dolması", "Lahana Sarması"]
+},
+{
+name: "Edirne",
+image: "../../images/edirne.jpg",
+description: "Osmanlı'nın ikinci başkenti, mimari ve kültürel mirasıyla ünlü.",
+history: "1361-1453 yılları arasında Osmanlı'ya başkentlik yapmış; Selimiye Camii gibi anıtsal yapılara sahiptir.",
+categories: ["Osmanlı Eserleri", "Camiler", "Müzeler"],
+foods: ["Edirne Tava Ciğeri", "Badem Ezmesi", "Zerde"]
+},
+{
+name: "Elazığ",
+image: "../../images/elazig.jpg",
+description: "Harput Kalesi ve zengin folkloru ile tanınır.",
+history: "Tarihi Harput yerleşimi, Urartulardan Osmanlılara kadar birçok medeniyete ev sahipliği yapmıştır.",
+categories: ["Kaleler", "Tarihi Yerler", "Kültürel Miras"],
+foods: ["Harput Köftesi", "İçli Köfte", "Pestil-Kömbe"]
+},
+{
+name: "Erzincan",
+image: "../../images/erzincan.jpg",
+description: "Doğu Anadolu'nun doğal güzellikleriyle öne çıkan ili.",
+history: "Tarihi İpek Yolu güzergahında yer alır; Roma, Selçuklu ve Osmanlı izleri taşır.",
+categories: ["Dağlar", "Doğal Güzellikler", "Tarihi Kalıntılar"],
+foods: ["Erzincan Tulum Peyniri", "Etli Ekmek", "Kesme Çorba"]
+},
+{
+name: "Erzurum",
+image: "../../images/erzurum.jpg",
+description: "Anadolu'nun yüksek platosunda, tarihi ve kış turizmiyle bilinir.",
+history: "Tarihi Erzurum Kongresi ve Selçuklu mimarisiyle önemli bir kültür merkezidir.",
+categories: ["Kış Sporları", "Selçuklu Eserleri", "Camiler"],
+foods: ["Cağ Kebabı", "Kadayıf Dolması", "Su Böreği"]
+},
+{
+name: "Eskişehir",
+image: "../../images/eskisehir.jpg",
+description: "Modern yaşamı ve tarihi mirası birleştiren şehir.",
+history: "Frig, Roma ve Osmanlı dönemlerinden kalma eserleriyle dikkat çeker.",
+categories: ["Modern Yapılar", "Tarihi Yerler", "Müzeler"],
+foods: ["Çibörek", "Balaban Kebabı", "Met Helvası"]
+},
+{
+name: "Gaziantep",
+image: "../../images/gaziantep.jpg",
+description: "UNESCO gastronomi kenti, binlerce yıllık kültürel mirasa sahip.",
+history: "Hititlerden Osmanlıya kadar birçok uygarlığa ev sahipliği yapmıştır.",
+categories: ["Müzeler", "Tarihi Yerler", "Kültürel Miras"],
+foods: ["Baklava", "Lahmacun", "Yuvalama"]
+},
+{
+name: "Giresun",
+image: "../../images/giresun.jpg",
+description: "Fındığın anavatanı, yeşil doğası ve adasıyla ünlü Karadeniz şehri.",
+history: "Antik dönemde Kerasous adıyla bilinen şehir, Roma ve Bizans dönemlerinde de önemli bir liman kentiydi.",
+categories: ["Doğal Güzellikler", "Tarihi Yerler", "Adalar"],
+foods: ["Fındık Ezmesi", "Karalahana Çorbası", "Mısır Ekmeği"]
+},
+{
+name: "Gümüşhane",
+image: "../../images/gumushane.jpg",
+description: "Dağlık yapısı, yaylaları ve tarihi mağaralarıyla dikkat çeker.",
+history: "Roma, Bizans ve Selçuklu dönemlerinden kalma kaleler ve yerleşimlerle tarihi bir zenginlik sunar.",
+categories: ["Tarihi Kaleler", "Yaylalar", "Mağaralar"],
+foods: ["Siron", "Pestil", "Kuymak"]
+},
+{
+name: "Hakkari",
+image: "../../images/hakkari.jpg",
+description: "Yüksek dağlar ve derin vadilerle çevrili Doğu Anadolu şehri.",
+history: "Urartular, Asurlular ve Osmanlı dönemlerinden izler taşır, dağlık yapısı kültürel çeşitliliği korur.",
+categories: ["Doğal Güzellikler", "Dağlar", "Tarihi Yerler"],
+foods: ["Doğaba", "Kepaye", "Ciğer Kebabı"]
+},
+{
+name: "Hatay",
+image: "../../images/hatay.jpg",
+description: "Medeniyetler beşiği, farklı dinlerin ve kültürlerin yaşadığı şehir.",
+history: "Antakya, Roma döneminde dünyanın en büyük şehirlerinden biriydi. Hristiyanlığın ilk yayıldığı yerlerden biridir.",
+categories: ["Mozaik Müzeleri", "Dini Yapılar", "Tarihi Yerler"],
+foods: ["Tepsi Kebabı", "Künefe", "Oruk"]
+},
+{
+name: "ığdır",
+image: "../../images/igdir.jpg",
+description: "Ağrı Dağı'nın eteklerinde, üç ülkeye sınırı olan doğu şehri.",
+history: "Urartu, Pers ve Osmanlı dönemlerinde sınır kenti olarak önem kazanmıştır.",
+categories: ["Dağlar", "Tarihi Yerler", "Doğal Alanlar"],
+foods: ["Ağrı Pilavı", "Katıklı Dolma", "Şalgam Aşı"]
+},
+{
+name: "ısparta",
+image: "../../images/isparta.jpg",
+description: "Gül diyarı olarak bilinen, doğal güzellikleriyle tanınan Akdeniz şehri.",
+history: "Pisidia bölgesinin önemli şehirlerinden biri olan Isparta, Bizans ve Selçuklu izleri taşır.",
+categories: ["Göller", "Müzeler", "Tarihi Yerler"],
+foods: ["Kabune Pilavı", "Yalvaç Güveci", "Gül Reçeli"]
+},
+{
+name: "istanbul",
+image: "../../images/istanbul.jpg",
+description: "Üç imparatorluğa başkentlik yapmış, dünyanın en önemli metropollerinden biri.",
+history: "Byzantion, Konstantinopolis ve İstanbul adıyla Roma, Bizans ve Osmanlı'ya başkentlik yapmıştır.",
+categories: ["Saraylar", "Müzeler", "Tarihi Camiler", "Antik Yapılar"],
+foods: ["Simit", "Islak Hamburger", "Balık Ekmek"]
+},
+{
+name: "izmir",
+image: "../../images/izmir2.jpg",
+description: "Ege'nin incisi, tarih ve modernliğin buluştuğu şehir.",
+history: "Antik dönemde Smyrna olarak bilinen İzmir, İyonya uygarlıklarının önemli bir liman kentiydi.",
+categories: ["Antik Kentler", "Müzeler", "Tarihi Yerler"],
+foods: ["Boyoz", "Kumru", "Söğüş"]
+},
+{
+name: "Kahramanmaraş",
+image: "../../images/kahramanmaras.jpg",
+description: "Dondurması ve tarihi kaleleriyle meşhur Akdeniz şehri.",
+history: "Hitit, Roma ve Osmanlı dönemlerine ait eserler barındırır. Kurtuluş Savaşı'nda gösterdiği kahramanlıkla 'Kahraman' unvanı almıştır.",
+categories: ["Kaleler", "Tarihi Yerler", "Kültürel Miras"],
+foods: ["Maraş Dondurması", "Eli Böğründe", "Tarhana"]
+},
+{
+name: "Karabük",
+image: "../../images/karabuk.jpg",
+description: "Safranbolu evleriyle UNESCO mirası listesindeki şehir.",
+history: "Osmanlı sivil mimarisinin en güzel örnekleriyle dolu Safranbolu ilçesiyle ünlüdür.",
+categories: ["UNESCO Mirası", "Tarihi Evler", "Müzeler"],
+foods: ["Safranlı Zerde", "Etli Ekmek", "Peruhi"]
+},
+{
+name: "Karaman",
+image: "../../images/karaman.jpg",
+description: "Türkçenin resmi dil ilan edildiği kadim şehir.",
+history: "Karamanoğulları Beyliği'nin başkenti olan Karaman, Türkçeyi ilk kez resmi dil yapan yönetim olarak tarih sahnesinde önemli yer tutar.",
+categories: ["Tarihi Yerler", "Selçuklu Eserleri", "Kale ve Medreseler"],
+foods: ["Batırık", "Tahinli Pide", "Calla Yemeği"]
+},
+{
+name: "Kars",
+image: "../../images/kars.jpg",
+description: "Ani Harabeleri ile tarihî ve kültürel mirasa sahip doğu şehri.",
+history: "Ermeni Bagratlı Krallığı'na başkentlik yapmış Ani Antik Kenti, Kars'ın tarihî önemini gözler önüne serer.",
+categories: ["Antik Kentler", "Tarihi Kaleler", "Kış Turizmi"],
+foods: ["Kaz Eti", "Hangel", "Umaç Helvası"]
+},
+{
+name: "Kastamonu",
+image: "../../images/kastamonu.jpg",
+description: "Tarihi konakları, kaleleri ve kültürel mirasıyla Karadeniz'in tarihi şehri.",
+history: "Tarihi Bizans ve Selçuklu dönemlerine uzanan Kastamonu, Osmanlı'dan kalma birçok eserle zengindir.",
+categories: ["Tarihi Konaklar", "Kale ve Camiler", "Müzeler"],
+foods: ["Etli Ekmek", "Banduma", "Cırık Tatlısı"]
+},
+{
+name: "Kayseri",
+image: "../../images/kayseri.jpg",
+description: "Erciyes Dağı eteklerinde yer alan ticaretin ve lezzetin merkezi.",
+history: "Mazaka adıyla bilinen Kayseri, Roma, Bizans ve Selçuklu dönemlerinde önemli ticaret merkezidir.",
+categories: ["Dağ Sporları", "Tarihi Çarşılar", "Kervansaraylar"],
+foods: ["Pastırma", "Mantı", "Sucuk"]
+},
+{
+name: "Kırıkkale",
+image: "../../images/kirikkale.jpg",
+description: "Anadolu'nun ortasında yer alan genç şehir.",
+history: "Cumhuriyet döneminde gelişen bir sanayi şehri olan Kırıkkale, Türkiye'nin silah sanayisinde öncü şehirlerinden biridir.",
+categories: ["Modern Yapılar", "Müzeler", "Doğa Alanları"],
+foods: ["Tandır", "Tarhana Çorbası", "Madımak"]
+},
+{
+name: "Kırklareli",
+image: "../../images/kirklareli.jpg",
+description: "Trakya'nın kültür ve doğa cenneti, mağaraları ve longoz ormanlarıyla ünlü.",
+history: "Traklar, Roma ve Osmanlı dönemine ait pek çok tarihi kalıntıya ev sahipliği yapar.",
+categories: ["Longoz Ormanları", "Tarihi Yerler", "Doğa Yürüyüşü Alanları"],
+foods: ["Papara", "Kuzu Etli Kuru Fasulye", "Peynir Helvası"]
+},
+{
+name: "Kırşehir",
+image: "../../images/kirsehir.jpg",
+description: "Ahi Evran ve Neşet Ertaş'ın memleketi, Anadolu'nun kalbinde kültür şehri.",
+history: "Kırşehir, Selçuklu ve Osmanlı dönemlerinde kültür ve eğitim merkezi olmuştur. Ahi Evran ve Türk halk müziği ustası Neşet Ertaş bu topraklarda yetişmiştir.",
+categories: ["Tarihi Yerler", "Kültürel Miras", "Müzeler"],
+foods: ["Çullama", "Seyfe Kavurması", "Soğan Dolması"]
+},
+{
+name: "Kilis",
+image: "../../images/kilis.jpg",
+description: "Güneydoğu'nun küçük ama tarihi zengin şehirlerinden biri.",
+history: "Kilis, Roma ve Bizans dönemlerinden Osmanlı'ya kadar çeşitli medeniyetlerin izlerini taşır. Aynı zamanda Suriye ile olan kültürel bağıyla dikkat çeker.",
+categories: ["Tarihi Evler", "Kiliseler", "Kale Kalıntıları"],
+foods: ["Kilis Tava", "Oruk", "Lebeniye Çorbası"]
+},
+{
+name: "Kocaeli",
+image: "../../images/kocaeli.jpg",
+description: "Sanayi ve doğanın buluştuğu Marmara'nın kalbi.",
+history: "Roma döneminden beri yerleşim yeri olan Kocaeli, Osmanlı zamanında önemli liman kentlerinden biri olmuştur.",
+categories: ["Sanayi Müzeleri", "Doğa Parkları", "Sahil Yürüyüş Alanları"],
+foods: ["Pişmaniye", "Kocaeli Simidi", "Cızlak"]
+},
+{
+name: "Konya",
+image: "../../images/konya.jpg",
+description: "Mevlana'nın şehri, Selçuklu'nun başkenti.",
+history: "Konya, Anadolu Selçuklu Devleti'nin başkentidir. Mevlana Celaleddin Rumi'nin türbesi burada yer alır. Binlerce yıllık geçmişiyle tarih kokan bir şehirdir.",
+categories: ["Selçuklu Eserleri", "Mevlana Türbesi", "Antik Yerleşimler"],
+foods: ["Etli Ekmek", "Bamya Çorbası", "Tirit"]
+},
+{
+name: "Kütahya",
+image: "../../images/kutahya.jpg",
+description: "Çini ve seramiğiyle ünlü sanat ve tarih şehri.",
+history: "Frigler, Roma ve Osmanlı dönemlerinde önemli bir yerleşim yeri olan Kütahya, özellikle çiniciliğiyle tanınır.",
+categories: ["Çini Müzeleri", "Kale ve Camiler", "Tarihi Konaklar"],
+foods: ["Tavuk Göğsü", "Sıkıcık Çorbası", "Dolamber Böreği"]
+},
+{
+name: "Malatya",
+image: "../../images/malatya.jpg",
+description: "Kayısısıyla ünlü, tarih ve doğanın buluştuğu şehir.",
+history: "Malatya, Hititler'den günümüze birçok medeniyetin izlerini taşır. Eski Malatya'da yer alan Arslantepe Höyüğü UNESCO miras listesinde yer alır.",
+categories: ["Höyükler", "Kale ve Camiler", "Doğa Alanları"],
+foods: ["Kağıt Kebabı", "Analı Kızlı", "Kayısılı Tatlılar"]
+},
+{
+name: "Manisa",
+image: "../../images/manisa.jpg",
+description: "Sultan camileri, mesir macunu ve Spil Dağı ile ünlü tarihi şehir.",
+history: "Manisa, antik çağlarda Magnesia adıyla anılmıştır. Osmanlı döneminde şehzadelerin eğitim gördüğü önemli bir merkez olmuştur.",
+categories: ["Tarihi Camiler", "Doğal Güzellikler", "Müzeler"],
+foods: ["Manisa Kebabı", "Mesir Macunu", "Simit Tatlısı"]
+},
+{
+name: "Kahramanmaraş",
+image: "../../images/kahramanmaras.jpg",
+description: "Dondurması, tarihi çarşıları ve Kurtuluş Savaşı'ndaki kahramanlığıyla tanınır.",
+history: "Roma, Bizans ve Osmanlı dönemlerinde önemli bir yerleşim olan şehir, Kurtuluş Savaşı'nda gösterdiği direnişle 'Kahraman' unvanını almıştır.",
+categories: ["Tarihi Çarşılar", "Müzeler", "Milli Mücadele Alanları"],
+foods: ["Maraş Dondurması", "Eli Böğründe", "Maraş Çöreği"]
+},
+{
+name: "Mardin",
+image: "../../images/mardin.jpg",
+description: "Taş evleri, dinler ve diller mozaiğiyle büyüleyici bir şehir.",
+history: "Süryani, Arap, Kürt ve Türk kültürlerinin iç içe geçtiği Mardin, Mezopotamya'nın kuzeyinde binlerce yıllık bir tarihe sahiptir.",
+categories: ["Tarihi Taş Evler", "Manastırlar", "Tarihi Camiler"],
+foods: ["Kaburga Dolması", "İkbebet", "Sembusek"]
+},
+{
+name: "Muğla",
+image: "../../images/mugla.jpg",
+description: "Bodrum, Fethiye ve Marmaris gibi sahil cennetlerine ev sahipliği yapan şehir.",
+history: "Karya, Likya ve Roma dönemlerinde önemli liman şehirlerine sahip olan Muğla, Osmanlı döneminde de idari merkez olmuştur.",
+categories: ["Antik Kentler", "Sahil Kasabaları", "Doğal Güzellikler"],
+foods: ["Çökertme Kebabı", "Keşkek", "Sura"]
+},
+{
+name: "Muş",
+image: "../../images/mus.jpg",
+description: "Bahar aylarında açan laleleriyle bilinen, tarihi zenginliğe sahip doğu şehri.",
+history: "Urartu, Bizans ve Selçuklu izleri taşıyan Muş, Osmanlı döneminde de önemli bir kale ve yerleşim yeri olmuştur.",
+categories: ["Kale Kalıntıları", "Doğal Alanlar", "Tarihi Camiler"],
+foods: ["Muş Köftesi", "Herise", "Çorti"]
+},
+{
+name: "Nevşehir",
+image: "../../images/nevsehir.jpg",
+description: "Kapadokya'nın kalbi, peri bacaları ve yer altı şehirleriyle eşsiz bir doğa harikası.",
+history: "Kapadokya bölgesi içerisinde yer alan Nevşehir, Paleolitik Çağ'dan itibaren birçok uygarlığa ev sahipliği yapmıştır. Hristiyanlık döneminde önemli bir sığınak olmuştur.",
+categories: ["Peri Bacaları", "Yer Altı Şehirleri", "Açık Hava Müzeleri"],
+foods: ["Testi Kebabı", "Düğü Çorbası", "Soğanlama"]
+},
 
-// Global fonksiyonları tanımla
-window.createCityCard = function(city) {
-    return `
-        <div class="city-card">
-            <img src="${city.image}" alt="${city.name}" class="city-card-image" onerror="this.src='images/default-city.jpg'">
-            <h3 class="city-card-title">${city.name}</h3>
-            <div class="city-card-line"></div>
-            <p class="city-card-desc">${city.description}</p>
-            <div class="city-card-section-title">Gezilmesi gereken yerler</div>
-            <ul class="city-card-list">
-                ${city.categories.map(place => `<li>${place}</li>`).join('')}
-            </ul>
-        </div>
-    `;
+{
+name: "Niğde",
+image: "../../images/nigde.jpg",
+description: "Tarihi kaleleri ve doğal güzellikleriyle İç Anadolu'nun gizli hazinesi.",
+history: "Niğde, Hititlerden Osmanlılara kadar birçok medeniyete ev sahipliği yapmıştır. Eski adı Nakita olan şehir, Orta Çağ'da önemli bir ticaret merkeziydi.",
+categories: ["Tarihi Kaleler", "Doğal Alanlar", "Antik Yerleşimler"],
+foods: ["Niğde Tava", "Kaygana", "Soğan Dolması"]
+},
+{
+name: "Ordu",
+image: "../../images/ordu.jpg",
+description: "Karadeniz'in huzur veren doğası, fındığı ve yaylalarıyla ünlü şehir.",
+history: "Ordu, antik çağda Cotyora olarak biliniyordu. Osmanlı döneminde önemli bir liman kenti haline gelmiştir.",
+categories: ["Yaylalar", "Kıyı Alanları", "Tarihi Kaleler"],
+foods: ["Mısır Ekmeği", "Fasulye Diblesi", "Melocan Kavurması"]
+},
+{
+name: "Osmaniye",
+image: "../../images/osmaniye.jpg",
+description: "Çukurova'nın verimli topraklarında kurulmuş, kaleleriyle ünlü genç il.",
+history: "Osmaniye, Roma döneminden bu yana yerleşim görmüş, 1996 yılında il statüsü kazanmıştır. Anavarza ve Kastabala gibi antik kentlere ev sahipliği yapar.",
+categories: ["Antik Kentler", "Tarihi Kaleler", "Doğal Güzellikler"],
+foods: ["Kömbe", "Etli Köfte", "Yüksük Çorbası"]
+},
+{
+name: "Rize",
+image: "../../images/rize.jpg",
+description: "Çayın başkenti, yemyeşil yaylaları ve hırçın dereleriyle Karadeniz'in incisi.",
+history: "Antik çağlarda Rhizos olarak bilinen şehir, Bizans ve Osmanlı dönemlerinde önemli bir kıyı yerleşimi olmuştur. Doğu Karadeniz'in kültürel merkezlerinden biridir.",
+categories: ["Yaylalar", "Çay Bahçeleri", "Doğal Güzellikler"],
+foods: ["Muhlama", "Hamsili Pilav", "Laz Böreği"]
+},
+{
+name: "Sakarya",
+image: "../../images/sakarya.jpg",
+description: "Doğal güzellikleri, gölleri ve Karasu sahili ile Marmara'nın gözde şehirlerinden.",
+history: "Sakarya, tarih boyunca Bitinya, Roma ve Osmanlı gibi medeniyetlerin etkisinde kalmış, 1999'daki büyük depremle yeniden yapılanmaya başlamıştır.",
+categories: ["Göller", "Sahil", "Tarihi Yerler"],
+foods: ["Islama Köfte", "Kabuklu Pilav", "Ayran Aşı"]
+},
+{
+name: "Samsun",
+image: "../../images/samsun.jpg",
+description: "Karadeniz'in önemli liman kenti, Kurtuluş Savaşı'nın başladığı şehir.",
+history: "M.Ö. 600'lü yıllarda kurulan Amisos antik kenti üzerine kurulu olan Samsun, 19 Mayıs 1919'da Atatürk'ün Samsun'a çıkmasıyla modern Türkiye tarihine yön vermiştir.",
+categories: ["Tarihi Yerler", "Müzeler", "Sahil Şeridi"],
+foods: ["Bafra Pidesi", "Kaz Tiridi", "Nokul"]
+},
+{
+name: "Siirt",
+image: "../../images/siirt.jpg",
+description: "Tarihi medreseleri, doğal güzellikleri ve yöresel lezzetleriyle Güneydoğu'nun özgün şehri.",
+history: "Siirt, Sümerlerden Osmanlılara kadar birçok uygarlığın etkisi altında kalmıştır. İpek Yolu üzerinde stratejik bir konumda bulunur.",
+categories: ["Medreseler", "Mağaralar", "Tarihi Camiler"],
+foods: ["Büryan Kebabı", "Perde Pilavı", "Zingil"]
+},
+{
+name: "Sinop",
+image: "../../images/sinop.jpg",
+description: "Karadeniz'in kuzey ucunda yer alan, tarihi cezaevi ve doğal koylarıyla bilinen şehir.",
+history: "Antik çağlarda Sinope olarak bilinen şehir, Roma, Bizans ve Osmanlı dönemlerinde liman kenti olarak önemli rol oynamıştır.",
+categories: ["Tarihi Cezaevi", "Koylar", "Kale Kalıntıları"],
+foods: ["İçli Tava", "Mısır Çorbası", "Nokul"]
+},
+{
+name: "Sivas",
+image: "../../images/sivas.jpg",
+description: "Milli Mücadele'nin temel taşlarından biri, Selçuklu eserleriyle öne çıkan Anadolu şehri.",
+history: "Hititlerden Osmanlı'ya kadar birçok medeniyetin izlerini taşıyan Sivas, 1919 Sivas Kongresi ile Cumhuriyet tarihine yön vermiştir.",
+categories: ["Selçuklu Eserleri", "Kongre Binaları", "Termal Kaynaklar"],
+foods: ["Sivas Köftesi", "Hingel", "Katmer"]
+},
+{
+name: "şanlıurfa",
+image: "../../images/sanliurfa.jpg",
+description: "Peygamberler şehri, Göbeklitepe'nin keşfiyle insanlık tarihinin yeniden yazıldığı yer.",
+history: "Urfa, Sümerler, Asurlular, Romalılar, Bizanslılar ve Osmanlı dönemlerinde önemli bir merkez olmuştur. Göbeklitepe ile bilinen insanlık tarihinin en eski tapınak alanına ev sahipliği yapar.",
+categories: ["Tarihi Alanlar", "Kutsal Yerler", "Arkeolojik Sitler"],
+foods: ["Çiğ Köfte", "Lahmacun", "Küncülü Akıt"]
+},
+{
+name: "şırnak",
+image: "../../images/sirnak.jpg",
+description: "Dağları, mağaraları ve kültürel çeşitliliği ile Güneydoğu'nun dikkat çeken şehirlerinden.",
+history: "Şırnak, Mezopotamya uygarlıklarının etkisinde kalmış, antik çağlardan bugüne kadar gelen bir yerleşim yeridir. Cudi Dağı civarında yer alan Zaho Antik Kenti dikkat çeker.",
+categories: ["Dağlık Alanlar", "Mağaralar", "Tarihi Kalıntılar"],
+foods: ["Suryaz", "Meftune", "Kutilk"]
+},
+{
+name: "Tekirdağ",
+image: "../../images/tekirdag.jpg",
+description: "Marmara kıyısında tarihi ve üzüm bağlarıyla ünlü şehir.",
+history: "Traklar, Roma ve Osmanlı dönemlerinde önemli bir liman ve bağcılık merkezi olan Tekirdağ, tarihi boyunca ticaretin merkezi olmuştur.",
+categories: ["Müzeler", "Bağ Evleri", "Tarihi Yerler"],
+foods: ["Tekirdağ Köftesi", "Hayrabolu Tatlısı", "Peynir Helvası"]
+},
+{
+name: "Tokat",
+image: "../../images/tokat.jpg",
+description: "Tarihi kaleleri, hanları ve yöresel el sanatlarıyla ünlü Karadeniz şehri.",
+history: "Tokat, Hititler'den Osmanlılara kadar birçok medeniyetin izlerini taşır. Sulusaray antik kenti ve Zile Kalesi önemli tarihi yerlerdendir.",
+categories: ["Kaleler", "Antik Kentler", "Tarihi Çarşılar"],
+foods: ["Tokat Kebabı", "Bat", "Zile Pekmezi"]
+},
+{
+name: "Trabzon",
+image: "../../images/trabzon2.jpg",
+description: "Tarihi M.Ö. 2000'lere dayanan Karadeniz'in kültür ve doğa merkezi.",
+history: "Tarihi boyunca Pers, Roma, Bizans ve Osmanlı egemenliğinde kalan Trabzon, Pontus Krallığı'nın da başkentiydi. Sümela Manastırı önemli bir simgedir.",
+categories: ["Tarihi Yerler", "Müzeler", "Doğal Güzellikler"],
+foods: ["Kuymak", "Hamsi Pilavı", "Akçaabat Köftesi"]
+},
+{
+name: "Tunceli",
+image: "../../images/tunceli.jpg",
+description: "Munzur Dağları ve doğa sporları ile Doğu Anadolu'nun sakin doğa şehri.",
+history: "Tunceli; Urartular, Medler ve Osmanlı dönemlerinden kalma izler taşır. Munzur Vadisi ve çevresi doğal sit alanıdır.",
+categories: ["Milli Parklar", "Doğal Güzellikler", "Tarihi Yerler"],
+foods: ["Gulik", "Kürt Köftesi", "Kavut"]
+},
+{
+name: "Uşak",
+image: "../../images/usak.jpg",
+description: "Antik kentleri, halıcılığı ve tarhanası ile Ege'nin köklü şehirlerinden.",
+history: "Uşak, Lidya, Pers, Roma ve Bizans medeniyetlerine ev sahipliği yapmıştır. Karun Hazinesi'nin çıkışıyla da bilinmektedir.",
+categories: ["Antik Kentler", "Müzeler", "Kültürel Miras"],
+foods: ["Uşak Tarhanası", "Keşkek", "Ciğer Sarma"]
+},
+{
+name: "Van",
+image: "../../images/van.jpg",
+description: "Van Gölü, Akdamar Adası ve zengin tarihiyle Doğu Anadolu'nun incisi.",
+history: "Urartuların başkenti olan Van, birçok medeniyete ev sahipliği yapmıştır. Van Kalesi ve Akdamar Kilisesi en önemli tarihi yerlerindendir.",
+categories: ["Göl ve Adalar", "Tarihi Yapılar", "Kültürel Alanlar"],
+foods: ["Van Kahvaltısı", "Murtuğa", "Kavut"]
+},
+{
+name: "Yalova",
+image: "../../images/yalova.jpg",
+description: "Marmara Denizi kıyısında, termal kaynaklarıyla tanınan dinlence şehri.",
+history: "Bizans ve Osmanlı dönemlerinde termal turizmin merkezi olmuş, Atatürk'ün 'Yalova benim kentimdir' sözüyle anılır.",
+categories: ["Termal Tesisler", "Doğal Alanlar", "Tarihi Evler"],
+foods: ["Termal Fasulyesi", "Yalova Sütlüsü", "Yalova Köftesi"]
+},
+{
+name: "Yozgat",
+image: "../../images/yozgat.jpg",
+description: "İç Anadolu'nun tarihi yapıları ve doğasıyla öne çıkan şehri.",
+history: "Yozgat, Hititler ve Roma dönemlerinde önemli yerleşim yerlerinden biridir. Çapanoğlu Camii ve tarihi saat kulesi simgelerindendir.",
+categories: ["Tarihi Camiler", "Doğal Güzellikler", "Müzeler"],
+foods: ["Arabaşı", "Madımak", "Yozgat Böreği"]
+},  {
+name: "Zonguldak",
+image: "../../images/zonguldak.jpg",
+description: "Karadeniz'in kıyısında, taş kömürü ile anılan sanayi ve liman şehri.",
+history: "Zonguldak, Osmanlı döneminde kömür madenlerinin işletilmeye başlanmasıyla önem kazanmıştır. Cumhuriyet döneminde Türkiye'nin ilk ağır sanayi kentlerinden biri olmuştur.",
+categories: ["Maden Müzeleri", "Doğal Kıyılar", "Tarihi Limanlar"],
+foods: ["Kömürde Balık", "Pancar Çorbası", "Mancar Kavurması"]
+}];
+const regionCities = {
+    marmara: ["istanbul", "edirne", "kırklareli", "tekirdağ", "kocaeli", "sakarya", "yalova", "bursa", "balıkesir", "çanakkale", "bilecik"],
+    ege: ["izmir", "aydın", "muğla", "manisa", "uşak", "kütahya", "Afyonkarahisar", "denizli"],
+    akdeniz: ["antalya", "ısparta", "burdur", "mersin", "adana", "osmaniye", "Hatay", "Kahramanmaraş"],
+    "ic-anadolu": ["ankara", "konya", "kayseri", "eskişehir", "aksaray", "kırıkkale", "kırşehir", "nevşehir", "niğde", "sivas", "yozgat", "çankırı", "karaman"],
+    karadeniz: ["samsun", "sinop", "amasya", "tokat", "ordu", "giresun", "trabzon", "rize", "artvin", "bartın", "zonguldak", "kastamonu", "çorum", "gümüşhane", "bayburt", "bolu", "düzce"],
+    "dogu-anadolu": ["erzurum", "erzincan", "ağrı", "kars", "ığdır", "ardahan", "bingöl", "bitlis", "elazığ", "hakkari", "malatya", "muş", "tunceli", "van"],
+    "guneydogu-anadolu": ["gaziantep", "adıyaman", "diyarbakır", "mardin", "batman", "şanlıurfa", "siirt", "şırnak", "kilis"],
 };
 
+
+// Global fonksiyonları tanımla
+function createCityCard(city) {
+    const card = document.createElement('div');
+    card.className = 'city-card';
+    
+    const image = document.createElement('img');
+    image.src = city.image;
+    image.alt = city.name;
+    image.className = 'city-card-image';
+    
+    const title = document.createElement('h3');
+    title.className = 'city-card-title';
+    title.textContent = city.name;
+    
+    const line = document.createElement('div');
+    line.className = 'city-card-line';
+    
+    const description = document.createElement('p');
+    description.className = 'city-card-desc';
+    description.textContent = city.description;
+    
+    const categoriesTitle = document.createElement('h4');
+    categoriesTitle.className = 'city-card-section-title';
+    categoriesTitle.textContent = 'Kategoriler';
+    
+    const categoriesList = document.createElement('ul');
+    categoriesList.className = 'city-card-list';
+    city.categories.forEach(category => {
+        const li = document.createElement('li');
+        li.textContent = category;
+        categoriesList.appendChild(li);
+    });
+
+    card.appendChild(image);
+    card.appendChild(title);
+    card.appendChild(line);
+    card.appendChild(description);
+    card.appendChild(categoriesTitle);
+    card.appendChild(categoriesList);
+    
+    // Kart tıklanabilir yapılıyor
+    card.style.cursor = 'pointer';
+    card.addEventListener('click', () => {
+        // Şehir adını URL'ye uygun formata çeviriyoruz
+        const citySlug = city.name.toLowerCase()
+          
+        // İlgili şehrin HTML sayfasına yönlendir
+        window.location.href = `../html/${citySlug}.html`;
+    });
+    
+    return card;
+}
+
 window.filterCities = function(searchTerm) {
+    // Arama terimini küçük harfe çevir
+    searchTerm = searchTerm.toLowerCase().trim();
+    
+    // Şehirleri filtrele
     const filteredCities = window.cities.filter(city => 
-        city.name.toLowerCase().includes(searchTerm.toLowerCase())
+        city.name.toLowerCase().startsWith(searchTerm)
     );
+
     const resultsContainer = document.getElementById('resultsContainer');
     if (!resultsContainer) return;
+
     if (filteredCities.length === 0) {
         resultsContainer.innerHTML = '<div class="no-results">Sonuç bulunamadı</div>';
         return;
     }
+    
     // Slider yapısı
     resultsContainer.innerHTML = `
         <button class="slider-arrow left-arrow">&#10094;</button>
-        <div class="slider-track">
-            ${filteredCities.map(city => window.createCityCard(city)).join('')}
-        </div>
+        <div class="slider-track"></div>
         <button class="slider-arrow right-arrow">&#10095;</button>
     `;
+    
+    const track = resultsContainer.querySelector('.slider-track');
+    
+    // Filtrelenmiş şehirlerin kartlarını oluştur
+    filteredCities.forEach(city => {
+        const card = createCityCard(city);
+        track.appendChild(card);
+    });
+
     // Slider fonksiyonu
-    const track = document.querySelector('.slider-track');
-    const leftBtn = document.querySelector('.left-arrow');
-    const rightBtn = document.querySelector('.right-arrow');
+    const leftBtn = resultsContainer.querySelector('.left-arrow');
+    const rightBtn = resultsContainer.querySelector('.right-arrow');
     let scrollAmount = 0;
     const cardWidth = 360; // Kart genişliği + margin
+    
     leftBtn.onclick = () => {
         scrollAmount -= cardWidth;
         if (scrollAmount < 0) scrollAmount = 0;
         track.scrollTo({ left: scrollAmount, behavior: 'smooth' });
     };
+    
     rightBtn.onclick = () => {
         scrollAmount += cardWidth;
         const maxScroll = track.scrollWidth - track.clientWidth;
@@ -850,31 +976,98 @@ function generateRoute(cityName) {
 
 // Sayfa yüklendiğinde çalışacak fonksiyon
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('Sayfa yüklendi');
-    
-    // Elementlerin varlığını kontrol et
-    const searchBox = document.getElementById('citySearch');
     const resultsContainer = document.getElementById('resultsContainer');
-    const cityDetail = document.getElementById('cityDetail');
+    if (!resultsContainer) return;
 
-    if (!searchBox || !resultsContainer || !cityDetail) {
-        console.error('Gerekli elementler bulunamadı!');
+    // Slider yapısını oluştur
+    resultsContainer.innerHTML = `
+        <button class="slider-arrow left-arrow">&#10094;</button>
+        <div class="slider-track"></div>
+        <button class="slider-arrow right-arrow">&#10095;</button>
+    `;
+
+    const track = resultsContainer.querySelector('.slider-track');
+    
+    // Tüm şehirlerin kartlarını oluştur
+    window.cities.forEach(city => {
+        const card = createCityCard(city);
+        track.appendChild(card);
+    });
+
+    // Slider fonksiyonları
+    const leftBtn = resultsContainer.querySelector('.left-arrow');
+    const rightBtn = resultsContainer.querySelector('.right-arrow');
+    let scrollAmount = 0;
+    const cardWidth = 316; // Kart genişliği (300px) + gap (16px)
+    
+    leftBtn.onclick = () => {
+        scrollAmount -= cardWidth;
+        if (scrollAmount < 0) scrollAmount = 0;
+        track.scrollTo({ left: scrollAmount, behavior: 'smooth' });
+    };
+    
+    rightBtn.onclick = () => {
+        scrollAmount += cardWidth;
+        const maxScroll = track.scrollWidth - track.clientWidth;
+        if (scrollAmount > maxScroll) scrollAmount = maxScroll;
+        track.scrollTo({ left: scrollAmount, behavior: 'smooth' });
+    };
+
+    // Otomatik slider'ı başlat
+    startAutoScroll();
+    
+    // Mouse hover olduğunda slider'ı durdur
+    track.addEventListener('mouseenter', () => {
+        if (autoScrollInterval) {
+            clearInterval(autoScrollInterval);
+        }
+    });
+
+    // Mouse ayrıldığında slider'ı tekrar başlat
+    track.addEventListener('mouseleave', () => {
+        startAutoScroll();
+    });
+});
+
+let currentIndex = 0;
+let autoScrollInterval;
+
+function startAutoScroll() {
+    const sliderTrack = document.querySelector('.slider-track');
+    const cityCards = document.querySelectorAll('.city-card');
+    
+    if (!sliderTrack || !cityCards.length) {
+        console.error('Slider elementleri bulunamadı!');
         return;
     }
 
-    console.log('Şehir sayısı:', window.cities.length);
-    
-    // Arama kutusu event listener'ı
-    searchBox.addEventListener('input', (e) => {
-        const searchTerm = e.target.value;
-        console.log('Arama terimi:', searchTerm);
-        window.filterCities(searchTerm);
-    });
+    // Önceki interval'i temizle
+    if (autoScrollInterval) {
+        clearInterval(autoScrollInterval);
+    }
 
-    // Sayfa yüklendiğinde tüm şehirleri göster
-    console.log('Tüm şehirler gösteriliyor...');
-    window.filterCities('');
-});
+    const cardWidth = 316; // Kart genişliği (300px) + gap (16px)
+    const maxScroll = sliderTrack.scrollWidth - sliderTrack.clientWidth;
+
+    autoScrollInterval = setInterval(() => {
+        currentIndex++;
+        const scrollPosition = currentIndex * cardWidth;
+
+        // Eğer son karta geldiyse başa dön
+        if (scrollPosition >= maxScroll) {
+            currentIndex = 0;
+            sliderTrack.scrollTo({
+                left: 0,
+                behavior: 'smooth'
+            });
+        } else {
+            sliderTrack.scrollTo({
+                left: scrollPosition,
+                behavior: 'smooth'
+            });
+        }
+    }, 3000); // her 3 saniyede bir kart kaydır
+}
 
 // Navbar scroll kontrolü için yeni fonksiyon
 let lastScrollTop = 0;
@@ -891,3 +1084,158 @@ window.addEventListener('scroll', () => {
     }
     lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
 });
+
+// Arama fonksiyonu
+function searchCity(query) {
+    query = query.toLowerCase().trim();
+    const results = window.cities.filter(city => 
+        city.name.toLowerCase().includes(query)
+    );
+    return results;
+}
+
+// Arama sonuçlarını gösterme fonksiyonu
+function displaySearchResults(results) {
+    const searchResults = document.getElementById('search-results');
+    const resultsContainer = document.getElementById('resultsContainer');
+    
+    searchResults.innerHTML = '';
+    
+    if (results.length === 0) {
+        searchResults.innerHTML = '<div class="no-results">Sonuç bulunamadı</div>';
+        resultsContainer.innerHTML = '<div class="no-results">Sonuç bulunamadı</div>';
+        return;
+    }
+    
+    // Arama sonuçlarını göster
+    results.forEach(city => {
+        const resultItem = document.createElement('div');
+        resultItem.className = 'search-result-item';
+        resultItem.textContent = city.name;
+        searchResults.appendChild(resultItem);
+    });
+
+    // City card'ları güncelle
+    resultsContainer.innerHTML = `
+        <button class="slider-arrow left-arrow">&#10094;</button>
+        <div class="slider-track"></div>
+        <button class="slider-arrow right-arrow">&#10095;</button>
+    `;
+    
+    const track = resultsContainer.querySelector('.slider-track');
+    
+    // Filtrelenmiş şehirlerin kartlarını oluştur
+    results.forEach(city => {
+        const card = createCityCard(city);
+        track.appendChild(card);
+    });
+
+    // Slider fonksiyonu
+    const leftBtn = resultsContainer.querySelector('.left-arrow');
+    const rightBtn = resultsContainer.querySelector('.right-arrow');
+    let scrollAmount = 0;
+    const cardWidth = 360; // Kart genişliği + margin
+    
+    leftBtn.onclick = () => {
+        scrollAmount -= cardWidth;
+        if (scrollAmount < 0) scrollAmount = 0;
+        track.scrollTo({ left: scrollAmount, behavior: 'smooth' });
+    };
+    
+    rightBtn.onclick = () => {
+        scrollAmount += cardWidth;
+        const maxScroll = track.scrollWidth - track.clientWidth;
+        if (scrollAmount > maxScroll) scrollAmount = maxScroll;
+        track.scrollTo({ left: scrollAmount, behavior: 'smooth' });
+    };
+}
+
+// Event listener'ları ekle
+document.addEventListener('DOMContentLoaded', () => {
+    const searchInput = document.getElementById('city-search');
+    
+    searchInput.addEventListener('input', (e) => {
+        const query = e.target.value;
+        if (query.length >= 1) {
+            const results = searchCity(query);
+            displaySearchResults(results);
+        } else {
+            document.getElementById('search-results').innerHTML = '';
+            // Tüm şehirleri göster
+            const results = window.cities;
+            displaySearchResults(results);
+        }
+    });
+});
+
+// Şehir detaylarını gösterme fonksiyonu
+function showCityDetail(city) {
+    const cityDetail = document.getElementById('cityDetail');
+    cityDetail.innerHTML = `
+        <div class="city-info">
+            <h2>${city.name}</h2>
+            <img src="${city.image}" alt="${city.name}" class="city-image">
+            <p class="description">${city.description}</p>
+            <p class="history">${city.history}</p>
+            <div class="categories">
+                <h3>Kategoriler:</h3>
+                <ul>
+                    ${city.categories.map(category => `<li>${category}</li>`).join('')}
+                </ul>
+            </div>
+            <div class="foods">
+                <h3>Yöresel Yemekler:</h3>
+                <ul>
+                    ${city.foods.map(food => `<li>${food}</li>`).join('')}
+                </ul>
+            </div>
+        </div>
+    `;
+    cityDetail.style.display = 'block';
+}
+
+// Event listener'ları ekle
+document.addEventListener('DOMContentLoaded', () => {
+    const searchInput = document.getElementById('city-search');
+    
+    searchInput.addEventListener('input', (e) => {
+        const query = e.target.value;
+        // Hem arama sonuçlarını hem de city card'ları güncelle
+        if (query.length >= 1) {
+            const results = searchCity(query);
+            displaySearchResults(results);
+            window.filterCities(query);
+        } else {
+            document.getElementById('search-results').innerHTML = '';
+            window.filterCities(''); // Tüm şehirleri göster
+        }
+    });
+    
+    // Arama kutusu dışına tıklandığında sonuçları gizle
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.search-container')) {
+            document.getElementById('search-results').innerHTML = '';
+        }
+    });
+});
+const style = document.createElement('style');
+style.textContent = `
+    .city-card {
+        background: white;
+        border-radius: 20px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        padding: 25px;
+        margin: 20px;
+        
+        transition: all 0.3s ease;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        position: relative;
+        border: 1px solid rgba(0,0,0,0.05);
+    }
+
+   
+`;
+document.head.appendChild(style);

@@ -273,7 +273,7 @@ categories: ["Mozaik Müzeleri", "Dini Yapılar", "Tarihi Yerler"],
 foods: ["Tepsi Kebabı", "Künefe", "Oruk"]
 },
 {
-name: "Iğdır",
+name: "ığdır",
 image: "../../images/igdir.jpg",
 description: "Ağrı Dağı'nın eteklerinde, üç ülkeye sınırı olan doğu şehri.",
 history: "Urartu, Pers ve Osmanlı dönemlerinde sınır kenti olarak önem kazanmıştır.",
@@ -281,7 +281,7 @@ categories: ["Dağlar", "Tarihi Yerler", "Doğal Alanlar"],
 foods: ["Ağrı Pilavı", "Katıklı Dolma", "Şalgam Aşı"]
 },
 {
-name: "Isparta",
+name: "ısparta",
 image: "../../images/isparta.jpg",
 description: "Gül diyarı olarak bilinen, doğal güzellikleriyle tanınan Akdeniz şehri.",
 history: "Pisidia bölgesinin önemli şehirlerinden biri olan Isparta, Bizans ve Selçuklu izleri taşır.",
@@ -289,7 +289,7 @@ categories: ["Göller", "Müzeler", "Tarihi Yerler"],
 foods: ["Kabune Pilavı", "Yalvaç Güveci", "Gül Reçeli"]
 },
 {
-name: "İstanbul",
+name: "istanbul",
 image: "../../images/istanbul.jpg",
 description: "Üç imparatorluğa başkentlik yapmış, dünyanın en önemli metropollerinden biri.",
 history: "Byzantion, Konstantinopolis ve İstanbul adıyla Roma, Bizans ve Osmanlı'ya başkentlik yapmıştır.",
@@ -297,7 +297,7 @@ categories: ["Saraylar", "Müzeler", "Tarihi Camiler", "Antik Yapılar"],
 foods: ["Simit", "Islak Hamburger", "Balık Ekmek"]
 },
 {
-name: "İzmir",
+name: "izmir",
 image: "../../images/izmir2.jpg",
 description: "Ege'nin incisi, tarih ve modernliğin buluştuğu şehir.",
 history: "Antik dönemde Smyrna olarak bilinen İzmir, İyonya uygarlıklarının önemli bir liman kentiydi.",
@@ -667,7 +667,7 @@ function createCityCard(city) {
         li.textContent = category;
         categoriesList.appendChild(li);
     });
-    
+
     const foodsTitle = document.createElement('h4');
     foodsTitle.className = 'city-card-section-title';
     foodsTitle.textContent = 'Yöresel Lezzetler';
@@ -679,61 +679,7 @@ function createCityCard(city) {
         li.textContent = food;
         foodsList.appendChild(li);
     });
-    const searchInput = document.getElementById('city-search');
-    if (!searchInput) {
-        throw new Error('Arama kutusu bulunamadı');
-    }
-    const searchResults = document.getElementById('search-results');
-    const allCities = Object.values(regionCities).flat();
 
-    function capitalizeFirstLetter(string) {
-        if (string.length === 0) return string;
-        
-        const firstChar = string.charAt(0);
-        if (firstChar === 'i') {
-            return 'İ' + string.slice(1).toLowerCase();
-        } else if (firstChar === 'ı') {
-            return 'I' + string.slice(1).toLowerCase();
-        } else {
-            return firstChar.toUpperCase() + string.slice(1).toLowerCase();
-        }
-    }
-    function updateSearchResults() {
-        const searchTerm = searchInput.value;
-        
-        if (searchTerm.length < 1) {
-            searchResults.style.display = 'none';
-            return;
-        }
-
-        const matchedCities = allCities.filter(city => 
-            city.toLowerCase().includes(searchTerm.toLowerCase())
-        );
-
-        console.log('Eşleşen şehirler:', matchedCities);
-
-        if (matchedCities.length > 0) {
-            searchResults.innerHTML = matchedCities
-                .map(city => `<div class="search-result-item">${city}</div>`)
-                .join('');
-            searchResults.style.display = 'block';
-        } else {
-            searchResults.style.display = 'none';
-        }
-    }
-    searchInput.addEventListener('input', updateSearchResults);
-
-    searchResults.addEventListener('click', function(e) {
-        if (e.target.classList.contains('search-result-item')) {
-            const selectedCity = e.target.textContent;
-            searchInput.value = selectedCity;
-            searchResults.style.display = 'none';
-            
-            window.location.href = `${selectedCity.toLowerCase().replace(/ /g, '-')}-yemek.html`;
-            
-        }
-    }
-);
     card.appendChild(image);
     card.appendChild(title);
     card.appendChild(line);
@@ -743,62 +689,111 @@ function createCityCard(city) {
     card.appendChild(foodsTitle);
     card.appendChild(foodsList);
     
-    card.addEventListener('click', () => showCityDetail(city));
+    // Kart tıklanabilir yapılıyor
+    card.style.cursor = 'pointer';
+    card.addEventListener('click', () => {
+        // Şehir adını URL'ye uygun formata çeviriyoruz
+        const citySlug = city.name.toLowerCase()
+        // İlgili şehrin HTML sayfasına yönlendir
+        window.location.href = `../../cities/html/${citySlug}.html`;
+    });
     
     return card;
 }
 
-window.filterCities = function(searchTerm) {
-    // Arama terimini küçük harfe çevir
-    searchTerm = searchTerm.toLowerCase().trim();
-    
-    // Şehirleri filtrele
-    const filteredCities = window.cities.filter(city => 
-        city.name.toLowerCase().startsWith(searchTerm)
-    );
-
+// Sayfa yüklendiğinde tüm şehirleri göster
+document.addEventListener('DOMContentLoaded', () => {
     const resultsContainer = document.getElementById('resultsContainer');
     if (!resultsContainer) return;
 
-    if (filteredCities.length === 0) {
-        resultsContainer.innerHTML = '<div class="no-results">Sonuç bulunamadı</div>';
-        return;
-    }
-    
-    // Slider yapısı
-    resultsContainer.innerHTML = `
-        <button class="slider-arrow left-arrow">&#10094;</button>
-        <div class="slider-track"></div>
-        <button class="slider-arrow right-arrow">&#10095;</button>
-    `;
-    
-    const track = resultsContainer.querySelector('.slider-track');
-    
-    // Filtrelenmiş şehirlerin kartlarını oluştur
-    filteredCities.forEach(city => {
+    window.cities.forEach(city => {
         const card = createCityCard(city);
-        track.appendChild(card);
+        resultsContainer.appendChild(card);
     });
 
-    // Slider fonksiyonu
-    const leftBtn = resultsContainer.querySelector('.left-arrow');
-    const rightBtn = resultsContainer.querySelector('.right-arrow');
-    let scrollAmount = 0;
-    const cardWidth = 360; // Kart genişliği + margin
+    // Arama input'unu dinle
+    const searchInput = document.getElementById('city-search');
+    if (searchInput) {
+        searchInput.addEventListener('input', updateSearchResults);
+    }
+});
+
+// Arama sonuçlarını güncelle
+function updateSearchResults() {
+    const searchInput = document.getElementById('city-search');
+    const resultsContainer = document.getElementById('resultsContainer');
+    if (!searchInput || !resultsContainer) return;
+
+    const searchTerm = searchInput.value.toLowerCase();
+    const filteredCities = window.cities.filter(city => 
+        city.name.toLowerCase().includes(searchTerm)
+    );
+
+    resultsContainer.innerHTML = '';
+    filteredCities.forEach(city => {
+        const card = createCityCard(city);
+        resultsContainer.appendChild(card);
+    });
+}
+
+// Otomatik sliderr
+let autoScrollInterval;
+let currentIndex = 0;
+
+function startAutoScroll() {
+    const sliderTrack = document.querySelector('.slider-track');
+    const cityCards = document.querySelectorAll('.city-card');
     
-    leftBtn.onclick = () => {
-        scrollAmount -= cardWidth;
-        if (scrollAmount < 0) scrollAmount = 0;
-        track.scrollTo({ left: scrollAmount, behavior: 'smooth' });
-    };
+    if (!sliderTrack || !cityCards.length) {
+        console.error('Slider elementleri bulunamadı!');
+        return;
+    }
+
+    // Önceki interval'i temizle
+    if (autoScrollInterval) {
+        clearInterval(autoScrollInterval);
+    }
+
+    const cardWidth = cityCards[0].offsetWidth + 16; // kart genişliği + gap
+
+    autoScrollInterval = setInterval(() => {
+        currentIndex++;
+
+        if (currentIndex >= cityCards.length) {
+            currentIndex = 0; // en başa dön
+        }
+
+        const scrollPosition = currentIndex * cardWidth;
+
+        sliderTrack.scrollTo({
+            left: scrollPosition,
+            behavior: 'smooth'
+        });
+    }, 3000); // her 3 saniyede bir kart kaydır
+}
+
+// Sayfa yüklendiğinde otomatik slider'ı başlat
+document.addEventListener('DOMContentLoaded', function() {
+    // Diğer DOMContentLoaded işlemleri...
     
-    rightBtn.onclick = () => {
-        scrollAmount += cardWidth;
-        const maxScroll = track.scrollWidth - track.clientWidth;
-        if (scrollAmount > maxScroll) scrollAmount = maxScroll;
-        track.scrollTo({ left: scrollAmount, behavior: 'smooth' });
-    };
-};
+    // Otomatik slider'ı başlat
+    startAutoScroll();
+    
+    // Mouse hover olduğunda slider'ı durdur
+    const sliderTrack = document.querySelector('.slider-track');
+    if (sliderTrack) {
+        sliderTrack.addEventListener('mouseenter', () => {
+            if (autoScrollInterval) {
+                clearInterval(autoScrollInterval);
+            }
+        });
+
+        // Mouse ayrıldığında slider'ı tekrar başlat
+        sliderTrack.addEventListener('mouseleave', () => {
+            startAutoScroll();
+        });
+    }
+});
 
 window.showCityDetail = function(cityName) {
     const city = window.cities.find(c => c.name === cityName);
@@ -1036,31 +1031,90 @@ function generateRoute(cityName) {
 
 // Sayfa yüklendiğinde çalışacak fonksiyon
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('Sayfa yüklendi');
-    
-    // Elementlerin varlığını kontrol et
-    const searchBox = document.getElementById('citySearch');
     const resultsContainer = document.getElementById('resultsContainer');
-    const cityDetail = document.getElementById('cityDetail');
+    if (!resultsContainer) return;
 
-    if (!searchBox || !resultsContainer || !cityDetail) {
-        console.error('Gerekli elementler bulunamadı!');
+    // Slider yapısını oluştur
+    resultsContainer.innerHTML = `
+        <button class="slider-arrow left-arrow">&#10094;</button>
+        <div class="slider-track"></div>
+        <button class="slider-arrow right-arrow">&#10095;</button>
+    `;
+
+    const track = resultsContainer.querySelector('.slider-track');
+    
+    // Tüm şehirlerin kartlarını oluştur
+    window.cities.forEach(city => {
+        const card = createCityCard(city);
+        track.appendChild(card);
+    });
+
+    // Slider fonksiyonları
+    const leftBtn = resultsContainer.querySelector('.left-arrow');
+    const rightBtn = resultsContainer.querySelector('.right-arrow');
+    let scrollAmount = 0;
+    const cardWidth = 316; // Kart genişliği (300px) + gap (16px)
+    
+    leftBtn.onclick = () => {
+        scrollAmount -= cardWidth;
+        if (scrollAmount < 0) scrollAmount = 0;
+        track.scrollTo({ left: scrollAmount, behavior: 'smooth' });
+    };
+    
+    rightBtn.onclick = () => {
+        scrollAmount += cardWidth;
+        const maxScroll = track.scrollWidth - track.clientWidth;
+        if (scrollAmount > maxScroll) scrollAmount = maxScroll;
+        track.scrollTo({ left: scrollAmount, behavior: 'smooth' });
+    };
+
+    // Otomatik slider'ı başlat
+    startAutoScroll();
+    
+    // Mouse hover olduğunda slider'ı durdur
+    track.addEventListener('mouseenter', () => {
+        if (autoScrollInterval) {
+            clearInterval(autoScrollInterval);
+        }
+    });
+
+    // Mouse ayrıldığında slider'ı tekrar başlat
+    track.addEventListener('mouseleave', () => {
+        startAutoScroll();
+    });
+});
+
+function startAutoScroll() {
+    const sliderTrack = document.querySelector('.slider-track');
+    const cityCards = document.querySelectorAll('.city-card');
+    
+    if (!sliderTrack || !cityCards.length) {
+        console.error('Slider elementleri bulunamadı!');
         return;
     }
 
-    console.log('Şehir sayısı:', window.cities.length);
-    
-    // Arama kutusu event listener'ı
-    searchBox.addEventListener('input', (e) => {
-        const searchTerm = e.target.value;
-        console.log('Arama terimi:', searchTerm);
-        window.filterCities(searchTerm);
-    });
+    // Önceki interval'i temizle
+    if (autoScrollInterval) {
+        clearInterval(autoScrollInterval);
+    }
 
-    // Sayfa yüklendiğinde tüm şehirleri göster
-    console.log('Tüm şehirler gösteriliyor...');
-    window.filterCities('');
-});
+    const cardWidth = 316; // Kart genişliği (300px) + gap (16px)
+
+    autoScrollInterval = setInterval(() => {
+        currentIndex++;
+
+        if (currentIndex >= cityCards.length) {
+            currentIndex = 0; // en başa dön
+        }
+
+        const scrollPosition = currentIndex * cardWidth;
+
+        sliderTrack.scrollTo({
+            left: scrollPosition,
+            behavior: 'smooth'
+        });
+    }, 3000); // her 3 saniyede bir kart kaydır
+}
 
 // Navbar scroll kontrolü için yeni fonksiyon
 let lastScrollTop = 0;
@@ -1211,3 +1265,25 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
+const style = document.createElement('style');
+style.textContent = `
+    .city-card {
+        background: white;
+        border-radius: 20px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        padding: 25px;
+        margin: 20px;
+        
+        transition: all 0.3s ease;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        position: relative;
+        border: 1px solid rgba(0,0,0,0.05);
+    }
+
+   
+`;
+document.head.appendChild(style);

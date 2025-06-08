@@ -1,6 +1,6 @@
 body {
     background-color: var(--light-bg);
-    background-image: url('../images/turkiye.jpg');
+    background-image: url('images/turkiye.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -8,18 +8,355 @@ body {
     min-height: 100vh;
     margin: 0;
     padding: 0;
-    overflow-y: auto; /* Sayfanın aşağı kaydırılabilir olmasını sağlar */
+    overflow-y: scroll; /* Sayfanın aşağı kaydırılabilir olmasını sağlar */
+    height: auto;
+}
+.results-container {
+    max-width: 1000px;
+    margin: 10px auto;
+    padding: 0 0 20px 0;
+    min-height: 100px;
+    position: relative;
+    overflow: hidden;
+    height: auto;
+}
+.slider-track {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 20px 0;
+    margin: 0 60px;
+    width: calc(100% - 120px);
+    margin-left: auto;
+    margin-right: auto;
+    -ms-overflow-style: none;  /* IE ve Edge için scrollbar'ı gizle */
+    scrollbar-width: none;  /* Firefox için scrollbar'ı gizle */
+}
+.slider-track::-webkit-scrollbar {
+    display: none;
+}
+.slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #e74c3c;
+    color: #fff;
+    border: none;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 2;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    transition: background 0.2s;
+    opacity: 0.85;
+}
+.left-arrow { left: -5px; right: auto; }
+.right-arrow { right: -5px; left: auto; }
+.slider-arrow:hover { background: #c0392b; }
+
+.city-card {
+    background: rgba(255,255,255,0.97);
+    border-radius: 8px;
+    width: 300px;
+    min-width: 300px;
+    max-width: 300px;
+    height: auto;
+    min-height: 500px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 0 18px 18px 18px;
+    position: relative;
+    transition: transform 0.2s;
+    cursor: pointer;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+.city-card:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.22);
+}
+.city-card-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px 8px 0 0;
+    margin: -18px -18px 10px -18px;
+    width: calc(100% + 36px);
+}
+.city-card-title {
+    color: #2c3e50;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0 0 2px 0;
+    text-align: center;
+}
+.city-card-line {
+    width: 90%;
+    height: 3px;
+    background: #e74c3c;
+    margin: 4px auto 4px auto;
+    border-radius: 0;
+}
+.city-card-desc {
+    color: #666;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    margin-top: 0;
+    margin-bottom: 18px;
+    text-align: center;
+    min-height: 32px;
+    font-style: italic;
+}
+.city-card-section-title {
+    color: #e74c3c;
+    font-size: 0.98rem;
+    font-weight: 600;
+    margin: 16px 0 8px 0;
+    text-align: center;
+    letter-spacing: 0.5px;
+}
+.city-card-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+.city-card-list li {
+    color: #2c3e50;
+    font-size: 0.92rem;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    text-align: center;
+    position: relative;
+    padding-left: 20px;
+}
+.city-card-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 4px;
+    background-color: #f6503d;
+    border-radius: 50%;
+}
+.city-card-list li:last-child {
+    border-bottom: none;
 }
 
-.header {
-    background: transparent !important; /* Navigasyon çubuğunun arkasındaki beyaz şeridi kaldırır */
-    box-shadow: none !important;
+.no-results {
+    text-align: center;
+    padding: 20px;
+    font-style: italic;
+    color: #ffffff;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    margin: 20px 0;
 }
 
+.city-detail {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 0px;
+    background-color: transparent;
+    border-radius: 15px;
+    border: none;
+    backdrop-filter: none;
+}
+
+.city-detail.active {
+    display: block;
+}
+
+.city-detail h2 {
+    color: #000000;
+    margin-bottom: 20px;
+}
+
+.city-detail p {
+    color: rgba(0, 0, 0, 0.9);
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.category-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.category-button {
+    padding: 10px 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 10px;
+}
+
+.category-button:hover {
+    background: rgba(0, 0, 0, 0.7);
+    transform: translateY(-2px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.category-content {
+    display: none;
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.category-content.active {
+    display: block;
+}
+
+.category-content h3 {
+    color: #ffffff;
+    margin-bottom: 20px;
+    font-size: 1.4rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.create-route-button {
+    display: inline-block;
+    padding: 12px 25px;
+    background: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    margin-top: 20px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.create-route-button:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.route-suggestion {
+    display: none;
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.route-suggestion.active {
+    display: block;
+}
+
+.route-item {
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.route-item h4 {
+    color: #ffffff;
+    margin-bottom: 5px;
+}
+
+.route-item p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.9rem;
+}
+
+.navbar {
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    padding: 15px 30px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.nav-links a {
+    color: #fff;
+    background: none;
+    border: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 8px 15px;
+    border-radius: 0;
+    transition: all 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #000;
+    background: #fff;
+    border-radius: 20px;
+}
+
+.search-box {
+    background: #f0f0f0;
+    color: #222;
+    border-radius: 20px;
+    border: none;
+    padding: 6px 15px;
+}
+
+.place-item {
+    margin-bottom: 25px;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.place-item:hover {
+    transform: translateX(10px);
+    background: rgba(0, 0, 0, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.place-item h4 {
+    color: #ffffff;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.place-item p {
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.place-item .details {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+    font-style: italic;
+    padding-top: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
 .map-container {
     padding: 2rem;
     text-align: center;
-    min-height: 100vh;
+    min-height: 10vh;
+    padding-bottom: 0;
 }
 
 .map-container h1 {
@@ -35,168 +372,6 @@ body {
     margin-top: 0.5rem;
     text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
 }
-
-.turkey-map {
-    max-width: 800px;
-    margin: 0 auto;
-    background-color: white;
-    padding: 2rem;
-    border-radius: 1rem;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    position: relative;
-}
-
-#turkey-svg {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-.turkey-image {
-    width: 100%;
-    height: auto;
-    max-height: 600px;
-    object-fit: contain;
-}
-
-.region-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-}
-
-.region {
-    cursor: pointer;
-    opacity: 0.85;
-    transition: opacity 0.2s, filter 0.2s;
-}
-
-.region:hover {
-    opacity: 1;
-    filter: brightness(1.2);
-}
-
-.region-name {
-    position: absolute;
-    color: white;
-    font-weight: bold;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-    pointer-events: none;
-}
-
-/* Bölge konumları */
-.region.marmara {
-    top: 13%;
-    left: 10%;
-    width: 13%;
-    height: 13%;
-}
-
-.region.ege {
-    top: 40%;
-    left: 7%;
-    width: 13%;
-    height: 13%;
-}
-
-.region.akdeniz {
-    top: 70%;
-    left: 20%;
-    width: 18%;
-    height: 13%;
-}
-
-.region.ic-anadolu {
-    top: 45%;
-    left: 32%;
-    width: 18%;
-    height: 18%;
-}
-
-.region.karadeniz {
-    top: 8%;
-    left: 32%;
-    width: 28%;
-    height: 13%;
-}
-
-.region.dogu-anadolu {
-    top: 35%;
-    left: 65%;
-    width: 20%;
-    height: 20%;
-}
-
-.region.guneydogu-anadolu {
-    top: 70%;
-    left: 75%;
-    width: 13%;
-    height: 13%;
-}
-
-/* Bölge renkleri */
-.region.marmara { fill: #f3f4f6; }
-.region.ege { fill: #f3f4f6; }
-.region.akdeniz { fill: #f3f4f6; }
-.region.ic-anadolu { fill: #f3f4f6; }
-.region.karadeniz { fill: #f3f4f6; }
-.region.dogu-anadolu { fill: #f3f4f6; }
-.region.guneydogu-anadolu { fill: #f3f4f6; }
-
-/* Seçili bölge */
-.region.selected {
-    fill: var(--primary-color);
-    stroke: var(--secondary-color);
-}
-
-/* Tooltip */
-.region:hover::after {
-    content: attr(data-region);
-    position: absolute;
-    background: rgba(0, 0, 0, 0.8);
-    color: white;
-    padding: 5px 10px;
-    border-radius: 4px;
-    font-size: 14px;
-    pointer-events: none;
-}
-
-.city-list {
-    margin-top: 2rem;
-    background: white;
-    border-radius: 1rem;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    padding: 1.5rem 2rem;
-    max-width: 500px;
-    margin-left: auto;
-    margin-right: auto;
-    color: var(--text-color);
-    font-size: 1.1rem;
-    display: none;
-}
-
-.city-list.active {
-    display: block;
-}
-
-.city-list h2 {
-    color: var(--primary-color);
-    margin-bottom: 1rem;
-}
-
-.city-list ul {
-    list-style: none;
-    padding: 0;
-}
-
-.city-list li {
-    margin-bottom: 0.5rem;
-    font-weight: 500;
-}
-
 .city-tooltip {
     display: none;
     position: absolute;
@@ -293,7 +468,7 @@ body {
     font-size: 1rem;
     background-color: rgba(255, 255, 255, 0.1);
     color: white;
-    backdrop-filter: blur(5px);
+
 }
 
 .map-container .search-input::placeholder {
@@ -330,25 +505,23 @@ body {
 
 .search-container {
     position: relative;
-    width: 85%;
+    width: 100%;
     max-width: 600px;
-    margin: 2rem auto;
+    margin: 20px auto;
 }
 
 .search-input {
     width: 100%;
-    padding: 0.75rem 1.5rem;
-    border: 2px solid white;
-    border-radius: 2rem;
-    font-size: 1rem;
-    background-color: rgba(255, 255, 255, 0.1);
-    color: white;
-    backdrop-filter: blur(5px);
+    padding: 12px 20px;
+    font-size: 16px;
+    border: 2px solid #ddd;
+    border-radius: 25px;
+    outline: none;
+    transition: border-color 0.3s ease;
 }
 
-.search-input::placeholder {
-    color: white;
-    opacity: 0.8;
+.search-input:focus {
+    border-color: #4CAF50;
 }
 
 .search-results {
@@ -387,7 +560,6 @@ body {
 .search-result-item:last-child {
     border-radius: 0 0 1rem 1rem;
 }
-
 /* Otomatik kayan slider için eklenen stiller */
 .foods-container {
     display: flex;
@@ -426,7 +598,6 @@ body {
     cursor: pointer;
 }
 
-.background {
-    min-height: 100vh;
-    overflow-y: auto; /* Sayfanın aşağı kaydırılabilir olmasını sağlar */
-}
+
+
+

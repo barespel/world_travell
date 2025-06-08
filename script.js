@@ -68,13 +68,20 @@ const cities = [
 
 // Popüler şehirler listesi
 const popularCities = [
-    "İstanbul", "Ankara", "İzmir", "Antalya", "Bursa", 
-    "Adana", "Gaziantep", "Konya", "Mersin", "Diyarbakır"
+    "istanbul", "ankara", "izmir", "antalya", "bursa", 
+    "adana", "gaziantep", "konya", "Mersin", "diyarbakır"
 ];
 
 // DOM elementlerini seçme
 const searchInputCity = document.getElementById('citySearch');
 const searchResultsCity = document.getElementById('searchResults');
+
+// Sayfa yüklendiğinde arama kutusunu temizle
+window.addEventListener('load', () => {
+    if (searchInputCity) {
+        searchInputCity.value = '';
+    }
+});
 
 // Arama kutusuna tıklandığında popüler şehirleri göster
 searchInputCity.addEventListener('focus', () => {
@@ -97,6 +104,31 @@ function showPopularCities() {
         li.addEventListener('click', () => {
             searchInputCity.value = city;
             searchResultsCity.style.display = 'none';
+            // Şehir sayfasına yönlendirme
+            const currentPath = window.location.pathname;
+            console.log('Current Path:', currentPath);
+            
+            let targetPath;
+            
+            // Klasör yapısını kontrol et
+            if (currentPath.includes('/kültür/html/')) {
+                targetPath = `../../cities/html/${city.toLowerCase()}.html`;
+            } else if (currentPath.includes('/yemek/')) {
+                targetPath = `../cities/html/${city.toLowerCase()}.html`;
+            } else if (currentPath.includes('/cities/html/')) {
+                targetPath = `${city.toLowerCase()}.html`;
+            } else if (currentPath.includes('/cities/')) {
+                targetPath = `html/${city.toLowerCase()}.html`;
+            } else {
+                targetPath = `cities/html/${city.toLowerCase()}.html`;
+            }
+            
+            try {
+                // Şehir sayfasına yönlendirme
+                window.location.href = targetPath;
+            } catch (error) {
+                console.error('Yönlendirme hatası:', error);
+            }
         });
         ul.appendChild(li);
     });
@@ -132,6 +164,32 @@ function searchCities(query) {
             li.addEventListener('click', () => {
                 searchInputCity.value = city;
                 searchResultsCity.style.display = 'none';
+                
+                // Mevcut sayfanın yolunu kontrol et
+                const currentPath = window.location.pathname;
+                console.log('Current Path:', currentPath);
+                
+                let targetPath;
+                
+                // Klasör yapısını kontrol et
+                if (currentPath.includes('/kültür/html/')) {
+                    targetPath = `../../cities/html/${city.toLowerCase()}.html`;
+                } else if (currentPath.includes('/yemek/')) {
+                    targetPath = `../cities/html/${city.toLowerCase()}.html`;
+                } else if (currentPath.includes('/cities/html/')) {
+                    targetPath = `${city.toLowerCase()}.html`;
+                } else if (currentPath.includes('/cities/')) {
+                    targetPath = `html/${city.toLowerCase()}.html`;
+                } else {
+                    targetPath = `cities/html/${city.toLowerCase()}.html`;
+                }
+                
+                try {
+                    // Şehir sayfasına yönlendirme
+                    window.location.href = targetPath;
+                } catch (error) {
+                    console.error('Yönlendirme hatası:', error);
+                }
             });
             ul.appendChild(li);
         });
